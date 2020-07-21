@@ -5,34 +5,46 @@ import About from "../views/About.vue";
 import Signup from "../views/Signup.vue";
 import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
+import AdsIndex from "../views/AdsIndex.vue";
+import AdsShow from "../views/AdsShow.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    name: "Home",
+    name: "hame",
     component: Home,
   },
   {
     path: "/about",
-    name: "About",
+    name: "about",
     component: About,
   },
   {
     path: "/signup",
-    name: "Signup",
+    name: "signup",
     component: Signup,
   },
   {
     path: "/login",
-    name: "Login",
+    name: "login",
     component: Login,
   },
   {
     path: "/logout",
-    name: "Logout",
+    name: "logout",
     component: Logout,
+  },
+  {
+    path: "/ads",
+    name: "ads-index",
+    component: AdsIndex,
+  },
+  {
+    path: "/ads/:id",
+    name: "ads-show",
+    component: AdsShow,
   },
 ];
 

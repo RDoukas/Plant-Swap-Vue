@@ -1,0 +1,32 @@
+<template>
+  <div class="ads-index">
+    <div v-for="ad in ads">
+        <router-link v-bind:to="`/ads/${ad.id}`">{{ ad.title }}</router-link>
+        <p>{{ ad.created_at}}</p>
+        <p>{{ad.user_id}}</p>
+        <img v-bind:src="ad.image_url" alt=""/>
+        <p>{{ad.description}}</p>
+      </div>
+    </div>
+</template>
+
+<style>
+</style>
+
+<script>
+import axios from "axios";
+export default {
+  data: function() {
+    return {
+      ads: []
+    };
+  },
+  created: function() {
+    axios.get("api/ads").then(response => {
+      console.log("All Ads:", response.data);
+      this.ads = response.data;
+    });
+  },
+  methods: {}
+};
+</script>
