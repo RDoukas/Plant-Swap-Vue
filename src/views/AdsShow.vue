@@ -1,10 +1,10 @@
 <template>
   <div class="ads-show">
     <h2>{{ ad.title }}</h2>
-      <p>{{ ad.created_at}}</p>
-      <p>{{ad.user_id}}</p>
-      <img :src="ad.image_url" alt="" />
+      <h4>Posted on: {{ ad.created_at}}</h4>
+      <h5>User: {{ad.user_id}}</h5>
       <p>{{ad.description}}</p>
+      <img :src="ad.image_url" alt="" width="300"/>
       </div>
     </div>
 </template>

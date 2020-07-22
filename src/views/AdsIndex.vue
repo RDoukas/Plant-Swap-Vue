@@ -4,7 +4,7 @@
         <router-link v-bind:to="`/ads/${ad.id}`">{{ ad.title }}</router-link>
         <p>{{ ad.created_at}}</p>
         <p>{{ad.user_id}}</p>
-        <img v-bind:src="ad.image_url" alt=""/>
+        <img v-bind:src="ad.image_url" alt="" height="300"/>
         <p>{{ad.description}}</p>
       </div>
     </div>

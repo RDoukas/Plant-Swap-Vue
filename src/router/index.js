@@ -5,6 +5,7 @@ import About from "../views/About.vue";
 import Signup from "../views/Signup.vue";
 import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
+import AdsNew from "../views/AdsNew.vue";
 import AdsIndex from "../views/AdsIndex.vue";
 import AdsShow from "../views/AdsShow.vue";
 
@@ -40,6 +41,11 @@ const routes = [
     path: "/ads",
     name: "ads-index",
     component: AdsIndex,
+  },
+  {
+    path: "/ads/new",
+    name: "ads-new",
+    component: AdsNew,
   },
   {
     path: "/ads/:id",
