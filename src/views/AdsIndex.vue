@@ -16,17 +16,17 @@
 <script>
 import axios from "axios";
 export default {
-  data: function() {
+  data: function () {
     return {
-      ads: []
+      ads: [],
     };
   },
-  created: function() {
-    axios.get("api/ads").then(response => {
+  created: function () {
+    axios.get("api/ads").then((response) => {
       console.log("All Ads:", response.data);
       this.ads = response.data;
     });
   },
-  methods: {}
+  methods: {},
 };
 </script>

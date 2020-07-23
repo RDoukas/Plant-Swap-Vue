@@ -1,18 +1,20 @@
 <template>
   <div id="app">
-
-   
-</nav>
     <div id="nav">
-      <router-link to="/">Home</router-link> |
+      <router-link to="/">Home</router-link> | 
       <router-link to="/about">About</router-link> | 
-      <router-link to="/signup">Signup</router-link> | 
-      <router-link to="/login">Login</router-link> | 
-      <router-link to="/logout">Logout</router-link> | 
       <router-link to="/ads">Ads</router-link> | 
-      <router-link to="/ads/new">Create Ad</router-link> 
+      <router-link to="/ads/new">Create Ad</router-link> |  
+      <a v-if="isLoggedIn()"><router-link to="/logout">Logout</router-link></a>  | 
+      <a v-if="!isLoggedIn()"><router-link to="/login">Login</router-link></a> | 
+      <a class="cta" v-if="!isLoggedIn()"><router-link to="/signup">Signup</router-link></a> 
     </div>
-    <router-view/>
+
+
+    <div class="container">
+      <router-view />
+    </div>
+
   </div>
 </template>
 
@@ -38,3 +40,17 @@
   color: #42b983;
 }
 </style>
+
+
+<script>
+export default {
+  data: function () {
+    return {};
+  },
+  methods: {
+    isLoggedIn: function () {
+      return localStorage.getItem("jwt");
+    },
+  },
+};
+</script>
