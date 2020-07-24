@@ -1,5 +1,20 @@
 <template>
   <div class="login">
+    <div
+      v-if="$parent.flashMessage"
+      class="alert alert-warning alert-dismissible fade show"
+      role="alert"
+    >
+      {{ $parent.flashMessage }}
+      <button
+        type="button"
+        class="close"
+        data-dismiss="alert"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
     <form v-on:submit.prevent="submit()">
       <h1>Login</h1>
       <ul>
@@ -22,33 +37,41 @@
 import axios from "axios";
 
 export default {
-  data: function() {
+  data: function () {
     return {
       email: "",
       password: "",
-      errors: []
+      errors: [],
+      firstName: "",
+      lastName: "",
+      username: "",
+      email: "",
+      password: "",
+      passwordConfirmation: "",
+      errors: [],
     };
   },
   methods: {
-    submit: function() {
+    submit: function () {
       var params = {
         email: this.email,
-        password: this.password
+        password: this.password,
       };
       axios
         .post("/api/sessions", params)
-        .then(response => {
+        .then((response) => {
           axios.defaults.headers.common["Authorization"] =
             "Bearer " + response.data.jwt;
           localStorage.setItem("jwt", response.data.jwt);
+          this.$parent.flashMessage = "Successfully logged in!";
           this.$router.push("/");
         })
-        .catch(error => {
+        .catch((error) => {
           this.errors = ["Invalid email or password."];
           this.email = "";
           this.password = "";
         });
-    }
-  }
+    },
+  },
 };
 </script>

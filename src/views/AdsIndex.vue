@@ -1,5 +1,15 @@
 <template>
   <div class="ads-index">
+
+
+
+
+
+
+
+
+
+    <!-- Shows actual ads list -->
     <div v-for="ad in ads">
         <router-link v-bind:to="`/ads/${ad.id}`">{{ ad.title }}</router-link>
         <p>{{ ad.created_at}}</p>

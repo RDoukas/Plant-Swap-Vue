@@ -8,13 +8,19 @@
 
     <br />
 
-    <div>
+  
+
+
+
+
+
+    <div v-if="ad.owener">
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editAdModal">Edit</button>
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#destroyAdModal">Delete</button>
     </div>
 
     <!-- Edit Ad Modal -->
-    <div class="modal" tabindex="-1" role="dialog" aria-labelledby="editAdModalLabel" aria-hidden="true">
+    <div class="modal fade" id="editAdModal" tabindex="-1" role="dialog" aria-labelledby="editAdModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -40,13 +46,9 @@
                 <label>Image Url:</label>
                 <input type="text" class="form-control" v-model="ad.image_url">
               </div>
-              <!-- <input type="submit" class="btn btn-primary" value="Update"> -->
+              <input type="submit" class="btn btn-primary" value="Update">
             </form>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Update Ad</button>
-      </div>
         </div>
       </div>
     </div>
