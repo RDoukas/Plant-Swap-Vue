@@ -56,7 +56,7 @@ export default {
       if (confirm("Are you sure you want to delete your profile?")) {
         axios.delete(`/api/users/${this.user.id}`).then((response) => {
           console.log("Your user has been successfully deleted", response.data);
-          this.$router.push("/");
+          this.$router.push("/logout");
         });
       }
     },
