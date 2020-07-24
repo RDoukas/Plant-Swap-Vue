@@ -9,12 +9,9 @@
     <br />
 
   
-
-
-
-
-
-    <!-- <div v-if="ad.owener"> -->
+        
+    
+      
 
       <form v-on:submit.prevent="editAd()">
         <ul>
@@ -37,7 +34,7 @@
       <div id="destroyAd"> 
         <button v-on:click="destroyAd()">Delete Ad</button>
       </div>
-    <!-- </div> -->
+  
 
   </div>
 </template>
@@ -65,7 +62,7 @@ export default {
     destroyAd: function () {
       if (confirm("Are you sure you want to delete this ad?")) {
         axios.delete(`/api/ads/${this.ad.id}`).then((response) => {
-          console.log("Your ad has been successfully deleted", response.data);
+          console.log(response.data);
           this.$router.push("/ads");
         });
       }

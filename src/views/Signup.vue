@@ -5,7 +5,6 @@
         <h1>Signup</h1>
         <img v-if="status" :src="`https://http.cat/${status}`" alt="" />
       </div>
-
       <ul>
         <li class="text-danger" v-for="error in errors">{{ error }}</li>
       </ul>
@@ -73,7 +72,7 @@ export default {
       axios
         .post("/api/users", params)
         .then((response) => {
-          this.$parent.flashMessage = "Successfully signed up!";
+          // this.$parent.flashMessage = "Successfully signed up!";
           this.$router.push("/login");
         })
         .catch((error) => {
