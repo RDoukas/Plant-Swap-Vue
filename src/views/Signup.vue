@@ -29,14 +29,8 @@
       <div class="form-group">
         <label>Password:</label>
         <input type="password" class="form-control" v-model="password">
-        <small
-          class="text-danger"
-          v-if="password.length > 0 && password.length < 6"
-          >Must be at least 6 characters</small
-        >
-        <small class="text-danger" v-if="password.length > 20"
-          >Cannot exceed 20 characters</small
-        >
+        <div><small class="text-danger" v-if="password.length > 0 && password.length < 6"> Must be at least 6 characters</small ></div>
+        <div><small class="text-danger" v-if="password.length > 20"> Cannot exceed 20 characters</small></div>
       </div>
       <div class="form-group">
         <label>Password confirmation: </label>

@@ -70,8 +70,8 @@ export default {
   },
   created: function () {
     axios.get(`/api/ads/${this.$route.params.id}`).then((response) => {
-      console.log(response.data);
       this.ad = response.data;
+      console.log(this.ad);
     });
   },
 
