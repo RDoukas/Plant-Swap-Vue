@@ -8,6 +8,7 @@ import Logout from "../views/Logout.vue";
 import AdsNew from "../views/AdsNew.vue";
 import AdsIndex from "../views/AdsIndex.vue";
 import AdsShow from "../views/AdsShow.vue";
+import UsersShow from "../views/UsersShow.vue";
 
 Vue.use(VueRouter);
 
@@ -51,6 +52,11 @@ const routes = [
     path: "/ads/:id",
     name: "ads-show",
     component: AdsShow,
+  },
+  {
+    path: "/users/",
+    name: "users-show",
+    component: UsersShow,
   },
 ];
 

@@ -14,46 +14,28 @@
 
 
 
-    <div v-if="ad.owener">
+    <!-- <div v-if="ad.owener"> -->
 
-      <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editAdModal">Edit</button>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#destroyAdModal">Delete</button> -->
-    <!-- </div> -->
-
-    <!-- Edit Ad Modal -->
-    <!-- <div class="modal fade" id="editAdModal" tabindex="-1" role="dialog" aria-labelledby="editAdModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="editAdModalLabel">Edit Ad</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div> -->
-          <!-- <div class="modal-body"> -->
-            <form v-on:submit.prevent="editAd()">
-              <ul>
-                <li class="text-danger" v-for="error in errors">{{ error }}</li>
-              </ul>
-              <div class="form-group">
-                <label>Title:</label>
-                <input type="text" class="form-control" v-model="ad.title">
-              </div>
-              <div class="form-group">
-                <label>Description:</label>
-                <input type="text" class="form-control" v-model="ad.description">
-              </div>
-              <div class="form-group">
-                <label>Image Url:</label>
-                <input type="text" class="form-control" v-model="ad.image_url">
-              </div>
-              <input type="submit" class="btn btn-primary" value="Update">
-            </form>
-            <div id="destroyAd"> 
-              <button v-on:click="destroyAd()">Delete Ad</button>
-            </div>
-          </div>
+      <form v-on:submit.prevent="editAd()">
+        <ul>
+          <li class="text-danger" v-for="error in errors">{{ error }}</li>
+        </ul>
+        <div class="form-group">
+          <label>Title:</label>
+          <input type="text" class="form-control" v-model="ad.title">
         </div>
+        <div class="form-group">
+          <label>Description:</label>
+          <input type="text" class="form-control" v-model="ad.description">
+        </div>
+        <div class="form-group">
+          <label>Image Url:</label>
+          <input type="text" class="form-control" v-model="ad.image_url">
+        </div>
+        <input type="submit" class="btn btn-primary" value="Update">
+      </form>
+      <div id="destroyAd"> 
+        <button v-on:click="destroyAd()">Delete Ad</button>
       </div>
     <!-- </div> -->
 

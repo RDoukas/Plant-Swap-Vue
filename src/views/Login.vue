@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <div
+    <!-- <div
       v-if="$parent.flashMessage"
       class="alert alert-warning alert-dismissible fade show"
       role="alert"
@@ -14,7 +14,7 @@
       >
         <span aria-hidden="true">&times;</span>
       </button>
-    </div>
+    </div> -->
     <form v-on:submit.prevent="submit()">
       <h1>Login</h1>
       <ul>
@@ -63,7 +63,7 @@ export default {
           axios.defaults.headers.common["Authorization"] =
             "Bearer " + response.data.jwt;
           localStorage.setItem("jwt", response.data.jwt);
-          this.$parent.flashMessage = "Successfully logged in!";
+          // this.$parent.flashMessage = "Successfully logged in!";
           this.$router.push("/");
         })
         .catch((error) => {
