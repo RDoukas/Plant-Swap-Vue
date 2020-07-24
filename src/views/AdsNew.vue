@@ -14,8 +14,8 @@
         <input type="text" class="form-control" v-model="description" />
       </div>
       <div class="form-group">
-        <label>Image Url:</label>
-        <input type="text" class="form-control" v-model="imageUrl" />
+        <label>Image:</label>
+       <input class="form-control" type="file" v-on:change="setFile($event)" ref="fileInput">
       </div>
       <input type="submit"  class="btn btn-primary" value="Create" />
     </form>
@@ -29,30 +29,35 @@
 import axios from "axios";
 
 export default {
-  data: function() {
+  data: function () {
     return {
       title: "",
       description: "",
       imageUrl: "",
-      errors: []
+      errors: [],
     };
   },
-  created: function() {},
+  created: function () {},
   methods: {
-    createAd: function() {
+    setFile: function (event) {
+      if (event.target.files.length > 0) {
+        this.imageUrl = event.target.files[0];
+      }
+    },
+    createAd: function () {
       var formData = new FormData();
       formData.append("title", this.title);
       formData.append("description", this.description);
       formData.append("image_url", this.imageUrl);
       axios
         .post("/api/ads", formData)
-        .then(response => {
+        .then((response) => {
           this.$router.push(`/ads/${response.data.id}`);
         })
-        .catch(error => {
+        .catch((error) => {
           this.errors = error.response.data.errors;
         });
-    }
-  }
+    },
+  },
 };
 </script>

@@ -34,6 +34,17 @@
       <div id="destroyAd"> 
         <button v-on:click="destroyAd()">Delete Ad</button>
       </div>
+
+
+      <form action="/conversations" id="usrform">
+        Message:
+        <textarea rows="4" cols="50" name="comment" form="usrform">
+        Enter text here...</textarea>
+       <input type="submit" class="btn    btn-primary" value="Send message"> 
+      </form>
+      <br>
+  
+
   
 
   </div>
@@ -49,6 +60,7 @@ export default {
     return {
       errors: [],
       ad: {},
+      conversations: {},
     };
   },
   created: function () {
@@ -84,6 +96,19 @@ export default {
             this.errors = error.response.data.errors;
           });
       }
+    },
+    createConversation: function () {
+      var params = {
+        body: this.message.body,
+      };
+      axios
+        .post("/api/conversations")
+        .then((response) => {
+          this.$router.push(`/conversations/${response.data.id}`);
+        })
+        .catch((error) => {
+          this.errors = error.response.data.errors;
+        });
     },
   },
 };

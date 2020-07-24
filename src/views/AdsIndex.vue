@@ -1,5 +1,6 @@
 <template>
   <div class="ads-index">
+    <router-link to="/ads/new" tag="button">New Ad</router-link>
 
     <!-- Shows actual ads list -->
     <div v-for="ad in ads">
@@ -9,6 +10,7 @@
         <img v-bind:src="ad.image_url" alt="" height="300"/>
         <p>{{ad.description}}</p>
       </div>
+
     </div>
 
 
