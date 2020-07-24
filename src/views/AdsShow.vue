@@ -15,12 +15,13 @@
 
 
     <div v-if="ad.owener">
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editAdModal">Edit</button>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#destroyAdModal">Delete</button>
-    </div>
+
+      <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editAdModal">Edit</button>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#destroyAdModal">Delete</button> -->
+    <!-- </div> -->
 
     <!-- Edit Ad Modal -->
-    <div class="modal fade" id="editAdModal" tabindex="-1" role="dialog" aria-labelledby="editAdModalLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="editAdModal" tabindex="-1" role="dialog" aria-labelledby="editAdModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -28,8 +29,8 @@
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
-          </div>
-          <div class="modal-body">
+          </div> -->
+          <!-- <div class="modal-body"> -->
             <form v-on:submit.prevent="editAd()">
               <ul>
                 <li class="text-danger" v-for="error in errors">{{ error }}</li>
@@ -48,10 +49,13 @@
               </div>
               <input type="submit" class="btn btn-primary" value="Update">
             </form>
+            <div id="destroyAd"> 
+              <button v-on:click="destroyAd()">Delete Ad</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    <!-- </div> -->
 
   </div>
 </template>
@@ -90,14 +94,17 @@ export default {
         description: this.ad.description,
         image_url: this.ad.image_url,
       };
-      axios
-        .patch(`/api/ads/${this.ad.id}`, params)
-        .then((response) => {
-          $("#editAdModal").modal("hide");
-        })
-        .catch((error) => {
-          this.errors = error.response.data.errors;
-        });
+      if (confirm("Are you sure you'd like to update your ad?")) {
+        axios
+          .patch(`/api/ads/${this.ad.id}`, params)
+          .then((response) => {
+            console.log("Your ad has been updated!", response.data);
+            // $("#editAdModal").modal("hide");
+          })
+          .catch((error) => {
+            this.errors = error.response.data.errors;
+          });
+      }
     },
   },
 };
