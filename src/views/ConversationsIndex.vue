@@ -3,10 +3,9 @@
 
     <!-- Shows actual conversations list -->
     <div v-for="conversation in conversations">
-        <!-- <router-link v-bind:to="`/conversations/${conversation.id}`">{{ conversation.ad_id }}</router-link> -->
-        <p>{{ conversation.ad_id }}</p>
-        <!-- <p>{{conversation.message.body}}</p> -->
-        <p>{{conversation.body}}</p>
+        <router-link v-bind:to="`/conversations/${conversation.id}`">{{ conversation.ad_title }}</router-link>
+        <p>{{ conversation.partner.username}}</p>
+        <!-- <p>{{conversation.body}}</p> -->
         
       </div>
     </div>
