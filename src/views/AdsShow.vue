@@ -37,16 +37,7 @@
         </div>
     
       </div>
-<!-- 
-   
-      <form action="/conversations" id="usrform">
-        Message:
-        <textarea rows="4" cols="50" name="comment" form="usrform">
-        Enter text here...</textarea>
-       <input type="submit" class="btn    btn-primary" value="Send message"> 
-      </form> -->
 
-      <!-- <br> -->
   
 
   

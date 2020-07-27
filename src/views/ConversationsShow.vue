@@ -11,7 +11,7 @@
         type="text"
         class="form-control"
         :placeholder="`Message ${partner.usernmae}`"
-        v-model="body"
+        v-model="newMessage"
       />
       <input type="submit" class="btn btn-primary" value="send" />
     </form>
@@ -22,17 +22,17 @@
 import axios from "axios";
 import moment from "moment";
 export default {
-  data: function() {
+  data: function () {
     return {
       errors: [],
       conversation: {
         messages: [],
       },
       partner: {},
-      body: "",
+      newMessage: "",
     };
   },
-  created: function() {
+  created: function () {
     axios
       .get(`/api/conversations/${this.$route.params.id}`)
       .then((response) => {
@@ -43,9 +43,10 @@ export default {
       });
   },
   methods: {
-    createMessage: function() {
+    createMessage: function () {
       var params = {
-        body: this.body,
+        body: this.newMessage,
+        conversation_id: this.conversation.id,
       };
       axios
         .post("/api/messages", params)
@@ -56,10 +57,8 @@ export default {
           this.errors = error.response.data.errors;
         });
     },
-    relativeTime: function(time) {
-      return moment(time)
-        .startOf("hour")
-        .fromNow();
+    relativeTime: function (time) {
+      return moment(time).startOf("hour").fromNow();
     },
   },
 };

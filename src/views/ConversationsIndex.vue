@@ -18,22 +18,33 @@
 import axios from "axios";
 import moment from "moment";
 export default {
-  data: function() {
+  data: function () {
     return {
-      conversations: [],
+      conversations: {},
     };
   },
-  created: function() {
+  created: function () {
     axios.get("api/conversations").then((response) => {
       console.log("all Conversations", response.data);
       this.conversations = response.data;
     });
   },
   methods: {
-    relativeTime: function(time) {
-      return moment(time)
-        .startOf("hour")
-        .fromNow();
+    createMessage: function () {
+      var params = {
+        body: this.body,
+      };
+      axios
+        .patch("/api/conversations", params)
+        .then((response) => {
+          this.messages.push(response.data);
+        })
+        .catch((error) => {
+          this.errors = error.response.data.errors;
+        });
+    },
+    relativeTime: function (time) {
+      return moment(time).startOf("hour").fromNow();
     },
   },
 };
