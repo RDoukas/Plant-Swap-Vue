@@ -1,35 +1,40 @@
 <template>
   <div class="conversations-index">
-
     <!-- Shows actual conversations list -->
     <div v-for="conversation in conversations">
-        <router-link v-bind:to="`/conversations/${conversation.id}`">{{ conversation.ad_title }}</router-link>
-        <p>{{ conversation.partner.username}}</p>
-        <!-- <p>{{conversation.body}}</p> -->
-        
-      </div>
+      <router-link v-bind:to="`/conversations/${conversation.id}`">{{
+        conversation.ad_title
+      }}</router-link>
+      <p>{{ conversation.partner.username }}</p>
+      <p>{{ conversation.last_message.body }}</p>
+      <p>{{ relativeTime(conversation.last_message.created_at) }}</p>
     </div>
-
-
+  </div>
 </template>
 
-<style>
-</style>
+<style></style>
 
 <script>
 import axios from "axios";
+import moment from "moment";
 export default {
-  data: function () {
+  data: function() {
     return {
       conversations: [],
     };
   },
-  created: function () {
+  created: function() {
     axios.get("api/conversations").then((response) => {
-      console.log("All Conversations:", response.data);
+      console.log("all Conversations", response.data);
       this.conversations = response.data;
     });
   },
-  methods: {},
+  methods: {
+    relativeTime: function(time) {
+      return moment(time)
+        .startOf("hour")
+        .fromNow();
+    },
+  },
 };
 </script>

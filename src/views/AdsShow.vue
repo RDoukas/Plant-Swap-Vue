@@ -11,38 +11,42 @@
   
         
     
-      
+   
+        <form v-on:submit.prevent="editAd()">
+          <ul>
+            <li class="text-danger" v-for="error in errors">{{ error }}</li>
+          </ul>
+          <div class="form-group">
+            <label>Title:</label>
+            <input type="text" class="form-control" v-model="ad.title">
+          </div>
+          <div class="form-group">
+            <label>Description:</label>
+            <input type="text" class="form-control" v-model="ad.description">
+          </div>
+          <div class="form-group">
+            <label>Image:</label>
+            <input type="text" class="form-control" v-model="ad.image_url">
+          </div>
+          <input type="submit" class="btn btn-primary" value="Update">
+        </form>
+  
 
-      <form v-on:submit.prevent="editAd()">
-        <ul>
-          <li class="text-danger" v-for="error in errors">{{ error }}</li>
-        </ul>
-        <div class="form-group">
-          <label>Title:</label>
-          <input type="text" class="form-control" v-model="ad.title">
+        <div id="destroyAd"> 
+          <button v-on:click="destroyAd()">Delete Ad</button>
         </div>
-        <div class="form-group">
-          <label>Description:</label>
-          <input type="text" class="form-control" v-model="ad.description">
-        </div>
-        <div class="form-group">
-          <label>Image:</label>
-          <input type="text" class="form-control" v-model="ad.image_url">
-        </div>
-        <input type="submit" class="btn btn-primary" value="Update">
-      </form>
-      <div id="destroyAd"> 
-        <button v-on:click="destroyAd()">Delete Ad</button>
+    
       </div>
-
-
+<!-- 
+   
       <form action="/conversations" id="usrform">
         Message:
         <textarea rows="4" cols="50" name="comment" form="usrform">
         Enter text here...</textarea>
        <input type="submit" class="btn    btn-primary" value="Send message"> 
-      </form>
-      <br>
+      </form> -->
+
+      <!-- <br> -->
   
 
   

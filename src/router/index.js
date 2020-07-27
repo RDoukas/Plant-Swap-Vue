@@ -10,6 +10,7 @@ import AdsIndex from "../views/AdsIndex.vue";
 import AdsShow from "../views/AdsShow.vue";
 import UsersShow from "../views/UsersShow.vue";
 import ConversationsIndex from "../views/ConversationsIndex.vue";
+import ConversationsShow from "../views/ConversationsShow.vue";
 
 Vue.use(VueRouter);
 
@@ -63,6 +64,11 @@ const routes = [
     path: "/conversations",
     name: "conversations-index",
     component: ConversationsIndex,
+  },
+  {
+    path: "/conversations",
+    name: "conversations-show",
+    component: ConversationsShow,
   },
 ];
 

@@ -1,30 +1,62 @@
 <template>
   <div class="conversations-show">
-    <div v-for="conversation in conversations"
-    <h2> {{ conversation.sender_id }}</h2>
-    <h4> {{ conversation.recipient_id}}</h4>
-    <h5>Ad: {{conversation.ad_title}}</h5>
-    <p> {{conversation.messages}}</p>
+    <router-link :to="`/users/${partner.id}`">{{
+      conversation.partner.username
+    }}</router-link>
+    <div v-for="message in messages">
+      <p>{{ message.body }}</p>
+      <p>{{ relativeTime(message.created_at) }}</p>
+    </div>
+    <form v-on:submit.prevent="createMessage()">
+      <label>Send Message: </label>
+      <input
+        type="text"
+        class="form-control"
+        :placeholder="`Message ${partner.usernmae}`"
+        v-model="newMessage"
+      />
+      <input type="submit" class="btn btn-primary" value="send" />
+    </form>
   </div>
 </template>
 
-
 <script>
+import axios from "axios";
+import moment from "moment";
 export default {
-  data: function () {
+  data: function() {
     return {
       errors: [],
-      conversations: {},
+      conversation: {},
+      messages: [],
+      partner: {},
+      newMessage: "",
     };
   },
-  created: function () {
+  created: function() {
     axios
       .get(`/api/conversations/${this.$route.params.id}`)
       .then((response) => {
+        console.log("Messages", response.data);
         this.conversation = response.data;
-        console.log(this.conversation);
+        this.partner = response.data.partner;
+        this.messages = response.data.messages;
       });
   },
-  methods: {},
+  methods: {
+    createMessage: function() {
+      var params = {
+        body: this.newMessage,
+      };
+      axios.post("api/messages", params).then((response) => {
+        this.messages.push(response.data);
+      });
+    },
+    relativeTime: function(time) {
+      return moment(time)
+        .startOf("hour")
+        .fromNow();
+    },
+  },
 };
 </script>

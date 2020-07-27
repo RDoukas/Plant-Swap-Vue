@@ -28,8 +28,19 @@
         <label>Password:</label>
         <input type="password" class="form-control" v-model="password">
       </div>
-      <input type="submit" class="btn btn-primary" value="Submit">
+      <input type="submit" class="btn btn-primary" value="Submit">  
     </form>
+    <form>
+      <div id="sc-password">
+        <h1>Reset Password</h1>
+        <div class="sc-container">
+          <input type="text" placeholder="Username or Email"/>
+          <input type="submit" value="Get New Password"/>
+        </div>
+      </div>
+    </form>
+ 
+</div>
   </div>
 </template>
 
@@ -64,7 +75,6 @@ export default {
             "Bearer " + response.data.jwt;
           localStorage.setItem("jwt", response.data.jwt);
           localStorage.setItem("current_user", response.data.user_id);
-          // this.$parent.flashMessage = "Successfully logged in!";
           this.$router.push("/");
         })
         .catch((error) => {
