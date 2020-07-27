@@ -66,7 +66,7 @@ const routes = [
     component: ConversationsIndex,
   },
   {
-    path: "/conversations",
+    path: "/conversations/:id",
     name: "conversations-show",
     component: ConversationsShow,
   },
