@@ -2,8 +2,8 @@
   <div class="conversations-show">
     <div v-for="message in conversation.messages">
       <p>{{ message.body }}</p>
-      <p>{{ conversation.sender_id }}</p>
-      <p>{{ relativeTime(message.created_at) }}</p>
+      <p>From: {{ message.username }}</p>
+      <p>Sent: {{ relativeTime(message.created_at) }}</p>
     </div>
     <!-- <form v-on:submit.prevent="createMessage()">
       <label>Send Message: </label>

@@ -7,7 +7,7 @@
       }}</router-link>
       <p>{{ conversation.partner.username }}</p>
       <p>{{ conversation.last_message.body }}</p>
-      <p>{{ relativeTime(conversation.last_message.created_at) }}</p>
+      <p>Sent: {{ relativeTime(conversation.last_message.created_at) }}</p>
     </div>
   </div>
 </template>
