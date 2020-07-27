@@ -27,6 +27,17 @@
           <label>Email:</label>
           <input type="text" class="form-control" v-model="user.email">
         </div>
+        <div class="form-group">
+          <label>Password:</label>
+          <input type="password" class="form-control" v-model="password">
+        </div>
+           <div class="form-group">
+        <label>Password confirmation: </label>
+        <input type="password" class="form-control" v-model="passwordConfirmation">
+        <small class="text-danger" v-if="passwordConfirmation !== password"
+          >Must match password</small
+        >
+      </div>
         <input type="submit" class="btn btn-primary" value="Update">
       </form>
       <div id="destroyUser"> 

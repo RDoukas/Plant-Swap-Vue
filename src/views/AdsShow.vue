@@ -26,7 +26,7 @@
           <input type="text" class="form-control" v-model="ad.description">
         </div>
         <div class="form-group">
-          <label>Image Url:</label>
+          <label>Image:</label>
           <input type="text" class="form-control" v-model="ad.image_url">
         </div>
         <input type="submit" class="btn btn-primary" value="Update">
