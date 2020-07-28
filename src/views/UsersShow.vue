@@ -53,13 +53,13 @@
 <script>
 import axios from "axios";
 export default {
-  data: function() {
+  data: function () {
     return {
       errors: [],
       user: {},
     };
   },
-  created: function() {
+  created: function () {
     axios.get(`/api/users/${this.$route.params.id}`).then((response) => {
       this.user = response.data;
       console.log(this.user);
@@ -67,7 +67,7 @@ export default {
   },
 
   methods: {
-    destroyUser: function() {
+    destroyUser: function () {
       if (confirm("Are you sure you want to delete your profile?")) {
         axios.delete(`/api/users/${this.user.id}`).then((response) => {
           console.log("Your user has been successfully deleted", response.data);
@@ -75,7 +75,7 @@ export default {
         });
       }
     },
-    editUser: function() {
+    editUser: function () {
       var params = {
         first_name: this.firstName,
         last_name: this.lastName,
@@ -89,7 +89,6 @@ export default {
           .patch(`/api/users/${this.user.id}`, params)
           .then((response) => {
             console.log("Your profile has been updated!", response.data);
-            // $("#editUserModal").modal("hide");
           })
           .catch((error) => {
             this.errors = error.response.data.errors;

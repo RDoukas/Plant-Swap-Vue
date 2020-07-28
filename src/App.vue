@@ -46,16 +46,16 @@
 
 <script>
 export default {
-  data: function() {
+  data: function () {
     return {};
   },
   methods: {
-    isLoggedIn: function() {
+    isLoggedIn: function () {
       return localStorage.getItem("jwt");
     },
-    // getUserId: function() {
-    //   return localStorage.getItem("user_id");
-    // },
+    getUserId: function () {
+      return localStorage.getItem("user_id");
+    },
   },
 };
 </script>

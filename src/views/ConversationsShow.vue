@@ -10,7 +10,7 @@
       <input
         type="text"
         class="form-control"
-        :placeholder="`Message ${partner.usernmae}`"
+        :placeholder="`Message ${partner.username}`"
         v-model="newMessage"
       />
       <input type="submit" class="btn btn-primary" value="send" />

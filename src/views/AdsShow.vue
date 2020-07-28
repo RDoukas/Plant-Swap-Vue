@@ -9,9 +9,7 @@
     <br />
 
   
-        
-    
-   
+   <!-- Edit ad form -->
         <form v-on:submit.prevent="editAd()">
           <ul>
             <li class="text-danger" v-for="error in errors">{{ error }}</li>
@@ -31,17 +29,22 @@
           <input type="submit" class="btn btn-primary" value="Update">
         </form>
   
-
+<!-- Delete ad button -->
         <div id="destroyAd"> 
           <button v-on:click="destroyAd()">Delete Ad</button>
         </div>
-    
+<!-- Send message -->
+        <form v-on:submit.prevent="createMessage()">
+          <label>Send Message: </label>
+          <input
+            type="text"
+            class="form-control"
+            :placeholder="`Message`"
+            v-model="newMessage"
+          />
+          <input type="submit" class="btn btn-primary" value="send" />
+        </form>
       </div>
-
-  
-
-  
-
   </div>
 </template>
 
@@ -55,7 +58,8 @@ export default {
     return {
       errors: [],
       ad: {},
-      conversations: {},
+      newMessage: "",
+      newConversation: "",
     };
   },
   created: function () {
@@ -85,7 +89,6 @@ export default {
           .patch(`/api/ads/${this.ad.id}`, params)
           .then((response) => {
             console.log("Your ad has been updated!", response.data);
-            // $("#editAdModal").modal("hide");
           })
           .catch((error) => {
             this.errors = error.response.data.errors;
@@ -94,12 +97,28 @@ export default {
     },
     createConversation: function () {
       var params = {
-        body: this.message.body,
+        message: this.newConversation,
+        recipient_id: this.recipient_id,
+        ad_id: this.ad.id,
       };
       axios
-        .post("/api/conversations")
+        .post("/api/conversations", params)
         .then((response) => {
-          this.$router.push(`/conversations/${response.data.id}`);
+          this.$router.push(`response.data`);
+        })
+        .catch((error) => {
+          this.errors = error.response.data.errors;
+        });
+    },
+    createMessage: function () {
+      var params = {
+        body: this.newMessage,
+        conversation_id: this.conversation.id,
+      };
+      axios
+        .post("/api/messages", params)
+        .then((response) => {
+          this.messages.push(response.data);
         })
         .catch((error) => {
           this.errors = error.response.data.errors;
