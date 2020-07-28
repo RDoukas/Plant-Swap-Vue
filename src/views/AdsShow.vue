@@ -48,8 +48,6 @@ export default {
     return {
       errors: [],
       ad: {},
-      newMessage: "",
-      newConversation: "",
     };
   },
   created: function () {
