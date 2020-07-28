@@ -2,36 +2,45 @@
   <div class="ads-show">
     <h2>{{ ad.title }}</h2>
     <h4>Posted on: {{ ad.created_at}}</h4>
-    <h5>User: {{ad.user_id}}</h5>
+    <h5>User: {{ad.user.username}}</h5>
     <p>{{ad.description}}</p>
+    <p> Categories:</p>
+    <div v-for="category in ad.categories"> 
+      <p>{{category.name}}</p>
+    </div>
     <img :src="ad.image_url" alt="" width="300"/>
 
     <br />
+    
+    <div v-if="ad.owner">
+      <!-- Edit ad form -->
+      <form v-on:submit.prevent="editAd()">
+        <ul>
+          <li class="text-danger" v-for="error in errors">{{ error }}</li>
+        </ul>
+        <div class="form-group">
+          <label>Title:</label>
+          <input type="text" class="form-control" v-model="ad.title">
+        </div>
+        <div class="form-group">
+          <label>Description:</label>
+          <input type="text" class="form-control" v-model="ad.description">
+        </div>
+        <div class="form-group">
+          <label>Categories:</label>
+          <input type="text" class="form-control" v-model="categories">
+        </div>
+        <div class="form-group">
+          <label>Image:</label>
+          <input type="text" class="form-control" v-model="ad.image_url">
+        </div>
+        <input type="submit" class="btn btn-primary" value="Update">
+      </form>
 
-  
-    <!-- Edit ad form -->
-    <form v-on:submit.prevent="editAd()">
-      <ul>
-        <li class="text-danger" v-for="error in errors">{{ error }}</li>
-      </ul>
-      <div class="form-group">
-        <label>Title:</label>
-        <input type="text" class="form-control" v-model="ad.title">
+      <!-- Delete ad button -->
+      <div id="destroyAd"> 
+        <button v-on:click="destroyAd()">Delete Ad</button>
       </div>
-      <div class="form-group">
-        <label>Description:</label>
-        <input type="text" class="form-control" v-model="ad.description">
-      </div>
-      <div class="form-group">
-        <label>Image:</label>
-        <input type="text" class="form-control" v-model="ad.image_url">
-      </div>
-      <input type="submit" class="btn btn-primary" value="Update">
-    </form>
-
-    <!-- Delete ad button -->
-    <div id="destroyAd"> 
-      <button v-on:click="destroyAd()">Delete Ad</button>
     </div>
     <!-- Send message -->
     <button v-on:click="createConversation()">Contact User</button>
@@ -48,6 +57,7 @@ export default {
     return {
       errors: [],
       ad: {},
+      categories: [],
     };
   },
   created: function () {
@@ -71,6 +81,7 @@ export default {
         title: this.ad.title,
         description: this.ad.description,
         image_url: this.ad.image_url,
+        categories: this.ad.categories,
       };
       if (confirm("Are you sure you'd like to update your ad?")) {
         axios
