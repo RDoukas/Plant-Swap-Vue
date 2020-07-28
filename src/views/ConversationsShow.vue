@@ -1,5 +1,8 @@
 <template>
   <div class="conversations-show">
+    <div id="destroyConvo"> 
+      <button v-on:click="destroyConvo()">Delete Conversation</button>
+    </div>
     <div v-for="message in conversation.messages">
       <p>{{ message.body }}</p>
       <p>From: {{ message.username }}</p>
@@ -56,6 +59,16 @@ export default {
         .catch((error) => {
           this.errors = error.response.data.errors;
         });
+    },
+    destroyConvo: function () {
+      if (confirm("Are you sure you want to delete this conversation?")) {
+        axios
+          .delete(`/api/conversations/${this.conversation.id}`)
+          .then((response) => {
+            console.log(response.data);
+            this.$router.push("/conversations");
+          });
+      }
     },
     relativeTime: function (time) {
       return moment(time).startOf("hour").fromNow();
