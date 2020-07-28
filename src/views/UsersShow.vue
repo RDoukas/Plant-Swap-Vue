@@ -13,19 +13,19 @@
       </ul>
       <div class="form-group">
         <label>First Name:</label>
-        <input type="text" class="form-control" v-model="user.first_name" />
+        <input type="text" class="form-control" v-model="first_name" />
       </div>
       <div class="form-group">
         <label>Last Name:</label>
-        <input type="text" class="form-control" v-model="user.last_name" />
+        <input type="text" class="form-control" v-model="last_name" />
       </div>
       <div class="form-group">
         <label>Username:</label>
-        <input type="text" class="form-control" v-model="user.username" />
+        <input type="text" class="form-control" v-model="username" />
       </div>
       <div class="form-group">
         <label>Email:</label>
-        <input type="text" class="form-control" v-model="user.email" />
+        <input type="text" class="form-control" v-model="email" />
       </div>
       <div class="form-group">
         <label>Password:</label>

@@ -9,42 +9,32 @@
     <br />
 
   
-   <!-- Edit ad form -->
-        <form v-on:submit.prevent="editAd()">
-          <ul>
-            <li class="text-danger" v-for="error in errors">{{ error }}</li>
-          </ul>
-          <div class="form-group">
-            <label>Title:</label>
-            <input type="text" class="form-control" v-model="ad.title">
-          </div>
-          <div class="form-group">
-            <label>Description:</label>
-            <input type="text" class="form-control" v-model="ad.description">
-          </div>
-          <div class="form-group">
-            <label>Image:</label>
-            <input type="text" class="form-control" v-model="ad.image_url">
-          </div>
-          <input type="submit" class="btn btn-primary" value="Update">
-        </form>
-  
-<!-- Delete ad button -->
-        <div id="destroyAd"> 
-          <button v-on:click="destroyAd()">Delete Ad</button>
-        </div>
-<!-- Send message -->
-        <form v-on:submit.prevent="createMessage()">
-          <label>Send Message: </label>
-          <input
-            type="text"
-            class="form-control"
-            :placeholder="`Message`"
-            v-model="newMessage"
-          />
-          <input type="submit" class="btn btn-primary" value="send" />
-        </form>
+    <!-- Edit ad form -->
+    <form v-on:submit.prevent="editAd()">
+      <ul>
+        <li class="text-danger" v-for="error in errors">{{ error }}</li>
+      </ul>
+      <div class="form-group">
+        <label>Title:</label>
+        <input type="text" class="form-control" v-model="ad.title">
       </div>
+      <div class="form-group">
+        <label>Description:</label>
+        <input type="text" class="form-control" v-model="ad.description">
+      </div>
+      <div class="form-group">
+        <label>Image:</label>
+        <input type="text" class="form-control" v-model="ad.image_url">
+      </div>
+      <input type="submit" class="btn btn-primary" value="Update">
+    </form>
+
+    <!-- Delete ad button -->
+    <div id="destroyAd"> 
+      <button v-on:click="destroyAd()">Delete Ad</button>
+    </div>
+    <!-- Send message -->
+    <button v-on:click="createConversation()">Contact User</button>
   </div>
 </template>
 
@@ -97,28 +87,14 @@ export default {
     },
     createConversation: function () {
       var params = {
-        message: this.newConversation,
-        recipient_id: this.recipient_id,
+        recipient_id: this.ad.user_id,
         ad_id: this.ad.id,
       };
       axios
-        .post("/api/conversations", params)
+        .post("/api/conversations/", params)
         .then((response) => {
-          this.$router.push(`response.data`);
-        })
-        .catch((error) => {
-          this.errors = error.response.data.errors;
-        });
-    },
-    createMessage: function () {
-      var params = {
-        body: this.newMessage,
-        conversation_id: this.conversation.id,
-      };
-      axios
-        .post("/api/messages", params)
-        .then((response) => {
-          this.messages.push(response.data);
+          console.log(response.data);
+          this.$router.push(`/conversations/${response.data.id}`);
         })
         .catch((error) => {
           this.errors = error.response.data.errors;
