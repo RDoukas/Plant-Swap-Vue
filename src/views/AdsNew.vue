@@ -17,6 +17,13 @@
         <label>Image:</label>
        <input class="form-control" type="file" v-on:change="setFile($event)" ref="fileInput">
       </div>
+      <div class="form-group">
+        <div v-for="category in categories">
+          <input type="checkbox" :id="category.id" :value="category.id" v-model="categoryIds">
+          <label :for="category.id">{{category.name}}</label>
+        </div>
+        {{categoryIds}}
+      </div>
       <input type="submit"  class="btn btn-primary" value="Create" />
     </form>
   </div>
@@ -35,9 +42,16 @@ export default {
       description: "",
       imageUrl: "",
       errors: [],
+      categoryIds: [],
+      categories: [],
     };
   },
-  created: function () {},
+  created: function () {
+    axios.get(`/api/categories/`).then((response) => {
+      this.categories = response.data;
+      console.log(response.data);
+    });
+  },
   methods: {
     setFile: function (event) {
       if (event.target.files.length > 0) {
@@ -49,6 +63,8 @@ export default {
       formData.append("title", this.title);
       formData.append("description", this.description);
       formData.append("image_url", this.imageUrl);
+      formData.append("category_ids", JSON.stringify(this.categoryIds));
+      console.log(this.categoryIds);
       axios
         .post("/api/ads", formData)
         .then((response) => {

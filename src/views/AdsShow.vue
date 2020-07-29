@@ -20,19 +20,22 @@
         </ul>
         <div class="form-group">
           <label>Title:</label>
-          <input type="text" class="form-control" v-model="ad.title">
+          <input type="text" class="form-control" v-model="title" />
         </div>
         <div class="form-group">
           <label>Description:</label>
-          <input type="text" class="form-control" v-model="ad.description">
-        </div>
-        <div class="form-group">
-          <label>Categories:</label>
-          <input type="text" class="form-control" v-model="categories">
+          <input type="text" class="form-control" v-model="description" />
         </div>
         <div class="form-group">
           <label>Image:</label>
-          <input type="text" class="form-control" v-model="ad.image_url">
+          <input class="form-control" type="file" v-on:change="setFile($event)" ref="fileInput">
+        </div>
+        <div class="form-group">
+          <div v-for="category in categories">
+            <input type="checkbox" :id="category.id" :value="category.id" v-model="categoryIds">
+            <label :for="category.id">{{category.name}}</label>
+          </div>
+          {{categoryIds}}
         </div>
         <input type="submit" class="btn btn-primary" value="Update">
       </form>
@@ -58,16 +61,27 @@ export default {
       errors: [],
       ad: {},
       categories: [],
+      categoryIds: [],
     };
   },
   created: function () {
     axios.get(`/api/ads/${this.$route.params.id}`).then((response) => {
       this.ad = response.data;
+
       console.log(this.ad);
+    });
+    axios.get(`/api/categories/`).then((response) => {
+      this.categories = response.data;
+      console.log(response.data);
     });
   },
 
   methods: {
+    setFile: function (event) {
+      if (event.target.files.length > 0) {
+        this.imageUrl = event.target.files[0];
+      }
+    },
     destroyAd: function () {
       if (confirm("Are you sure you want to delete this ad?")) {
         axios.delete(`/api/ads/${this.ad.id}`).then((response) => {
@@ -77,15 +91,17 @@ export default {
       }
     },
     editAd: function () {
-      var params = {
-        title: this.ad.title,
-        description: this.ad.description,
-        image_url: this.ad.image_url,
-        categories: this.ad.categories,
-      };
+      var formData = new FormData();
+      formData.append("title", this.title);
+      formData.append("description", this.description);
+      formData.append("image_url", this.imageUrl);
+      formData.append("category_ids", JSON.stringify(this.categoryIds));
+
+      console.log(this.categoryIds);
+
       if (confirm("Are you sure you'd like to update your ad?")) {
         axios
-          .patch(`/api/ads/${this.ad.id}`, params)
+          .patch(`/api/ads/${this.ad.id}`, formData)
           .then((response) => {
             console.log("Your ad has been updated!", response.data);
           })
