@@ -63,6 +63,7 @@ export default {
       formData.append("title", this.title);
       formData.append("description", this.description);
       formData.append("image_url", this.imageUrl);
+      formData.append("image_url", this.imageUrl);
       formData.append("category_ids", JSON.stringify(this.categoryIds));
       console.log(this.categoryIds);
       axios

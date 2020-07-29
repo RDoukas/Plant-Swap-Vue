@@ -34,7 +34,7 @@
       <div id="sc-password">
         <h1>Reset Password</h1>
         <div class="sc-container">
-          <input type="text" placeholder="Username or Email"/>
+          <input type="text" placeholder="Email"/>
           <input type="submit" value="Get New Password"/>
         </div>
       </div>
