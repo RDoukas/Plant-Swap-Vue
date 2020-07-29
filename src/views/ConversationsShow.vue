@@ -1,8 +1,8 @@
 <template>
   <div class="conversations-show">
-    <!-- <div id="destroyConvo"> 
+    <div id="destroyConvo"> 
       <button v-on:click="destroyConvo()">Delete Conversation</button>
-    </div> -->
+    </div>
     <div v-for="message in conversation.messages">
       <p>{{ message.body }}</p>
       <p>From: {{ message.username }}</p>

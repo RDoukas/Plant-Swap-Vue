@@ -2,7 +2,7 @@
   <div class="ads-show">
     <h2>{{ ad.title }}</h2>
     <h4>Posted on: {{ ad.created_at}}</h4>
-    <h5>User: {{ad.user.username}}</h5>
+    <h5>User: {{ad.username}}</h5>
     <p>{{ad.description}}</p>
     <p> Categories:</p>
     <div v-for="category in ad.categories"> 
@@ -121,6 +121,7 @@ export default {
       axios
         .post("/api/conversations/", params)
         .then((response) => {
+          console.log(response.data);
           this.$router.push(`/conversations/${response.data.id}`);
         })
         .catch((error) => {
