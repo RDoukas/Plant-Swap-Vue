@@ -122,7 +122,6 @@ export default {
         .post("/api/conversations/", params)
         .then((response) => {
           this.$router.push(`/conversations/${response.data.id}`);
-          console.log(response.data);
         })
         .catch((error) => {
           this.errors = error.response.data.errors;
