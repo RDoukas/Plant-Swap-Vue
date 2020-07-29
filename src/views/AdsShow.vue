@@ -45,8 +45,11 @@
         <button v-on:click="destroyAd()">Delete Ad</button>
       </div>
     </div>
+
+
     <!-- Send message -->
-    <button v-on:click="createConversation()">Contact User</button>
+      <button v-on:click="createConversation()">Contact User</button>
+
   </div>
 </template>
 
@@ -118,8 +121,8 @@ export default {
       axios
         .post("/api/conversations/", params)
         .then((response) => {
-          console.log(response.data);
           this.$router.push(`/conversations/${response.data.id}`);
+          console.log(response.data);
         })
         .catch((error) => {
           this.errors = error.response.data.errors;

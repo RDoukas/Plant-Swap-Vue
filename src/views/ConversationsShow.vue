@@ -1,8 +1,8 @@
 <template>
   <div class="conversations-show">
-    <div id="destroyConvo"> 
+    <!-- <div id="destroyConvo"> 
       <button v-on:click="destroyConvo()">Delete Conversation</button>
-    </div>
+    </div> -->
     <div v-for="message in conversation.messages">
       <p>{{ message.body }}</p>
       <p>From: {{ message.username }}</p>
@@ -55,6 +55,7 @@ export default {
         .post("/api/messages", params)
         .then((response) => {
           this.messages.push(response.data);
+          this.newMessage = "";
         })
         .catch((error) => {
           this.errors = error.response.data.errors;

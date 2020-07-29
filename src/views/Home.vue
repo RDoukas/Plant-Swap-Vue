@@ -9,14 +9,14 @@
 
 <script>
 export default {
-  data: function() {
+  data: function () {
     return {
-      message: "Welcome to the Plant Swapp!!",
+      message: "Welcome to Chicago Plant Swapp!!",
       intro:
-        "Our goal is to connect plant lovers in the area to swap different plants! As we all know, our babies are always out growing their space!! We love sharing our babies and aim to share them with other plant lovers! All swap items are 100% free!"
+        "Our goal is to connect plant lovers in the area to swap different plants! As we all know, our babies are always out growing their space!! We love sharing our babies and aim to share them with other plant lovers! All swap items are 100% free!",
     };
   },
-  created: function() {},
-  methods: {}
+  created: function () {},
+  methods: {},
 };
 </script>
