@@ -1,17 +1,17 @@
 <template>
   <div class="ads-show">
     <h2>{{ ad.title }}</h2>
-    <h4>Posted on: {{ ad.created_at}}</h4>
-    <h5>User: {{ad.username}}</h5>
-    <p>{{ad.description}}</p>
-    <p> Categories:</p>
-    <div v-for="category in ad.categories"> 
-      <p>{{category.name}}</p>
+    <h4>Posted on: {{ ad.created_at }}</h4>
+    <h5>User: {{ ad.username }}</h5>
+    <p>{{ ad.description }}</p>
+    <p>Categories:</p>
+    <div v-for="category in ad.categories">
+      <p>{{ category.name }}</p>
     </div>
-    <img :src="ad.image_url" alt="" width="300"/>
+    <img :src="ad.image_url" alt="" width="300" />
 
     <br />
-    
+
     <div v-if="ad.owner">
       <!-- Edit ad form -->
       <form v-on:submit.prevent="editAd()">
@@ -28,40 +28,48 @@
         </div>
         <div class="form-group">
           <label>Image:</label>
-          <input class="form-control" type="file" v-on:change="setFile($event)" ref="fileInput">
+          <input
+            class="form-control"
+            type="file"
+            v-on:change="setFile($event)"
+            ref="fileInput"
+          />
         </div>
         <div class="form-group">
           <div v-for="category in categories">
-            <input type="checkbox" :id="category.id" :value="category.id" v-model="categoryIds">
-            <label :for="category.id">{{category.name}}</label>
+            <input
+              type="checkbox"
+              :id="category.id"
+              :value="category.id"
+              v-model="categoryIds"
+            />
+            <label :for="category.id">{{ category.name }}</label>
           </div>
-          {{categoryIds}}
+          {{ categoryIds }}
         </div>
-        <input type="submit" class="btn btn-primary" value="Update">
+        <input type="submit" class="btn btn-primary" value="Update" />
       </form>
 
       <!-- Delete ad button -->
-      <div id="destroyAd"> 
+      <div id="destroyAd">
         <button v-on:click="destroyAd()">Delete Ad</button>
       </div>
     </div>
-
 
     <!-- Send message -->
     <div v-if="!ad.owner">
       <button v-on:click="createConversation()">Contact User</button>
     </div>
-
   </div>
 </template>
 
-<style>
-</style>
+<style></style>
 
 <script>
 import axios from "axios";
+
 export default {
-  data: function () {
+  data: function() {
     return {
       errors: [],
       ad: {},
@@ -69,7 +77,7 @@ export default {
       categoryIds: [],
     };
   },
-  created: function () {
+  created: function() {
     axios.get(`/api/ads/${this.$route.params.id}`).then((response) => {
       this.ad = response.data;
       console.log(this.ad);
@@ -82,20 +90,12 @@ export default {
   },
 
   methods: {
-    setFile: function (event) {
+    setFile: function(event) {
       if (event.target.files.length > 0) {
         this.ad.imageUrl = event.target.files[0];
       }
     },
-    destroyAd: function () {
-      if (confirm("Are you sure you want to delete this ad?")) {
-        axios.delete(`/api/ads/${this.ad.id}`).then((response) => {
-          console.log(response.data);
-          this.$router.push("/ads");
-        });
-      }
-    },
-    editAd: function () {
+    editAd: function() {
       var formData = new FormData();
       formData.append("title", this.title);
       formData.append("description", this.description);
@@ -115,7 +115,15 @@ export default {
           });
       }
     },
-    createConversation: function () {
+    destroyAd: function() {
+      if (confirm("Are you sure you want to delete this ad?")) {
+        axios.delete(`/api/ads/${this.ad.id}`).then((response) => {
+          console.log(response.data);
+          this.$router.push("/ads");
+        });
+      }
+    },
+    createConversation: function() {
       var params = {
         recipient_id: this.ad.user_id,
         ad_id: this.ad.id,
