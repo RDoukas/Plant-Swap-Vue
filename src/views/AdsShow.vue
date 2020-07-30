@@ -20,11 +20,11 @@
         </ul>
         <div class="form-group">
           <label>Title:</label>
-          <input type="text" class="form-control" v-model="title" />
+          <input type="text" class="form-control" v-model="ad.title" />
         </div>
         <div class="form-group">
           <label>Description: </label>
-          <input type="text" class="form-control" v-model="description" />
+          <input type="text" class="form-control" v-model="ad.description" />
         </div>
         <div class="form-group">
           <label>Image:</label>
@@ -97,9 +97,9 @@ export default {
     },
     editAd: function() {
       var formData = new FormData();
-      formData.append("title", this.title);
-      formData.append("description", this.description);
-      formData.append("image_url", this.imageUrl);
+      formData.append("title", this.ad.title);
+      formData.append("description", this.ad.description);
+      formData.append("image_url", this.ad.imageUrl);
       formData.append("category_ids", JSON.stringify(this.categoryIds));
 
       console.log(this.categoryIds);

@@ -15,28 +15,37 @@
       </div>
       <div class="form-group">
         <label>Image:</label>
-       <input class="form-control" type="file" v-on:change="setFile($event)" ref="fileInput">
+        <input
+          class="form-control"
+          type="file"
+          v-on:change="setFile($event)"
+          ref="fileInput"
+        />
       </div>
       <div class="form-group">
         <div v-for="category in categories">
-          <input type="checkbox" :id="category.id" :value="category.id" v-model="categoryIds">
-          <label :for="category.id">{{category.name}}</label>
+          <input
+            type="checkbox"
+            :id="category.id"
+            :value="category.id"
+            v-model="categoryIds"
+          />
+          <label :for="category.id">{{ category.name }}</label>
         </div>
-        {{categoryIds}}
+        {{ categoryIds }}
       </div>
-      <input type="submit"  class="btn btn-primary" value="Create" />
+      <input type="submit" class="btn btn-primary" value="Create" />
     </form>
   </div>
 </template>
 
-<style>
-</style>
+<style></style>
 
 <script>
 import axios from "axios";
 
 export default {
-  data: function () {
+  data: function() {
     return {
       title: "",
       description: "",
@@ -46,23 +55,22 @@ export default {
       categories: [],
     };
   },
-  created: function () {
+  created: function() {
     axios.get(`/api/categories/`).then((response) => {
       this.categories = response.data;
       console.log(response.data);
     });
   },
   methods: {
-    setFile: function (event) {
+    setFile: function(event) {
       if (event.target.files.length > 0) {
         this.imageUrl = event.target.files[0];
       }
     },
-    createAd: function () {
+    createAd: function() {
       var formData = new FormData();
       formData.append("title", this.title);
       formData.append("description", this.description);
-      formData.append("image_url", this.imageUrl);
       formData.append("image_url", this.imageUrl);
       formData.append("category_ids", JSON.stringify(this.categoryIds));
       console.log(this.categoryIds);
