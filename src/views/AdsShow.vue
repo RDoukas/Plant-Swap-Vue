@@ -70,8 +70,8 @@ export default {
   created: function () {
     axios.get(`/api/ads/${this.$route.params.id}`).then((response) => {
       this.ad = response.data;
-
       console.log(this.ad);
+      this.categoryIds = this.ad.categories.map((category) => category.id);
     });
     axios.get(`/api/categories/`).then((response) => {
       this.categories = response.data;
@@ -82,7 +82,7 @@ export default {
   methods: {
     setFile: function (event) {
       if (event.target.files.length > 0) {
-        this.imageUrl = event.target.files[0];
+        this.ad.imageUrl = event.target.files[0];
       }
     },
     destroyAd: function () {
