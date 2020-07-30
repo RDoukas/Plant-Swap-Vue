@@ -48,7 +48,9 @@
 
 
     <!-- Send message -->
+    <div v-if="!ad.owner">
       <button v-on:click="createConversation()">Contact User</button>
+    </div>
 
   </div>
 </template>

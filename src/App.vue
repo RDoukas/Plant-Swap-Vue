@@ -54,6 +54,7 @@ export default {
     isLoggedIn: function () {
       return localStorage.getItem("jwt");
     },
+
     getUserId: function () {
       return localStorage.getItem("user_id");
     },
