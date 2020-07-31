@@ -20,7 +20,7 @@
     <router-link to="/ads/new" tag="button">New Ad</router-link>
 
     <!-- Shows actual ads list -->
-    <!-- <div v-for="ad in ads"> -->
+
     <div
       v-for="ad in orderBy(filterBy(ads, titleFilter), sortAttribute)"
       v-bind:key="ad.id"
