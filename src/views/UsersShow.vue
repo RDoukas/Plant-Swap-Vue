@@ -114,10 +114,6 @@
         </div>
       </div>
     </div>
-    <!-- <h2>First Name: {{ user.first_name }}</h2>
-    <h4>Last Name: {{ user.last_name }}</h4>
-    <h5>Username: {{ user.username }}</h5>
-    <p>Email: {{ user.email }}</p>
 
     <br />
 
@@ -161,7 +157,7 @@
 
     <div id="destroyUser">
       <button v-on:click="destroyUser()">Delete Your Profile</button>
-    </div> -->
+    </div>
   </div>
 </template>
 

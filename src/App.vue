@@ -18,21 +18,6 @@
                   </form>
                 </div>
               </div>
-              <div class="same-style account-satting">
-                <a
-                  class="account-satting-active"
-                  v-if="isLoggedIn()"
-                  href="/users"
-                  ><i class="pe-7s-user-female"></i
-                ></a>
-                <div class="account-dropdown">
-                  <ul>
-                    <li><a href="/login">Login</a></li>
-                    <li><a href="/signup">Signup</a></li>
-                    <li><a href="/users">My account</a></li>
-                  </ul>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -58,6 +43,11 @@
                     <li v-if="!isLoggedIn()"><a href="/signup"> Signup </a></li>
                     <li v-if="isLoggedIn()">
                       <a href="/conversations"> Messages </a>
+                    </li>
+                    <li v-if="isLoggedIn()">
+                      <a href="/users"
+                        ><i class="pe-7s-user-female"></i> Profile
+                      </a>
                     </li>
                     <li v-if="isLoggedIn()"><a href="/logout"> Logout </a></li>
                   </ul>
