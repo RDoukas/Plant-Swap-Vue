@@ -7,10 +7,8 @@
             <div class="product-details">
               <div class="product-details-img">
                 <div class="tab-content jump">
-                  <div
-                    id="shop-details-2"
-                    class="tab-pane active large-img-style"
-                  >
+                  <div id="shop-details-2"
+                    class="tab-pane active large-img-style">
                     <img :src="ad.image_url" alt="" width="300" />
                   </div>
                 </div>
@@ -31,27 +29,115 @@
               </div>
             </div>
             </br>
-            <div class="contact-form" v-if="!ad.owner">
-              <div class="contact-title mb-30" >
-                <h3>Message Plant Parent:</h3>
-              </div>
-              <form class="contact-form-style" id="contact-form" action="assets/php/mail.php" method="post">
-                <div class="row">
-                  <div class="col-lg-12" >
-                      <textarea name="message" placeholder="Your Message..."></textarea>
-                      <button class="submit" v-on:click="createConversation()"
-                      type="submit">SEND</button>
+            <div class="blog-reply-wrapper mt-50">
+              <h4 class="blog-dec-title">Message Plant Parent</h4>
+                <form class="blog-form" action="#">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="text-leave">
+                        <textarea placeholder="Message"></textarea>
+                        <input type="submit" value="SEND MESSAGE">
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </form>
-              <p class="form-messege"></p>
+                </form>
+              </div>
             </div>
             
-
             <div class="pro-details-cart btn-hover" v-if="ad.owner">
               <div id="destroyAd">
                 <button v-on:click="destroyAd()">Delete Ad</button>
               </div>
+            </div>
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row">
+                      <div class="col-md-5 col-sm-12 col-xs-12">
+                          <!-- Thumbnail Large Image End -->
+                          <!-- Thumbnail Image End -->
+                          <div class="quickview-wrap mt-15">
+                              <div class="quickview-slide-active owl-carousel nav nav-style-1" role="tablist">
+                                  <a class="active" data-toggle="tab" href="#pro-1"><img src="assets/img/product/quickview-s1.jpg" alt=""></a>
+                                  <a data-toggle="tab" href="#pro-2"><img src="assets/img/product/quickview-s2.jpg" alt=""></a>
+                                  <a data-toggle="tab" href="#pro-3"><img src="assets/img/product/quickview-s3.jpg" alt=""></a>
+                                  <a data-toggle="tab" href="#pro-4"><img src="assets/img/product/quickview-s2.jpg" alt=""></a>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-7 col-sm-12 col-xs-12">
+                          <div class="product-details-content quickview-content">
+                              <h2>Products Name Here</h2>
+                              <div class="product-details-price">
+                                  <span>$18.00 </span>
+                                  <span class="old">$20.00 </span>
+                              </div>
+                              <div class="pro-details-rating-wrap">
+                                  <div class="pro-details-rating">
+                                      <i class="fa fa-star-o yellow"></i>
+                                      <i class="fa fa-star-o yellow"></i>
+                                      <i class="fa fa-star-o yellow"></i>
+                                      <i class="fa fa-star-o"></i>
+                                      <i class="fa fa-star-o"></i>
+                                  </div>
+                                  <span>3 Reviews</span>
+                              </div>
+                              <p>Lorem ipsum dolor sit amet, consectetur adipisic elit eiusm tempor incidid ut labore et dolore magna aliqua. Ut enim ad minim venialo quis nostrud exercitation ullamco</p>
+                              <div class="pro-details-list">
+                                  <ul>
+                                      <li>- 0.5 mm Dail</li>
+                                      <li>- Inspired vector icons</li>
+                                      <li>- Very modern style  </li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+         
+              <form v-on:submit.prevent="editAd()">
+                <ul>
+                  <li class="text-danger" v-for="error in errors">{{ error }}</li>
+                </ul>
+                <div class="form-group">
+                  <label>Title:</label>
+                  <input type="text" class="form-control" v-model="ad.title" />
+                </div>
+                <div class="form-group">
+                  <label>Description: </label>
+                  <input type="text" class="form-control" v-model="ad.description" />
+                </div>
+                <div class="form-group">
+                  <label>Image:</label>
+                  <input
+                    class="form-control"
+                    type="file"
+                    v-on:change="setFile($event)"
+                    ref="fileInput"
+                  />
+                </div>
+                <div class="form-group">
+                  <div v-for="category in categories">
+                    <input
+                      type="checkbox"
+                      :id="category.id"
+                      :value="category.id"
+                      v-model="categoryIds"
+                    />
+                    <label :for="category.id">{{ category.name }}</label>
+                  </div>
+                  {{ categoryIds }}
+                </div>
+               <input type="submit" class="btn btn-primary" value="Update" />
+              </form>
             </div>
           </div>
         </div>

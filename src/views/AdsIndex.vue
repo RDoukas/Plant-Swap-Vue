@@ -5,19 +5,18 @@
                 <div class="row flex-row-reverse">
                     <div class="col-lg-9">
                         <div class="shop-top-bar">
-                    <!-- Sort at top of ads index page -->
+                 
                             <div class="select-shoing-wrap">
                                 <div class="shop-select">
                                     <select>
-                                        <option sortAttribute="`ad.created_at`">Sort by newest</option>
-                                        <option sortAttribute="`ad.title">Sort by Title</option>
-                                        <!-- <option value=""> Z to A</option> -->
-                                        <option sortAttribute="`ad.username`">Sort by Username</option>
+                                        <option sortAttribute="`created_at`">Sort by newest</option>
+                                        <option sortAttribute="`title">Sort by Title</option>
+                                        <option sortAttribute="`username`">Sort by Username</option>
                                     </select>
                                 </div>
                             </div>
                         
-                    <!-- Ad list view options -->
+
                             <div class="shop-tab nav">
                                 <a class="active" href="#shop-2" data-toggle="tab">
                                 </a>
@@ -77,7 +76,7 @@
                         <div class="col-lg-3">
                             <div class="sidebar-style mr-30">
                                 <div class="sidebar-widget">
-                                    <div class="shop-list-btn btn-hover">
+                                    <div class="pro-details-cart btn-hover">
                                         <a title="New Ad" href="/ads/new">New Ad</a>
                                     </div>
                                 
