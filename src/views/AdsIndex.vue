@@ -50,7 +50,7 @@
                                 <div id="shop-2" class="tab-pane active">
                                     <div class="shop-list-wrap mb-30 scroll-zoom">
                                         <div class="row">
-                                            <div class="col-xl-4 col-lg-5 col-md-5 col-sm-6">
+                                            <div class="col-xl-4 col-lg-5 col-md-5 col-sm-6" v-for="ad in ads">
                                                 <div class="product-wrap">
                                                     <div class="product-img">
                                                         <a href="/ads/${ad.id}">

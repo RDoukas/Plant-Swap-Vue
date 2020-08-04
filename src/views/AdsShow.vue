@@ -1,20 +1,50 @@
 <template>
-  <div class="ads-show">
-    <h2>{{ ad.title }}</h2>
-    <h4>Posted on: {{ ad.created_at }}</h4>
-    <h5>User: {{ ad.username }}</h5>
-    <p>{{ ad.description }}</p>
-    <p>Categories:</p>
-    <div v-for="category in ad.categories">
-      <p>{{ category.name }}</p>
+  <div class="ads-show" 
+    <div class="shop-area pt-100 pb-100">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-6">
+            <div class="product-details">
+              <div class="product-details-img">
+                <div class="tab-content jump">
+                  <div
+                    id="shop-details-2"
+                    class="tab-pane active large-img-style"
+                  >
+                    <img :src="ad.image_url" alt="" width="300" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="product-details-content ml-70">
+              <h2>{{ ad.title }}</h2>
+              <h4>Posted on: {{ ad.created_at }}</h4>
+              <h5>User: {{ ad.username }}</h5>
+              <p>{{ ad.description }}</p>
+              <div class="pro-details-meta">
+                <span>Categories :</span>
+                <div v-for="category in ad.categories">
+                  <p>{{ category.name }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="pro-details-cart btn-hover" v-if="ad.owner">
+              <div id="destroyAd">
+                <button v-on:click="destroyAd()">Delete Ad</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <img :src="ad.image_url" alt="" width="300" />
+  </div>
+</template>
 
-    <br />
-
-    <div v-if="ad.owner">
-      <!-- Edit ad form -->
-      <form v-on:submit.prevent="editAd()">
+<!-- <div v-if="ad.owner"> -->
+<!-- Edit ad form -->
+<!-- <form v-on:submit.prevent="editAd()">
         <ul>
           <li class="text-danger" v-for="error in errors">{{ error }}</li>
         </ul>
@@ -48,22 +78,18 @@
           {{ categoryIds }}
         </div>
         <input type="submit" class="btn btn-primary" value="Update" />
-      </form>
+      </form> -->
 
-      <!-- Delete ad button -->
-      <div id="destroyAd">
+<!-- Delete ad button -->
+<!-- <div id="destroyAd">
         <button v-on:click="destroyAd()">Delete Ad</button>
       </div>
-    </div>
+    </div> -->
 
-    <!-- Send message -->
-    <div v-if="!ad.owner">
+<!-- Send message -->
+<!-- <div v-if="!ad.owner">
       <button v-on:click="createConversation()">Contact User</button>
-    </div>
-  </div>
-</template>
-
-<style></style>
+    </div> -->
 
 <script>
 import axios from "axios";
