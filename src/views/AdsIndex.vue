@@ -19,9 +19,9 @@
                         
                     <!-- Ad list view options -->
                             <div class="shop-tab nav">
-                                <a href="#shop-1" data-toggle="tab">
+                                <!-- <a href="#shop-1" data-toggle="tab">
                                     <i class="fa fa-table"></i>
-                                </a>
+                                </a> -->
                                 <a class="active" href="#shop-2" data-toggle="tab">
                                     <i class="fa fa-list-ul"></i>
                                 </a>
@@ -53,11 +53,9 @@
                                             <div class="col-xl-4 col-lg-5 col-md-5 col-sm-6">
                                                 <div class="product-wrap">
                                                     <div class="product-img">
-                                                        <a href="#">
-                                                            <img class="default-img" src="assets/img/product/pro-1.jpg" alt="">
-                                                            
+                                                        <a href="/ads/${ad.id}">
+                                                            <img class="default-img" src="ad.image_url" alt="">   
                                                         </a>
-
                                                     </div>
                                                 </div>
                                             </div>
@@ -73,14 +71,14 @@
                                     </div> 
                                 </div>
                             </div>
-                                <div class="pro-pagination-style text-center mt-30">
-                                    <ul>
-                                        <li><a class="prev" href="#"><i class="fa fa-angle-double-left"></i></a></li>
-                                        <li><a class="active" href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a class="next" href="#"><i class="fa fa-angle-double-right"></i></a></li>
-                                    </ul>
-                                </div>
+                            <div class="pro-pagination-style text-center mt-30">
+                                <ul>
+                                    <li><a class="prev" href="#"><i class="fa fa-angle-double-left"></i></a></li>
+                                    <li><a class="active" href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a class="next" href="#"><i class="fa fa-angle-double-right"></i></a></li>
+                                </ul>
+                            </div>
                             </div>
                         </div>
                         <div class="col-lg-3">
