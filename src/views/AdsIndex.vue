@@ -6,24 +6,20 @@
                     <div class="col-lg-9">
                         <div class="shop-top-bar">
                     <!-- Sort at top of ads index page -->
-                        <div class="select-shoing-wrap">
-                            <div class="shop-select">
-                                <select>
-                                    <option value="`ad.created_at`">Sort by newest</option>
-                                    <option value="`ad.title`">Sort by Title</option>
-                                    <!-- <option value=""> Z to A</option> -->
-                                    <option value="`ad.username`">Sort by Username</option>
-                                </select>
+                            <div class="select-shoing-wrap">
+                                <div class="shop-select">
+                                    <select>
+                                        <option value="`ad.created_at`">Sort by newest</option>
+                                        <option value="`ad.title`">Sort by Title</option>
+                                        <!-- <option value=""> Z to A</option> -->
+                                        <option value="`ad.username`">Sort by Username</option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
                         
                     <!-- Ad list view options -->
                             <div class="shop-tab nav">
-                                <!-- <a href="#shop-1" data-toggle="tab">
-                                    <i class="fa fa-table"></i>
-                                </a> -->
                                 <a class="active" href="#shop-2" data-toggle="tab">
-                                    <i class="fa fa-list-ul"></i>
                                 </a>
                             </div>    
                         </div>
@@ -35,8 +31,8 @@
                                         <div class="col-xl-4 col-md-6 col-lg-6 col-sm-6" v-for="ad in ads">
                                             <div class="product-wrap mb-25 scroll-zoom">
                                                 <div class="product-img">
-                                                    <a href="#">
-                                                        <img class="default-img" src="assets/img/product/pro-1.jpg" alt="">
+                                                    <a href="/ads/${ad.id}">
+                                                        <img class="default-img" src="ad.image_url" alt="">   
                                                     </a>
                                                 </div>
                                                 <div class="product-content text-center">
@@ -62,22 +58,19 @@
                                             <div class="col-xl-8 col-lg-7 col-md-7 col-sm-6" v-for="ad in ads">
                                                 
                                                 <div class="shop-list-content">
+                                                    <div class="product-img"  >
+                                                        <img class="default-img" v-bind:src="ad.image_url"alt="" height=200px>  
+                                                    </div>
                                                     <h3><a href="`/ads/${ad.id}`">{{ad.title}}</a></h3>
+                                                    <h4>Posted on: {{ ad.created_at }}</h4>
+                                                    <h5>User: {{ ad.username }}</h5>
+                                                    <p>{{ ad.description }}</p>
                                                     
-                                                    <p>{{ad.description}}</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div> 
                                 </div>
-                            </div>
-                            <div class="pro-pagination-style text-center mt-30">
-                                <ul>
-                                    <li><a class="prev" href="#"><i class="fa fa-angle-double-left"></i></a></li>
-                                    <li><a class="active" href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a class="next" href="#"><i class="fa fa-angle-double-right"></i></a></li>
-                                </ul>
                             </div>
                             </div>
                         </div>
@@ -104,25 +97,25 @@
                                     <ul>
                                         <li>
                                             <div class="sidebar-widget-list-left">
-                                                <input type="checkbox" value=""> <a href="#">Plant <span>4</span> </a>
+                                                <input type="checkbox" value=""> <a href="#">Plant </a>
                                                 <span class="checkmark"></span> 
                                             </div>
                                         </li>
                                         <li>
                                             <div class="sidebar-widget-list-left">
-                                                <input type="checkbox" value=""> <a href="#">Tropical <span>4</span> </a>
+                                                <input type="checkbox" value=""> <a href="#">Tropical </a>
                                                 <span class="checkmark"></span> 
                                             </div>
                                         </li>
                                         <li>
                                             <div class="sidebar-widget-list-left">
-                                                <input type="checkbox" value=""> <a href="#">Easy Care <span>4</span> </a>
+                                                <input type="checkbox" value=""> <a href="#">Easy Care </a>
                                                 <span class="checkmark"></span> 
                                             </div>
                                         </li>
                                         <li>
                                             <div class="sidebar-widget-list-left">
-                                                <input type="checkbox" value=""> <a href="#">Pet Friendly <span>4</span> </a>
+                                                <input type="checkbox" value=""> <a href="#">Pet Friendly </a>
                                                 <span class="checkmark"></span>
                                             </div>
                                         </li>
