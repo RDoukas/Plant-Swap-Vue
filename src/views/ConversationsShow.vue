@@ -1,23 +1,51 @@
 <template>
   <div class="conversations-show">
-    <div id="destroyConvo"> 
-      <button v-on:click="destroyConvo()">Delete Conversation</button>
+    
+
+    <div class="cart-main-area pt-90 pb-100">
+      <!-- <div class="pro-details-cart btn-hover"> -->
+      <div id="destroyConvo">
+        <button v-on:click="destroyConvo()">Delete Conversation</button>
+         <input type="submit" value="">
+      </div>
+      
+    <!-- </div> -->
+      <div class="container">
+        <h3><a href="`/ads/${ad.id}`">Ad Title: {{conversation.ad_title}}</a></h3>
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="table-content table-responsive cart-table-content" v-for="message in conversation.messages">
+              <table>
+                <tbody>
+                  <tr>
+                    <h6>From: {{ message.username }}</h6>
+                    <p>{{ message.body }}</p>
+                    <h6>Sent: {{ relativeTime(message.created_at) }}</h6>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="row">
+              <div class="col-lg-4 col-md-6"></div>
+                <div class="blog-reply-wrapper mt-50">
+                  <form class="blog-form" v-on:submit.prevent="createMessage()">
+                    <label>Send Message:</label>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="text-leave">
+                        <textarea :placeholder="`Reply to ${partner.username}`" v-model="newMessage"></textarea>
+                        <input type="submit" value="SEND MESSAGE">
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div v-for="message in conversation.messages">
-      <p>{{ message.body }}</p>
-      <p>From: {{ message.username }}</p>
-      <p>Sent: {{ relativeTime(message.created_at) }}</p>
-    </div>
-    <form v-on:submit.prevent="createMessage()">
-      <label>Send Message: </label>
-      <input
-        type="text"
-        class="form-control"
-        :placeholder="`Message ${partner.username}`"
-        v-model="newMessage"
-      />
-      <input type="submit" class="btn btn-primary" value="send" />
-    </form>
   </div>
 </template>
 
@@ -25,7 +53,7 @@
 import axios from "axios";
 import moment from "moment";
 export default {
-  data: function () {
+  data: function() {
     return {
       errors: [],
       conversation: {
@@ -35,7 +63,7 @@ export default {
       newMessage: "",
     };
   },
-  created: function () {
+  created: function() {
     axios
       .get(`/api/conversations/${this.$route.params.id}`)
       .then((response) => {
@@ -46,7 +74,7 @@ export default {
       });
   },
   methods: {
-    createMessage: function () {
+    createMessage: function() {
       var params = {
         body: this.newMessage,
         conversation_id: this.conversation.id,
@@ -61,7 +89,7 @@ export default {
           this.errors = error.response.data.errors;
         });
     },
-    destroyConvo: function () {
+    destroyConvo: function() {
       if (confirm("Are you sure you want to delete this conversation?")) {
         axios
           .delete(`/api/conversations/${this.conversation.id}`)
@@ -71,8 +99,10 @@ export default {
           });
       }
     },
-    relativeTime: function (time) {
-      return moment(time).startOf("hour").fromNow();
+    relativeTime: function(time) {
+      return moment(time)
+        .startOf("hour")
+        .fromNow();
     },
   },
 };

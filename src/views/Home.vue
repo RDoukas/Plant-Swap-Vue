@@ -12,182 +12,16 @@
         <div class="tab-content jump">
           <div class="tab-pane" id="product-1">
             <div class="row">
-              <div
-                class="col-xl-3 col-md-6 col-lg-4 col-sm-6"
-                v-for="ad in ads"
-              >
-                <div class="product-wrap mb-25">
-                  <div class="product-img">
-                    <a href="product-details.html">
-                      <img
-                        class="default-img"
-                        src="assets/img/product/hm22-pro-12.jpg"
-                        alt=""
-                      />
-                    </a>
-                  </div>
-                  <div class="product-content text-center">
-                    <h3>
-                      <a href="product-details.html">Ad title</a>
-                    </h3>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="col-xl-3 col-md-6 col-lg-4 col-sm-6"
-                v-for="ad in ads"
-              >
-                <div class="product-wrap mb-25">
-                  <div class="product-img">
-                    <a href="product-details.html">
-                      <img
-                        class="default-img"
-                        src="assets/img/product/hm22-pro-11.jpg"
-                        alt=""
-                      />
-                    </a>
-                  </div>
-                  <div class="product-content text-center">
-                    <h3>
-                      <a href="product-details.html">{{ ad.title }}</a>
-                    </h3>
-                  </div>
-                </div>
-              </div>
               <div class="col-xl-3 col-md-6 col-lg-4 col-sm-6">
                 <div class="product-wrap mb-25">
                   <div class="product-img">
-                    <a href="product-details.html">
-                      <img
-                        class="default-img"
-                        src="assets/img/product/hm22-pro-10.jpg"
-                        alt=""
-                      />
-                      <img
-                        class="hover-img"
-                        src="assets/img/product/hm22-pro-10.jpg"
-                        alt=""
-                      />
+                    <a href="/ads/2">
+                      <img class="default-img" src="ad.image_url" alt="" />
                     </a>
                   </div>
                   <div class="product-content text-center">
                     <h3>
-                      <a href="product-details.html">Product Title Here</a>
-                    </h3>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-3 col-md-6 col-lg-4 col-sm-6">
-                <div class="product-wrap mb-25">
-                  <div class="product-img">
-                    <a href="product-details.html">
-                      <img
-                        class="default-img"
-                        src="assets/img/product/hm22-pro-9.jpg"
-                        alt=""
-                      />
-                      <img
-                        class="hover-img"
-                        src="assets/img/product/hm22-pro-9.jpg"
-                        alt=""
-                      />
-                    </a>
-                  </div>
-                  <div class="product-content text-center">
-                    <h3>
-                      <a href="product-details.html">Product Title Here</a>
-                    </h3>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-3 col-md-6 col-lg-4 col-sm-6">
-                <div class="product-wrap mb-25">
-                  <div class="product-img">
-                    <a href="product-details.html">
-                      <img
-                        class="default-img"
-                        src="assets/img/product/hm22-pro-8.jpg"
-                        alt=""
-                      />
-                      <img
-                        class="hover-img"
-                        src="assets/img/product/hm22-pro-8.jpg"
-                        alt=""
-                      />
-                    </a>
-                  </div>
-                  <div class="product-content text-center">
-                    <h3>
-                      <a href="product-details.html">Product Title Here</a>
-                    </h3>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-3 col-md-6 col-lg-4 col-sm-6">
-                <div class="product-wrap mb-25">
-                  <div class="product-img">
-                    <a href="product-details.html">
-                      <img
-                        class="default-img"
-                        src="assets/img/product/hm22-pro-7.jpg"
-                        alt=""
-                      />
-                      <img
-                        class="hover-img"
-                        src="assets/img/product/hm22-pro-7.jpg"
-                        alt=""
-                      />
-                    </a>
-                  </div>
-                  <div class="product-content text-center">
-                    <h3>
-                      <a href="product-details.html">Product Title Here</a>
-                    </h3>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-3 col-md-6 col-lg-4 col-sm-6">
-                <div class="product-wrap mb-25">
-                  <div class="product-img">
-                    <a href="product-details.html">
-                      <img
-                        class="default-img"
-                        src="assets/img/product/hm22-pro-6.jpg"
-                        alt=""
-                      />
-                      <img
-                        class="hover-img"
-                        src="assets/img/product/hm22-pro-6.jpg"
-                        alt=""
-                      />
-                    </a>
-                  </div>
-                  <div class="product-content text-center">
-                    <h3>
-                      <a href="product-details.html">Product Title Here</a>
-                    </h3>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-3 col-md-6 col-lg-4 col-sm-6">
-                <div class="product-wrap mb-25">
-                  <div class="product-img">
-                    <a href="product-details.html">
-                      <img
-                        class="default-img"
-                        src="assets/img/product/hm22-pro-5.jpg"
-                        alt=""
-                      />
-                      <img
-                        class="hover-img"
-                        src="assets/img/product/hm22-pro-5.jpg"
-                        alt=""
-                      />
-                    </a>
-                  </div>
-                  <div class="product-content text-center">
-                    <h3>
-                      <a href="product-details.html">Product Title Here</a>
+                      <a href="/ads/2">Fern</a>
                     </h3>
                   </div>
                 </div>
@@ -199,14 +33,9 @@
               <div class="col-xl-3 col-md-6 col-lg-4 col-sm-6">
                 <div class="product-wrap mb-25">
                   <div class="product-img">
-                    <a href="product-details.html">
+                    <a href="/ads/2">
                       <img
                         class="default-img"
-                        src="assets/img/product/hm22-pro-5.jpg"
-                        alt=""
-                      />
-                      <img
-                        class="hover-img"
                         src="assets/img/product/hm22-pro-5.jpg"
                         alt=""
                       />
@@ -214,7 +43,11 @@
                   </div>
                   <div class="product-content text-center">
                     <h3>
-                      <a href="product-details.html">Product Title Here</a>
+                      <a
+                        href="/ads/2
+"
+                        >Fern</a
+                      >
                     </h3>
                   </div>
                 </div>
@@ -228,16 +61,11 @@
                         src="assets/img/product/hm22-pro-6.jpg"
                         alt=""
                       />
-                      <img
-                        class="hover-img"
-                        src="assets/img/product/hm22-pro-6.jpg"
-                        alt=""
-                      />
                     </a>
                   </div>
                   <div class="product-content text-center">
                     <h3>
-                      <a href="product-details.html">Product Title Here</a>
+                      <a href="product-details.html">Fern</a>
                     </h3>
                   </div>
                 </div>
@@ -251,16 +79,11 @@
                         src="assets/img/product/hm22-pro-7.jpg"
                         alt=""
                       />
-                      <img
-                        class="hover-img"
-                        src="assets/img/product/hm22-pro-7.jpg"
-                        alt=""
-                      />
                     </a>
                   </div>
                   <div class="product-content text-center">
                     <h3>
-                      <a href="product-details.html">Product Title Here</a>
+                      <a href="product-details.html">Fern</a>
                     </h3>
                   </div>
                 </div>
@@ -274,16 +97,11 @@
                         src="assets/img/product/hm22-pro-8.jpg"
                         alt=""
                       />
-                      <img
-                        class="hover-img"
-                        src="assets/img/product/hm22-pro-8.jpg"
-                        alt=""
-                      />
                     </a>
                   </div>
                   <div class="product-content text-center">
                     <h3>
-                      <a href="product-details.html">Product Title Here</a>
+                      <a href="product-details.html">Fern</a>
                     </h3>
                   </div>
                 </div>
@@ -297,16 +115,11 @@
                         src="assets/img/product/hm22-pro-9.jpg"
                         alt=""
                       />
-                      <img
-                        class="hover-img"
-                        src="assets/img/product/hm22-pro-9.jpg"
-                        alt=""
-                      />
                     </a>
                   </div>
                   <div class="product-content text-center">
                     <h3>
-                      <a href="product-details.html">Product Title Here</a>
+                      <a href="product-details.html">Fern</a>
                     </h3>
                   </div>
                 </div>
@@ -317,11 +130,6 @@
                     <a href="product-details.html">
                       <img
                         class="default-img"
-                        src="assets/img/product/hm22-pro-10.jpg"
-                        alt=""
-                      />
-                      <img
-                        class="hover-img"
                         src="assets/img/product/hm22-pro-10.jpg"
                         alt=""
                       />
@@ -340,11 +148,6 @@
                     <a href="product-details.html">
                       <img
                         class="default-img"
-                        src="assets/img/product/hm22-pro-11.jpg"
-                        alt=""
-                      />
-                      <img
-                        class="hover-img"
                         src="assets/img/product/hm22-pro-11.jpg"
                         alt=""
                       />
@@ -363,11 +166,6 @@
                     <a href="#">
                       <img
                         class="default-img"
-                        src="assets/img/product/hm22-pro-12.jpg"
-                        alt=""
-                      />
-                      <img
-                        class="hover-img"
                         src="assets/img/product/hm22-pro-12.jpg"
                         alt=""
                       />
@@ -393,11 +191,6 @@
                         src="assets/img/product/hm22-pro-8.jpg"
                         alt=""
                       />
-                      <img
-                        class="hover-img"
-                        src="assets/img/product/hm22-pro-8.jpg"
-                        alt=""
-                      />
                     </a>
                   </div>
                   <div class="product-content text-center">
@@ -416,11 +209,6 @@
                         src="assets/img/product/hm22-pro-7.jpg"
                         alt=""
                       />
-                      <img
-                        class="hover-img"
-                        src="assets/img/product/hm22-pro-7.jpg"
-                        alt=""
-                      />
                     </a>
                   </div>
                   <div class="product-content text-center">
@@ -436,11 +224,6 @@
                     <a href="product-details.html">
                       <img
                         class="default-img"
-                        src="assets/img/product/hm22-pro-6.jpg"
-                        alt=""
-                      />
-                      <img
-                        class="hover-img"
                         src="assets/img/product/hm22-pro-6.jpg"
                         alt=""
                       />
@@ -485,11 +268,6 @@
                         src="assets/img/product/hm22-pro-12.jpg"
                         alt=""
                       />
-                      <img
-                        class="hover-img"
-                        src="assets/img/product/hm22-pro-12.jpg"
-                        alt=""
-                      />
                     </a>
                   </div>
                   <div class="product-content text-center">
@@ -505,11 +283,6 @@
                     <a href="product-details.html">
                       <img
                         class="default-img"
-                        src="assets/img/product/hm22-pro-11.jpg"
-                        alt=""
-                      />
-                      <img
-                        class="hover-img"
                         src="assets/img/product/hm22-pro-11.jpg"
                         alt=""
                       />
@@ -531,11 +304,6 @@
                         src="assets/img/product/hm22-pro-10.jpg"
                         alt=""
                       />
-                      <img
-                        class="hover-img"
-                        src="assets/img/product/hm22-pro-10.jpg"
-                        alt=""
-                      />
                     </a>
                   </div>
                   <div class="product-content text-center">
@@ -551,11 +319,6 @@
                     <a href="product-details.html">
                       <img
                         class="default-img"
-                        src="assets/img/product/hm22-pro-9.jpg"
-                        alt=""
-                      />
-                      <img
-                        class="hover-img"
                         src="assets/img/product/hm22-pro-9.jpg"
                         alt=""
                       />
