@@ -4,7 +4,7 @@
       <div class="header-top-area">
         <div class="container">
           <div class="header-top-wap">
-            <div class="header-right-wrap">
+            <!-- <div class="header-right-wrap">
               <div class="same-style header-search">
                 <a class="search-active" href="#"
                   ><i class="pe-7s-search"></i
@@ -18,7 +18,7 @@
                   </form>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -40,14 +40,14 @@
                     <li><a href="/about"> About </a></li>
                     <li><a href="/ads"> Ads </a></li>
                     <li v-if="!isLoggedIn()"><a href="/login"> Login </a></li>
-                    <li v-if="!isLoggedIn()"><a href="/signup"> Signup </a></li>
+                    <li v-if="!isLoggedIn()">
+                      <a href="/signup"></i>Signup</a>
+                    </li>
                     <li v-if="isLoggedIn()">
                       <a href="/conversations"> Messages </a>
                     </li>
                     <li v-if="isLoggedIn()">
-                      <a href="/users"
-                        ><i class="pe-7s-user-female"></i> Profile
-                      </a>
+                      <a href="/users">Profile </a>
                     </li>
                     <li v-if="isLoggedIn()"><a href="/logout"> Logout </a></li>
                   </ul>
@@ -55,7 +55,7 @@
               </div>
             </div>
           </div>
-          <div class="mobile-menu-area">
+          <!-- <div class="mobile-menu-area">
             <div class="mobile-menu">
               <nav id="mobile-menu-active">
                 <ul class="menu-overflow">
@@ -71,7 +71,7 @@
                 </ul>
               </nav>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </header>

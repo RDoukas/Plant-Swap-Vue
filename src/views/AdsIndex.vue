@@ -80,11 +80,16 @@
                                     <div class="shop-list-btn btn-hover">
                                         <a title="New Ad" href="/ads/new">New Ad</a>
                                     </div>
-                                    <h4 class="pro-sidebar-title">Search </h4>
+                                
                                     <div class="pro-sidebar-search mb-50 mt-25">
                                         <form class="pro-sidebar-search-form" action="#">
-                                            <input type="text" placeholder="Search here...">
-                                            <button>
+                                            <input
+                                                class="form-control"
+                                                v-model="titleFilter"
+                                                list="titles"
+                                                type="text"
+                                                placeholder="Search"
+                                            />
                                                 <i class="pe-7s-search"></i>
                                             </button>
                                         </form>

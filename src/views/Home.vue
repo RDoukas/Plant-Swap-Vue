@@ -12,7 +12,10 @@
         <div class="tab-content jump">
           <div class="tab-pane" id="product-1">
             <div class="row">
-              <div class="col-xl-3 col-md-6 col-lg-4 col-sm-6">
+              <div
+                class="col-xl-3 col-md-6 col-lg-4 col-sm-6"
+                v-for="ad in ads"
+              >
                 <div class="product-wrap mb-25">
                   <div class="product-img">
                     <a href="product-details.html">
@@ -21,21 +24,19 @@
                         src="assets/img/product/hm22-pro-12.jpg"
                         alt=""
                       />
-                      <img
-                        class="hover-img"
-                        src="assets/img/product/hm22-pro-12.jpg"
-                        alt=""
-                      />
                     </a>
                   </div>
                   <div class="product-content text-center">
                     <h3>
-                      <a href="product-details.html">Product Title Here</a>
+                      <a href="product-details.html">Ad title</a>
                     </h3>
                   </div>
                 </div>
               </div>
-              <div class="col-xl-3 col-md-6 col-lg-4 col-sm-6">
+              <div
+                class="col-xl-3 col-md-6 col-lg-4 col-sm-6"
+                v-for="ad in ads"
+              >
                 <div class="product-wrap mb-25">
                   <div class="product-img">
                     <a href="product-details.html">
@@ -44,16 +45,11 @@
                         src="assets/img/product/hm22-pro-11.jpg"
                         alt=""
                       />
-                      <img
-                        class="hover-img"
-                        src="assets/img/product/hm22-pro-11.jpg"
-                        alt=""
-                      />
                     </a>
                   </div>
                   <div class="product-content text-center">
                     <h3>
-                      <a href="product-details.html">Product Title Here</a>
+                      <a href="product-details.html">{{ ad.title }}</a>
                     </h3>
                   </div>
                 </div>
