@@ -21,15 +21,33 @@
             <div class="product-details-content ml-70">
               <h2>{{ ad.title }}</h2>
               <h4>Posted on: {{ ad.created_at }}</h4>
-              <h5>User: {{ ad.username }}</h5>
+              <h5>Plant Parent: {{ ad.username }}</h5>
               <p>{{ ad.description }}</p>
               <div class="pro-details-meta">
                 <span>Categories :</span>
                 <div v-for="category in ad.categories">
-                  <p>{{ category.name }}</p>
+                  {{ category.name }}
                 </div>
               </div>
             </div>
+            </br>
+            <div class="contact-form" v-if="!ad.owner">
+              <div class="contact-title mb-30" >
+                <h3>Message Plant Parent:</h3>
+              </div>
+              <form class="contact-form-style" id="contact-form" action="assets/php/mail.php" method="post">
+                <div class="row">
+                  <div class="col-lg-12" >
+                      <textarea name="message" placeholder="Your Message..."></textarea>
+                      <button class="submit" v-on:click="createConversation()"
+                      type="submit">SEND</button>
+                  </div>
+                </div>
+              </form>
+              <p class="form-messege"></p>
+            </div>
+            
+
             <div class="pro-details-cart btn-hover" v-if="ad.owner">
               <div id="destroyAd">
                 <button v-on:click="destroyAd()">Delete Ad</button>

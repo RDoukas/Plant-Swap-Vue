@@ -9,10 +9,10 @@
                             <div class="select-shoing-wrap">
                                 <div class="shop-select">
                                     <select>
-                                        <option value="`ad.created_at`">Sort by newest</option>
-                                        <option value="`ad.title`">Sort by Title</option>
+                                        <option sortAttribute="`ad.created_at`">Sort by newest</option>
+                                        <option sortAttribute="`ad.title">Sort by Title</option>
                                         <!-- <option value=""> Z to A</option> -->
-                                        <option value="`ad.username`">Sort by Username</option>
+                                        <option sortAttribute="`ad.username`">Sort by Username</option>
                                     </select>
                                 </div>
                             </div>
@@ -82,17 +82,13 @@
                                     </div>
                                 
                                     <div class="pro-sidebar-search mb-50 mt-25">
-                                        <form class="pro-sidebar-search-form" action="#">
-                                            <input
-                                                class="form-control"
-                                                v-model="titleFilter"
-                                                list="titles"
-                                                type="text"
-                                                placeholder="Search"
-                                            />
-                                                <i class="pe-7s-search"></i>
-                                            </button>
+                                        <form class="pro-sidebar-search-form">
+                                            <input class="form-control" v-model="titleFilter" list="titles" type="text" placeholder="Search">
                                         </form>
+                                            <datalist id="titles">
+                                                <option v-for="ad in ads">{{ ad.title }}</option>
+                                            </datalist>
+
                                     </div>
                                 </div>
                             </div>
