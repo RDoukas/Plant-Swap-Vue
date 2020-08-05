@@ -1,16 +1,55 @@
 <template>
   <div class="conversations-show">
-    
+    <div class="Blog-area pt-100 pb-100">
+      <div class="container">
+        <div class="row flex-row-reverse">
+          <div class="col-lg-9">
+            <div class="blog-details-wrapper ml-20">
+              <div class="blog-comment-wrapper mt-55">
+                <h4 class="blog-dec-title">
+                  {{ conversation.ad_title }}
+                </h4>
+                <div
+                  class="single-comment-wrapper mt-30"
+                  v-for="message in conversation.messages"
+                >
+                  <div class="blog-comment-content">
+                    <h4>{{ message.username }}</h4>
+                    <span
+                      >Date sent: {{ relativeTime(message.created_at) }}</span
+                    >
+                    <p>{{ message.body }}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="blog-reply-wrapper mt-50">
+                <h4 class="blog-dec-title">Reply</h4>
+                <form class="blog-form" action="#">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="text-leave">
+                        <textarea placeholder="Message"></textarea>
+                        <input type="submit" value="SEND MESSAGE" />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <div class="cart-main-area pt-90 pb-100">
-      <!-- <div class="pro-details-cart btn-hover"> -->
+    <!-- <div class="cart-main-area pt-90 pb-100">
+      <div class="pro-details-cart btn-hover">
       <div id="destroyConvo">
         <button v-on:click="destroyConvo()">Delete Conversation</button>
          <input type="submit" value="">
       </div>
-      
+       -->
     <!-- </div> -->
-      <div class="container">
+    <!-- <div class="container">
         <h3><a href="`/ads/${ad.id}`">Ad Title: {{conversation.ad_title}}</a></h3>
         <div class="row">
           <div class="col-lg-12 col-md-12 col-sm-12 col-12">
@@ -48,7 +87,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
