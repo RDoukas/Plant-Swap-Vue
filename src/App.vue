@@ -1,27 +1,6 @@
 <template>
   <div id="app">
     <header class="header-area clearfix header-hm8">
-      <div class="header-top-area">
-        <div class="container">
-          <div class="header-top-wap">
-            <!-- <div class="header-right-wrap">
-              <div class="same-style header-search">
-                <a class="search-active" href="#"
-                  ><i class="pe-7s-search"></i
-                ></a>
-                <div class="search-content">
-                  <form action="#">
-                    <input type="text" placeholder="Search" />
-                    <button class="button-search">
-                      <i class="pe-7s-search"> </i>
-                    </button>
-                  </form>
-                </div>
-              </div>
-            </div> -->
-          </div>
-        </div>
-      </div>
       <div class="header-bottom sticky-bar header-res-padding header-padding-2">
         <div class="container">
           <div class="row">
@@ -75,6 +54,8 @@
         </div>
       </div>
     </header>
+   
+    
 
     <router-view />
   </div>
