@@ -5,6 +5,13 @@
         <div class="row flex-row-reverse">
           <div class="col-lg-9">
             <div class="blog-details-wrapper ml-20">
+              <div id="destroyConvo">
+                <div class="btn-hover">
+                  <button v-on:click="destroyConvo()">
+                    Delete Conversation
+                  </button>
+                </div>
+              </div>
               <div class="blog-comment-wrapper mt-55">
                 <h4 class="blog-dec-title">
                   {{ conversation.ad_title }}
@@ -23,12 +30,18 @@
                 </div>
               </div>
               <div class="blog-reply-wrapper mt-50">
-                <h4 class="blog-dec-title">Reply</h4>
-                <form class="blog-form" action="#">
+                <form class="blog-form" v-on:submit.prevent="createMessage()">
+                  <ul>
+                    <li v-for="error in errors">{{ error }}</li>
+                  </ul>
+                  <label>Send Message:</label>
                   <div class="row">
                     <div class="col-md-12">
                       <div class="text-leave">
-                        <textarea placeholder="Message"></textarea>
+                        <textarea
+                          :placeholder="`Reply to ${partner.username}`"
+                          v-model="newMessage"
+                        ></textarea>
                         <input type="submit" value="SEND MESSAGE" />
                       </div>
                     </div>
@@ -46,8 +59,8 @@
       <div id="destroyConvo">
         <button v-on:click="destroyConvo()">Delete Conversation</button>
          <input type="submit" value="">
-      </div>
-       -->
+      </div> -->
+
     <!-- </div> -->
     <!-- <div class="container">
         <h3><a href="`/ads/${ad.id}`">Ad Title: {{conversation.ad_title}}</a></h3>
