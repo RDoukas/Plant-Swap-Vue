@@ -18,44 +18,40 @@
           <div class="col-lg-6 col-md-6">
             <div class="product-details-content ml-70" >
               <h2>{{ ad.title }}</h2>
-              <h4>Posted on: {{ ad.created_at }}</h4>
               <h5>Plant Parent: {{ ad.username }}</h5>
+              <h6>Posted on: {{ ad.created_at }}</h6>
+              </br>
               <p>{{ ad.description }}</p>
-              <div class="pro-details-meta">
-                <span>Categories :</span>
-                <div v-for="category in ad.categories">
-                  {{ category.name }}
-                </div>
-              </div>
+              </br >
+                <h5>Categories:</h5>
+                <ul>
+                  <div v-for="category in ad.categories">{{ category.name }}
+                  </div>
+                </ul>
             </div>
             </br>
             <div class="blog-reply-wrapper mt-50">
               <form class="blog-form" action="#" v-on:submit.prevent="createConversation()">
                 <label>Send Message: </label>
-                <textarea
-                  type="text"
-                  class="form-control"
-                  :placeholder="`Message...`"
-                  v-model="newMessage"
-                  cols="30"
-                  rows="3"
-                ></textarea>
-                <input type="submit" value="SEND MESSAGE">
-                <!-- <input type="submit" class="btn btn-primary" value="send" /> -->
-              </form>
-              <!-- <form class="blog-form" action="#" v-on:submit.prevent="createConversation()">
-                <h4 class="blog-dec-title">Message Plant Parent</h4>
                 <div class="row">
-                  <div class="col-md-12">
-                    <div class="text-leave" >
-                      <textarea placeholder="`Message ${partner.username}`"></textarea>
-                      <input type="submit" value="SEND MESSAGE">
+                    <div class="col-md-12">
+                      <div class="text-leave">
+                        <textarea
+                          type="text"
+                          class="form-control"
+                          :placeholder="`Message...`"
+                          v-model="newMessage"
+                          cols="30"
+                          rows="3"
+                        ></textarea>
+                        <input type="submit" value="SEND MESSAGE"/>
+                      </div>
                     </div>
-                  </div>
                 </div>
-              </form> -->
-              </div>
+              </form>
             </div>
+         
+          </div>
             
             <div class="pro-details-cart btn-hover" v-if="ad.owner">
       <!-- Button trigger modal -->

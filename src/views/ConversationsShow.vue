@@ -21,7 +21,7 @@
                   v-for="message in conversation.messages"
                 >
                   <div class="blog-comment-content">
-                    <h4>{{ message.username }}</h4>
+                    <h5>User: {{ message.username }}</h5>
                     <span
                       >Date sent: {{ relativeTime(message.created_at) }}</span
                     >
