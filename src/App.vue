@@ -34,23 +34,6 @@
               </div>
             </div>
           </div>
-          <!-- <div class="mobile-menu-area">
-            <div class="mobile-menu">
-              <nav id="mobile-menu-active">
-                <ul class="menu-overflow">
-                  <li><a href="/"> Home </a></li>
-                  <li><a href="/about"> About </a></li>
-                  <li><a href="/ads"> Ads </a></li>
-                  <li v-if="!isLoggedIn()"><a href="/login"> Login </a></li>
-                  <li v-if="!isLoggedIn()"><a href="/signup"> Signup </a></li>
-                  <li v-if="isLoggedIn()">
-                    <a href="/conversations"> Messages </a>
-                  </li>
-                  <li v-if="isLoggedIn()"><a href="/logout"> Logout </a></li>
-                </ul>
-              </nav>
-            </div>
-          </div> -->
         </div>
       </div>
     </header>

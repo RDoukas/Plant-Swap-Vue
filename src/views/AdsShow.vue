@@ -184,6 +184,7 @@ export default {
       var params = {
         recipient_id: this.ad.user_id,
         ad_id: this.ad.id,
+        message: this.newMessage
       };
       axios
         .post(`/api/conversations`, params)

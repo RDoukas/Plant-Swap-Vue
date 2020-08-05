@@ -29,6 +29,9 @@
               <div class="col-lg-4 col-md-6"></div>
                 <div class="blog-reply-wrapper mt-50">
                   <form class="blog-form" v-on:submit.prevent="createMessage()">
+                    <ul>
+                      <li v-for="error in errors">{{error}}</li>
+                    </ul>
                     <label>Send Message:</label>
                     <div class="row">
                       <div class="col-md-12">
