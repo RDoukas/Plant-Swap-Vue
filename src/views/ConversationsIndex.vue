@@ -16,7 +16,7 @@
                   <div class="blog-comment-content">
                     <h4>{{ conversation.ad_title }}</h4>
                     <p></p>
-                    <p>Plant Parent: {{ conversation.partner.username }}</p>
+                    <p>User: {{ conversation.partner.username }}</p>
                     <p>"{{ conversation.last_message.body }}"</p>
                     <div class="blog-details-btn">
                       <router-link
