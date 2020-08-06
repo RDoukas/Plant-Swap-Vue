@@ -105,7 +105,6 @@
                           />
                           <label :for="category.id">{{ category.name }}</label>
                         </div>
-                        {{ categoryIds }}
                       </div>
                     <input type="submit" class="btn btn-primary" value="Update" />
                 </form> 

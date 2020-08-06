@@ -11,7 +11,7 @@
           <select>
           <option sortAttribute="`created_at`">Sort by newest</option>
           <option sortAttribute="`title">Sort by Title</option>
-          <option sortAttribute="`username`">Sort by Username</option>
+          <option sortAttribute="`username`">Sort by Plant Parent</option>
           </select>
         </div>
         </div>
@@ -52,7 +52,7 @@
               </div>
               <h3><router-link v-bind:to="`/ads/${ad.id}`">{{ ad.title }}</router-link></h3>
               <h4>Posted on: {{ ad.created_at }}</h4>
-              <h5>User: {{ ad.username }}</h5>
+              <h5>Plant Parent: {{ ad.username }}</h5>
               <p>{{ ad.description }}</p>  
             </div>
             </div>
