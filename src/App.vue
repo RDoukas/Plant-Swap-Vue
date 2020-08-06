@@ -8,8 +8,8 @@
           <div class="col-xl-12 col-lg-12 col-md-6 col-4">
           <div class="logo text-center">
             <a href="/">
-            <img alt="" src="/assets/img/logo/succulent-logo.jpg" height=100px />
-            <h4>Chicago Plant Swapp</h4>
+            <img alt="" src="/assets/img/logo/kayla-logo.png" height=300px />
+          
             </a>
           </div>
           </div>
