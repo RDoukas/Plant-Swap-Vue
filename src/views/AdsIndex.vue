@@ -85,7 +85,19 @@
           <ul>
           <li>
             <div class="sidebar-widget-list-left">
-            <input type="checkbox" value=""> <a href="#">Plant </a>
+            <input type="checkbox" value=""> <a href="#">Blooming </a>
+            <span class="checkmark"></span> 
+            </div>
+          </li>
+          <li>
+            <div class="sidebar-widget-list-left">
+            <input type="checkbox" value=""> <a href="#">Pickup </a>
+            <span class="checkmark"></span> 
+            </div>
+          </li>
+          <li>
+            <div class="sidebar-widget-list-left">
+            <input type="checkbox" value=""> <a href="#">Drop-off </a>
             <span class="checkmark"></span> 
             </div>
           </li>

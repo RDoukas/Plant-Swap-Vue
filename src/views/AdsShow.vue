@@ -31,29 +31,31 @@
             </div>
             </br>
             <div class="blog-reply-wrapper mt-50">
-              <form class="blog-form" action="#" v-on:submit.prevent="createConversation()">
-                <label>Send Message: </label>
-                <div class="row">
-                    <div class="col-md-12">
-                      <div class="text-leave">
-                        <textarea
-                          type="text"
-                          class="form-control"
-                          :placeholder="`Message...`"
-                          v-model="newMessage"
-                          cols="30"
-                          rows="3"
-                        ></textarea>
-                        <input type="submit" value="SEND MESSAGE"/>
+              <div v-if="!ad.owner">
+                <form class="blog-form" action="#" v-on:submit.prevent="createConversation()">
+                  <label>Send Message: </label>
+                  <div class="row">
+                      <div class="col-md-12">
+                        <div class="text-leave">
+                          <textarea
+                            type="text"
+                            class="form-control"
+                            :placeholder="`Message...`"
+                            v-model="newMessage"
+                            cols="30"
+                            rows="3"
+                          ></textarea>
+                          <input type="submit" value="SEND MESSAGE"/>
+                        </div>
                       </div>
-                    </div>
-                </div>
-              </form>
+                  </div>
+                </form>
+              </div>
             </div>
          
           </div>
             
-            <div class="pro-details-cart btn-hover" v-if="ad.owner">
+            <div v-if="ad.owner">
       <!-- Button trigger modal -->
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editAdModal">
                 Edit
@@ -71,41 +73,43 @@
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
-                  <form v-on:submit.prevent="editAd()">
-                  <ul>
-                    <li class="text-danger" v-for="error in errors">{{ error }}</li>
-                  </ul>
-                  <div class="form-group">
-                    <label>Title:</label>
-                    <input type="text" class="form-control" v-model="ad.title" />
-                  </div>
-                  <div class="form-group">
-                    <label>Description: </label>
-                    <input type="text" class="form-control" v-model="ad.description" />
-                  </div>
-                  <div class="form-group">
-                    <label>Image:</label>
-                    <input
-                      class="form-control"
-                      type="file"
-                      v-on:change="setFile($event)"
-                      ref="fileInput"
-                    />
-                  </div>
-                  <div class="form-group">
-                    <div v-for="category in categories">
-                      <input
-                        type="checkbox"
-                        :id="category.id"
-                        :value="category.id"
-                        v-model="categoryIds"
-                      />
-                      <label :for="category.id">{{ category.name }}</label>
-                    </div>
-                    {{ categoryIds }}
-                  </div>
-                <input type="submit" class="btn btn-primary" value="Update" />
-              </form>  
+                  <div class="modal-body">
+                      <form v-on:submit.prevent="editAd()">
+                      <ul>
+                        <li class="text-danger" v-for="error in errors">{{ error }}</li>
+                      </ul>
+                      <div class="form-group">
+                        <label>Title:</label>
+                        <input type="text" class="form-control" v-model="ad.title" />
+                      </div>
+                      <div class="form-group">
+                        <label>Description: </label>
+                        <input type="text" class="form-control" v-model="ad.description" />
+                      </div>
+                      <div class="form-group">
+                        <label>Image:</label>
+                        <input
+                          class="form-control"
+                          type="file"
+                          v-on:change="setFile($event)"
+                          ref="fileInput"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <div v-for="category in categories">
+                          <input
+                            type="checkbox"
+                            :id="category.id"
+                            :value="category.id"
+                            v-model="categoryIds"
+                          />
+                          <label :for="category.id">{{ category.name }}</label>
+                        </div>
+                        {{ categoryIds }}
+                      </div>
+                    <input type="submit" class="btn btn-primary" value="Update" />
+                </form> 
+              </div> 
             </div>
           </div>
         </div>

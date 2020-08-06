@@ -1,9 +1,35 @@
 <template>
   <div class="home">
-    <h1>{{ message }}</h1>
-    <p>{{ intro }}</p>
+    <div class="section-title-6 text-center">
+      <h3>{{ message }}</h3>
+      <h4>{{ intro }}</h4>
+    </div>
+    <div class="slider-area">
+      <div class="slider-active owl-carousel nav-style-1 owl-dot-none">
+        <div
+          class="single-slider-2 slider-height-18 res-white-overly-xs d-flex align-items-center bg-img"
+          style="background-image:url(/assets/img/slider/succulents.jpg);"
+        >
+          <div class="container">
+            <div class="row">
+              <div class="col-12"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="single-slider-2 slider-height-18 res-white-overly-xs d-flex align-items-center bg-img"
+        style="background-image:url(/assets/img/slider/succulents.jpg);"
+      >
+        <div class="container">
+          <div class="row">
+            <div class="col-12"></div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <div class="product-area pt-100 pb-70">
+    <!-- <div class="product-area pt-100 pb-70">
       <div class="container">
         <div class="section-title-6 text-center">
           <h2>Featured Ads</h2>
@@ -43,11 +69,7 @@
                   </div>
                   <div class="product-content text-center">
                     <h3>
-                      <a
-                        href="/ads/2
-"
-                        >Fern</a
-                      >
+                      <a href="/ads/2">Fern</a>
                     </h3>
                   </div>
                 </div>
@@ -335,7 +357,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 

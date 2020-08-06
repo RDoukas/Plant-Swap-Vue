@@ -2,16 +2,15 @@
   <div class="conversations-show">
     <div class="Blog-area pt-100 pb-100">
       <div class="container">
+        <div>
+          <button class="btn-primary" v-on:click="destroyConvo()">
+            Delete Conversation
+          </button>
+        </div>
         <div class="row flex-row-reverse">
           <div class="col-lg-9">
             <div class="blog-details-wrapper ml-20">
-              <div id="destroyConvo">
-                <div class="btn-hover">
-                  <button v-on:click="destroyConvo()">
-                    Delete Conversation
-                  </button>
-                </div>
-              </div>
+              <div id="destroyConvo"></div>
               <div class="blog-comment-wrapper mt-55">
                 <h4 class="blog-dec-title">
                   {{ conversation.ad_title }}
