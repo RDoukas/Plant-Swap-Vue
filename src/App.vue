@@ -4,47 +4,52 @@
     <header class="header-area clearfix header-hm8">
       <div class="header-bottom sticky-bar header-res-padding header-padding-2">
         <div class="container">
-        <div class="row">
-          <div class="col-xl-12 col-lg-12 col-md-6 col-4">
-          <div class="logo text-center">
-            <a href="/">
-            <img alt="" src="/assets/img/logo/kayla-logo.png" height=300px />
-          
-            </a>
+          <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-6 col-4">
+              <div class="logo text-center">
+                <a href="/">
+                <img alt="" src="/assets/img/logo/kayla-logo.png" height=300px />
+                </a>
+              </div>
+            </div>
+            <div class="col-xl-12 col-lg-12 d-none d-lg-block">
+              <div class="main-menu">
+                <nav>
+                <ul>
+                  <li><a href="/"> Home </a></li>
+                  <!-- <li><a href="/about"> About </a></li> -->
+                  <li><a href="/ads"> Ads </a></li>
+                  <li v-if="!isLoggedIn()"><a href="/login"> Login </a></li>
+                  <li v-if="!isLoggedIn()">
+                  <a href="/signup"></i>Signup</a>
+                  </li>
+                  <li v-if="isLoggedIn()">
+                  <a href="/conversations"> Messages </a>
+                  </li>
+                  <li v-if="isLoggedIn()">
+                  <a href="/users">Profile </a>
+                  </li>
+                  <li v-if="isLoggedIn()"><a href="/logout"> Logout </a></li>
+                </ul>
+                </nav>
+              </div>
+            </div>
           </div>
-          </div>
-          <div class="col-xl-12 col-lg-12 d-none d-lg-block">
-          <div class="main-menu">
-            <nav>
-            <ul>
-              <li><a href="/"> Home </a></li>
-              <li><a href="/about"> About </a></li>
-              <li><a href="/ads"> Ads </a></li>
-              <li v-if="!isLoggedIn()"><a href="/login"> Login </a></li>
-              <li v-if="!isLoggedIn()">
-              <a href="/signup"></i>Signup</a>
-              </li>
-              <li v-if="isLoggedIn()">
-              <a href="/conversations"> Messages </a>
-              </li>
-              <li v-if="isLoggedIn()">
-              <a href="/users">Profile </a>
-              </li>
-              <li v-if="isLoggedIn()"><a href="/logout"> Logout </a></li>
-            </ul>
-            </nav>
-          </div>
-          </div>
-        </div>
         </div>
       </div>
     </header>
+    <div class="breadcrumb-area pt-35 pb-35" style="background-color:#915396;">
+      <div class="container">
+        <div class="breadcrumb-content text-center">
+        </div>
+      </div>
+    </div>
   
 
     
   
 
-  <router-view />
+    <router-view />
   </div>
 </template>
 
