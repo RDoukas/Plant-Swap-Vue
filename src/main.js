@@ -4,7 +4,7 @@ import router from "./router";
 import axios from "axios";
 
 axios.defaults.baseURL =
-  process.env.NODE_ENV === "development"
+  process.env.NODE_ENV === "production"
     ? "https://chicago-plant-swap.herokuapp.com/"
     : "/";
 
