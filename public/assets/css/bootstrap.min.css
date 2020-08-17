@@ -18,7 +18,7 @@
   --white: #fff;
   --gray: #6c757d;
   --gray-dark: #343a40;
-  --primary: #a749ff;
+  --primary: #915396;
   --secondary: #6c757d;
   --success: #28a745;
   --info: #030303;
@@ -2453,8 +2453,8 @@ fieldset:disabled a.btn {
 }
 .btn-primary {
   color: #fff;
-  background-color: #a749ff;
-  border-color: #a749ff;
+  background-color: #915396;
+  border-color: #915396;
 }
 .btn-primary:hover {
   color: #fff;
