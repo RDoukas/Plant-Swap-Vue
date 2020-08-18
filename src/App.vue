@@ -1,71 +1,40 @@
 <template>
   <div id="app">
-
-    <header class="header-area clearfix header-hm8">
-      <div class="header-bottom sticky-bar header-res-padding header-padding-2">
-        <div class="container">
-          <div class="row">
-            <div class="col-xl-12 col-lg-12 col-md-6 col-4">
-              <div class="logo text-center">
-                <a href="/">
-                <img alt="" src="/assets/img/logo/kayla-logo.png" height=300px />
-                </a>
-              </div>
-            </div>
-            <div class="col-xl-12 col-lg-12 d-none d-lg-block">
-              <div class="main-menu">
-                <nav>
-                <ul>
-                  <li><a href="/"> Home </a></li>
-                  <!-- <li><a href="/about"> About </a></li> -->
-                  <li><a href="/ads"> Ads </a></li>
-                  <li v-if="!isLoggedIn()"><a href="/login"> Login </a></li>
-                  <li v-if="!isLoggedIn()">
-                  <a href="/signup"></i>Signup</a>
-                  </li>
-                  <li v-if="isLoggedIn()">
-                  <a href="/conversations"> Messages </a>
-                  </li>
-                  <li v-if="isLoggedIn()">
-                  <a href="/users">Profile </a>
-                  </li>
-                  <li v-if="isLoggedIn()"><a href="/logout"> Logout </a></li>
-                </ul>
-                </nav>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-    <div class="breadcrumb-area pt-35 pb-35" style="background-color:#915396;">
-      <div class="container">
-        <div class="breadcrumb-content text-center">
-        </div>
-      </div>
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link> |
+      <router-link to="/ads">Ads</router-link> |
+      <a v-if="isLoggedIn()"
+        ><router-link to="/conversations">Messages</router-link></a
+      >
+      |
+      <a v-if="isLoggedIn()"><router-link to="/users/">Profile</router-link></a>
+      |
+      <a v-if="isLoggedIn()"><router-link to="/logout">Logout</router-link></a>
+      |
+      <a v-if="!isLoggedIn()"><router-link to="/login">Login</router-link></a> |
+      <a v-if="!isLoggedIn()"><router-link to="/signup">Signup</router-link></a>
     </div>
-  
 
-    
-  
-
-    <router-view />
+    <div class="container">
+      <router-view />
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   data: function() {
-  return {};
+    return {};
   },
   methods: {
-  isLoggedIn: function() {
-    return localStorage.getItem("jwt");
-  },
+    isLoggedIn: function() {
+      return localStorage.getItem("jwt");
+    },
 
-  getUserId: function() {
-    return localStorage.getItem("user_id");
-  },
+    getUserId: function() {
+      return localStorage.getItem("user_id");
+    },
   },
 };
 </script>
