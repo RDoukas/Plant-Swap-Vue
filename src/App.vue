@@ -88,11 +88,28 @@
                   <a href="/ads" class="btn btn-black">Ads</a>
                 </li>
                 <li>
-                  <a href="/conversations" class="btn btn-black">Messages</a>
+                  <a
+                    v-if="isLoggedIn()"
+                    href="/conversations"
+                    class="btn btn-black"
+                    >Messages</a
+                  >
                 </li>
                 <li>
-                  <a href="/users" class="btn btn-black">Profile</a>
+                  <a v-if="isLoggedIn()" href="/users" class="btn btn-black"
+                    >Profile</a
+                  >
                 </li>
+                <!-- <li>
+                  <a
+                    href="#"
+                    class="header-search-toggle"
+                    role="button"
+                    title="Open Search"
+                    ><span class="visible-inline-xs">Search</span
+                    ><i class="fa fa-search"></i
+                  ></a>
+                </li> -->
               </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -103,7 +120,7 @@
       </header>
       <!-- End .header -->
 
-      <div class="header-search-form">
+      <!-- <div class="header-search-form">
         <a href="#" class="header-search-toggle" title="Close"
           ><i class="fa fa-times"></i
         ></a>
@@ -115,7 +132,7 @@
             required
           />
         </form>
-      </div>
+      </div> -->
       <!-- End .header-search-form -->
 
       <a id="scroll-top" href="#top" title="Scroll top"
