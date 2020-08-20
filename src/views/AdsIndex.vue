@@ -2,6 +2,34 @@
   <div class="ads-index">
     <div class="wrapper">
       <div class="main">
+        <div
+          class="fullscreen vertical-center parallax overlay-container overflow-hidden"
+          style="background-image:url(assets/images/backgrounds/index9/page-header.jpg)"
+          data-0="background-position:50% 50%;"
+          data-top-bottom="background-position:50% 100%"
+        >
+          <div class="overlay custom"></div>
+          <!-- End .overlay -->
+
+          <div
+            class="vcenter-content text-center"
+            data-300-top="opacity:1;"
+            data-top-bottom="opacity:0.4;"
+          >
+            <div class="container-fluid">
+              <h1 class="text-white">
+                Ads <span class="text-custom">List</span>
+              </h1>
+              <p class="text-white">
+                Below is a a list of all plants that are available to be
+                swapped!
+              </p>
+            </div>
+            <!-- End .container-fluid -->
+          </div>
+          <!-- End .vcenter-content -->
+        </div>
+        <!-- End .fullscreen -->
         <div class="container-fluid">
           <div class="row flex-shop">
             <div class="col-md-9 col-md-push-3">

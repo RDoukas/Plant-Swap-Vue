@@ -46,11 +46,11 @@
                 title="Bold - Multipurpose Template"
               >
                 <img
-                  src="/assets/images/logo.png"
+                  src="/assets/images/plant-logo.png"
                   data-rjs="3"
-                  alt="Bold Logo"
+                  alt="Logo"
+                  width="200px"
                 />
-                <span class="sr-only">Bold</span>
               </a>
             </div>
             <!-- End .header-center -->

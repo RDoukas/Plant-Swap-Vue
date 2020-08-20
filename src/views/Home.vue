@@ -16,7 +16,17 @@
               class="vcenter-content text-center"
               data-300-top="opacity:1;"
               data-top-bottom="opacity:0.4;"
-            ></div>
+            >
+              <div class="container-fluid">
+                <h1 class="text-white">
+                  Welcome to <span class="text-custom">Chicago Plant Swap</span>
+                </h1>
+                <p class="text-white">
+                  Below is a a list of all plants that are available to be
+                  swapped!
+                </p>
+              </div>
+            </div>
             <!-- End .vcenter-content -->
           </div>
           <!-- End .fullscreen -->
