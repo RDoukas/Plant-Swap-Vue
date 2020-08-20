@@ -51,6 +51,7 @@
                   }}</a>
                 </h3>
                 <p>Plant Parent: {{ conversation.partner.username }}</p>
+                <p>Sent: {{ relativeTime(conversation.last_message.created_at)}}</p>
                 <p>"{{ conversation.last_message.body }}"</p>
                 <a href="`/conversations/${conversation.id}`"
                   class="btn btn-custom"
