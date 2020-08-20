@@ -140,19 +140,6 @@
       ></a>
 
       <router-view />
-      <!-- <router-link to="/">Home</router-link> |
-
-      <router-link to="/ads">Ads</router-link> |
-      <a v-if="isLoggedIn()"
-        ><router-link to="/conversations">Messages</router-link></a
-      >
-      |
-      <a v-if="isLoggedIn()"><router-link to="/users/">Profile</router-link></a>
-      |
-      <a v-if="isLoggedIn()"><router-link to="/logout">Logout</router-link></a>
-      |
-      <a v-if="!isLoggedIn()"><router-link to="/login">Login</router-link></a> |
-      <a v-if="!isLoggedIn()"><router-link to="/signup">Signup</router-link></a> -->
     </div>
   </div>
 </template>
