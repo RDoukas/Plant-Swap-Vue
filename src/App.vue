@@ -100,16 +100,7 @@
                     >Profile</a
                   >
                 </li>
-                <!-- <li>
-                  <a
-                    href="#"
-                    class="header-search-toggle"
-                    role="button"
-                    title="Open Search"
-                    ><span class="visible-inline-xs">Search</span
-                    ><i class="fa fa-search"></i
-                  ></a>
-                </li> -->
+                
               </ul>
             </div>
             <!-- /.navbar-collapse -->

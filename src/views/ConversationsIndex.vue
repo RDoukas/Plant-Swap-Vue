@@ -37,7 +37,7 @@
             <div class="col-md-4 col-sm-5">
               <div class="product-top">
                 <figure>
-                  <a href="product.html" title="Product Name"> </a>
+                  <a href="/ads/${conversation.ad_id}" title="Product Name"> </a>
                 </figure>
               </div>
               <!-- End .product -->
@@ -45,11 +45,11 @@
             <!-- End .col-md-4 -->
             <div class="col-md-8 col-sm-7">
               <div class="product-content">
-                <h3 class="product-title">
-                  <a href="`/conversations/${conversation.id}`">{{
+                <h1 class="product-title">
+                  {{
                     conversation.ad_title
-                  }}</a>
-                </h3>
+                  }}
+                </h1>
                 <p>Plant Parent: {{ conversation.partner.username }}</p>
                 <p>Sent: {{ relativeTime(conversation.last_message.created_at)}}</p>
                 <p>"{{ conversation.last_message.body }}"</p>

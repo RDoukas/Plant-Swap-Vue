@@ -4,7 +4,16 @@
       <div class="main">
         <div class="container-fluid ">
           <div class="comments">
-            <h3 class="title custom mb25">{{ conversation.ad_title }}</h3>
+           <div class="title custom mb50" >
+              <h2>{{ conversation.ad_title }}</h2>
+              <button
+                class="btn btn-custom min-width pull-right"
+                v-on:click="destroyConvo()"
+              >
+                Delete Conversation
+              </button>
+              </h3>
+            </div>
             <ul class="comments-list media-list">
               <li v-for="message in conversation.messages" class="media">
                 <div class="comment">
@@ -57,9 +66,7 @@
       </div>
     </div>
 
-    <!-- <button v-on:click="destroyConvo()">
-      Delete Conversation
-    </button>
+    <!-- 
     <h4>{{ conversation.ad_title }}</h4>
     <div v-for="message in conversation.messages">
       <h5>Plant Parent: {{ message.username }}</h5>
