@@ -2424,8 +2424,8 @@ p {
 .btn.btn-black:hover,
 .btn.btn-black:focus {
   color: #fff;
-  background-color: #673ab7;
-  border-color: #673ab7;
+  background-color: black;
+  border-color: black;
 }
 
 .btn.btn-black.btn-border {
@@ -2437,8 +2437,8 @@ p {
 .btn.btn-black.btn-border:hover,
 .btn.btn-black.btn-border:focus {
   color: #fff;
-  background-color: #673ab7;
-  border-color: #673ab7;
+  background-color: #181818;
+  border-color: #181818;
 }
 
 .btn.btn-gray {

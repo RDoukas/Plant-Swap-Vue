@@ -4,7 +4,7 @@
       <div class="main">
         <div
           class="fullscreen vertical-center parallax overlay-container overflow-hidden"
-          style="background-image:url(assets/images/backgrounds/index9/page-header.jpg)"
+          style="background-image:url(assets/images/backgrounds/succulent-wood.jpg)"
           data-0="background-position:50% 50%;"
           data-top-bottom="background-position:50% 100%"
         >
@@ -18,12 +18,12 @@
           >
             <div class="container-fluid">
               <h1 class="text-white">
-                Ads <span class="text-custom">List</span>
+                <span>Ads List</span>
               </h1>
-              <p class="text-white">
+              <!-- <h5 class="text-white">
                 Below is a a list of all plants that are available to be
                 swapped!
-              </p>
+              </h5> -->
             </div>
             <!-- End .container-fluid -->
           </div>
@@ -36,20 +36,13 @@
               <div class="category-filter-row">
                 <div class="right">
                   <div>
-                    <button v-on:click="sortAttribute = user_id">
+                    <button v-on:click="sortAttribute = ad.user_id">
                       Show my ads
                     </button>
-                    <button v-on:click="sortAttribute = title">
+                    <button v-on:click="sortAttribute = ad.title">
                       Sort by Title
                     </button>
                   </div>
-                  <!-- <div v-for="item in filterBy(items, 'hello')">
-                  <button v-on:click="sortAttribute = ads.user_id">
-                    Show my ads
-                  </button>
-                  <button v-on:click="sortAttribute = ads.title">
-                    Sort by Title
-                  </button> -->
                 </div>
                 <!-- end .right -->
 
