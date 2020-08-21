@@ -3,8 +3,8 @@
     <div class="wrapper">
       <div class="main">
         <div
-          class="fullscreen vertical-center parallax overlay-container overflow-hidden"
-          style="background-image:url(assets/images/backgrounds/succulent-wood.jpg)"
+          class="page-header largest parallax custom text-center"
+          style="background-image:url(/assets/images/backgrounds/succulent-wood.jpg)"
           data-0="background-position:50% 50%;"
           data-top-bottom="background-position:50% 100%"
         >
@@ -21,9 +21,9 @@
                 <span>Ads List</span>
               </h1>
               <!-- <h5 class="text-white">
-                Below is a a list of all plants that are available to be
-                swapped!
-              </h5> -->
+        Below is a a list of all plants that are available to be
+        swapped!
+        </h5> -->
             </div>
             <!-- End .container-fluid -->
           </div>
@@ -36,12 +36,12 @@
               <div class="category-filter-row">
                 <div class="right">
                   <div>
-                    <button v-on:click="sortAttribute = ad.user_id">
+                    <div
+                      class="btn btn-custom btn-sm"
+                      v-on:click="sortAttribute = ad.user_id"
+                    >
                       Show my ads
-                    </button>
-                    <button v-on:click="sortAttribute = ad.title">
-                      Sort by Title
-                    </button>
+                    </div>
                   </div>
                 </div>
                 <!-- end .right -->
@@ -59,7 +59,7 @@
                 <!-- End .left -->
               </div>
               <!-- End .category-filter-row -->
-              <li v-for="ad in ads">
+              <ul v-for="ad in ads">
                 <div class="product product-list">
                   <div class="row">
                     <div class="col-md-4 col-sm-5">
@@ -97,38 +97,74 @@
                   </div>
                   <!-- end .Row -->
                 </div>
-              </li>
+              </ul>
 
               <!-- End .product -->
 
               <div class="mb20 mb15-sm"></div>
               <!-- End margin -->
-
-              <!-- <div class="pagination-wrapper">
-                <nav class="pagination-container">
-                  <label>Showing: 1-4 of 16</label>
-                  <ul class="pagination">
-                    <li class="active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li>
-                      <a href="#" aria-label="Next">
-                        <span aria-hidden="true"
-                          ><i class="fa fa-angle-right"></i
-                        ></span>
-                      </a>
-                    </li>
-                  </ul>
-                </nav>
-              </div> -->
-              <!-- End .pagination-wrapper -->
             </div>
             <!-- End .col-md-9 -->
-
             <aside class="col-md-3 col-md-pull-9 sidebar shop-sidebar">
               <div class="widget">
-                <div class="filter-group-widget"></div>
+                <div class="filter-group-widget">
+                  <div
+                    class="panel-group"
+                    role="tablist"
+                    aria-multiselectable="true"
+                  >
+                    <div class="panel">
+                      <div
+                        class="panel-heading"
+                        role="tab"
+                        id="categoryFilter-header"
+                      >
+                        <h4 class="panel-title">
+                          <a
+                            data-toggle="collapse"
+                            href="#categoryFilter"
+                            aria-expanded="true"
+                            aria-controls="categoryFilter"
+                          >
+                            Categories
+                            <span class="panel-icon"></span>
+                          </a>
+                        </h4>
+                      </div>
+                      <!-- End .panel-heading -->
+                      <div
+                        id="categoryFilter"
+                        class="panel-collapse collapse in"
+                        role="tabpanel"
+                        aria-labelledby="categoryFilter-header"
+                      >
+                        <div class="panel-body">
+                          <div class="filter-category-container">
+                            <div class="row">
+                              <div v-for="category in categories">
+                                <input
+                                  type="checkbox"
+                                  :id="category.id"
+                                  :value="category.id"
+                                  v-model="categoryIds"
+                                />
+                                <label for="category">{{
+                                  category.name
+                                }}</label>
+                              </div>
+                            </div>
+                            <!-- End .row -->
+                          </div>
+                          <!-- End .filter-color-container -->
+                        </div>
+                        <!-- End .panel-body -->
+                      </div>
+                      <!-- End .panel-collapse -->
+                    </div>
+                    <!-- End .panel -->
+                  </div>
+                  <!-- End .panel-group -->
+                </div>
                 <!-- End .filter-widget -->
               </div>
               <!-- End .widget -->
@@ -150,16 +186,36 @@ export default {
   data: function() {
     return {
       ads: [],
+      categories: [],
+      categoryIds: [],
       titleFilter: "",
       sortAttribute: "",
     };
+  },
+  computed: {
+    filteredByCateogry() {
+      return this.getByCategory(this.ads, this.categoryIds);
+    },
   },
   created: function() {
     axios.get("api/ads").then((response) => {
       console.log("All Ads:", response.data);
       this.ads = response.data;
     });
+    axios.get("/api/categories").then((response) => {
+      this.categories = response.data;
+    });
   },
-  methods: {},
+  methods: {
+    getByCategory: function(events, categoryIds) {
+      if (categoryIds.length === 0) {
+        return ads;
+      }
+      categoryIds.forEach((category) => {
+        ads = this.filterBy(ads, category.name);
+      });
+      return ads;
+    },
+  },
 };
 </script>

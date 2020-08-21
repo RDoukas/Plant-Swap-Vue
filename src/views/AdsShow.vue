@@ -52,13 +52,15 @@
 
       <!-- Delete ad button -->
       <div id="destroyAd">
-        <button v-on:click="destroyAd()">Delete Ad</button>
+        <div class="btn btn-custom" v-on:click="destroyAd()">Delete Ad</div>
       </div>
     </div>
 
     <!-- Send message -->
     <div v-if="!ad.owner">
-      <button v-on:click="createConversation()">Contact User</button>
+      <div class="btn btn-custom" v-on:click="createConversation()">
+        Contact User
+      </div>
     </div>
   </div>
 </template>
