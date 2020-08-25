@@ -59,12 +59,12 @@
         <div class="mb60 mb50-sm mb40-xs"></div>
         <!-- margin -->
 
-        <div class="container-fluid">
+        <!-- <div class="container-fluid">
           <h3 class="title custom">
             Featured <span class="light text-custom">Plants</span>
-          </h3>
-          <div class="row">
-            <div class="col-md-6">
+          </h3> -->
+        <!-- <div class="row"> -->
+        <!-- <div class="col-md-6">
               <div class="row row-sm custom-gallery">
                 <div class="col-xs-4">
                   <a
@@ -91,76 +91,64 @@
                 </div>
                 <!-- End .col-xs-4 -->
 
-                <div class="col-xs-4">
-                  <!-- margin -->
+        <!-- <div class="col-xs-4"> -->
+        <!-- margin -->
 
-                  <a
-                    class="custom-link"
-                    href="assets/images/portfolio/grid/item3.jpg"
-                    data-thumb="assets/images/portfolio/grid/item3.jpg"
-                  >
-                    <img
-                      src="assets/images/portfolio/grid/item3.jpg"
-                      alt="Item"
-                    />
-                  </a>
+        <!-- <a
+              class="custom-link"
+              href="assets/images/portfolio/grid/item3.jpg"
+              data-thumb="assets/images/portfolio/grid/item3.jpg"
+            >
+              <img src="assets/images/portfolio/grid/item3.jpg" alt="Item" />
+            </a>
 
-                  <a
-                    class="custom-link"
-                    href="assets/images/portfolio/grid/item8.jpg"
-                    data-thumb="assets/images/portfolio/grid/item8.jpg"
-                  >
-                    <img
-                      src="assets/images/portfolio/grid/item8.jpg"
-                      alt="Item"
-                    />
-                  </a>
-                </div>
-                <!-- End .col-xs-4 -->
+            <a
+              class="custom-link"
+              href="assets/images/portfolio/grid/item8.jpg"
+              data-thumb="assets/images/portfolio/grid/item8.jpg"
+            >
+              <img src="assets/images/portfolio/grid/item8.jpg" alt="Item" />
+            </a>
+          </div> -->
+        <!-- End .col-xs-4 -->
 
-                <div class="col-xs-4">
-                  <a
-                    class="custom-link"
-                    href="assets/images/portfolio/grid/item5.jpg"
-                    data-thumb="assets/images/portfolio/grid/item5.jpg"
-                  >
-                    <img
-                      src="assets/images/portfolio/grid/item5.jpg"
-                      alt="Item"
-                    />
-                  </a>
+        <!-- <div class="col-xs-4">
+            <a
+              class="custom-link"
+              href="assets/images/portfolio/grid/item5.jpg"
+              data-thumb="assets/images/portfolio/grid/item5.jpg"
+            >
+              <img src="assets/images/portfolio/grid/item5.jpg" alt="Item" />
+            </a>
 
-                  <a
-                    class="custom-link"
-                    href="assets/images/portfolio/grid/item12.jpg"
-                    data-thumb="assets/images/portfolio/grid/item12.jpg"
-                  >
-                    <img
-                      src="assets/images/portfolio/grid/item12.jpg"
-                      alt="Item"
-                    />
-                  </a>
-                </div>
-                <!-- End .col-xs-4 -->
-              </div>
-              <!-- End .col-xs-4 -->
-            </div>
-            <!-- End .col-md-6 -->
-            <!-- End .col-md-6 -->
+            <a
+              class="custom-link"
+              href="assets/images/portfolio/grid/item12.jpg"
+              data-thumb="assets/images/portfolio/grid/item12.jpg"
+            >
+              <img src="assets/images/portfolio/grid/item12.jpg" alt="Item" />
+            </a>
+          </div> -->
+        <!-- End .col-xs-4 -->
+        <!-- </div> -->
+        <!-- End .col-xs-4 -->
+        <!-- </div> -->
+        <!-- End .col-md-6 -->
+        <!-- End .col-md-6 -->
 
-            <div class="clearfix mb30 visible-xs visible-sm"></div>
-            <!-- margin -->
+        <!-- <div class="clearfix mb30 visible-xs visible-sm"></div> -->
+        <!-- margin -->
 
-            <div class="col-md-6"></div>
-            <!-- End .col-md-6 -->
-          </div>
-          <!-- End .row -->
-        </div>
+        <!-- <div class="col-md-6"></div> -->
+        <!-- End .col-md-6 -->
+        <!-- </div> -->
+        <!-- End .row -->
+        <!-- </div> -->
         <!-- End .container-fluid -->
 
-        <div class="mb60 mb50-sm"></div>
+        <!-- <div class="mb60 mb50-sm"></div> -->
         <!-- margin -->
-        <div class="mb65 mb50-sm"></div>
+        <!-- <div class="mb65 mb50-sm"></div> -->
         <!-- margin -->
       </div>
       <!-- End .main -->

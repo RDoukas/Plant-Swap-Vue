@@ -35,28 +35,32 @@
         <div v-for="conversation in conversations" class="product product-list">
           <div class="row">
             <div class="col-md-4 col-sm-5">
-              <div class="product-top">
-                <figure>
-                  <a href="/ads/${conversation.ad_id}" title="Product Name"> </a>
-                </figure>
-              </div>
+              <div class="product-top"></div>
               <!-- End .product -->
             </div>
             <!-- End .col-md-4 -->
             <div class="col-md-8 col-sm-7">
               <div class="product-content">
                 <h1 class="product-title">
-                  {{
-                    conversation.ad_title
-                  }}
+                  <router-link v-bind:to="`/ads/${conversation.ad_id}`">
+                    {{ conversation.ad_title }}
+                  </router-link>
                 </h1>
                 <p>Plant Parent: {{ conversation.partner.username }}</p>
-                <p>Sent: {{ relativeTime(conversation.last_message.created_at)}}</p>
+                <p>
+                  Sent: {{ relativeTime(conversation.last_message.created_at) }}
+                </p>
                 <p>"{{ conversation.last_message.body }}"</p>
-                <a href="`/conversations/${conversation.id}`"
+                <router-link
                   class="btn btn-custom"
-                >Open Conversation</a>
-                </div>
+                  v-bind:to="`/conversations/${conversation.id}`"
+                  >{{ conversation.ad_title }}
+                </router-link>
+                <!-- <a
+                  href="`/conversations/${conversation.id}`"
+                  class="btn btn-custom"
+                  >Open Conversation</a
+                > -->
               </div>
               <!-- End .product-content -->
             </div>
