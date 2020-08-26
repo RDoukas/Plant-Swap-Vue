@@ -7,7 +7,7 @@ axios.defaults.baseURL =
   process.env.NODE_ENV === "production"
     ? "https://chi-plant-swap.herokuapp.com/"
     : "/";
-process.env.NODE_ENV === "development" ? "https://localhost:3000/" : "/";
+// process.env.NODE_ENV === "development" ? "https://localhost:3000/" : "/";
 
 var jwt = localStorage.getItem("jwt");
 if (jwt) {
