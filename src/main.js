@@ -5,7 +5,7 @@ import axios from "axios";
 
 axios.defaults.baseURL =
   process.env.NODE_ENV === "production"
-    ? "https://chi-plant-swap.herokuapp.com/"
+    ? "https://git.heroku.com/chi-plant-swap.git"
     : "/";
 // process.env.NODE_ENV === "development" ? "https://localhost:3000/" : "/";
 
