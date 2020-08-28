@@ -1,16 +1,108 @@
 <template>
   <div class="ads-show">
-    <h2>{{ ad.title }}</h2>
-    <h4>Posted on: {{ ad.created_at }}</h4>
-    <h5>User: {{ ad.username }}</h5>
-    <p>{{ ad.description }}</p>
-    <p>Categories:</p>
-    <div v-for="category in ad.categories">
-      <p>{{ category.name }}</p>
-    </div>
-    <img :src="ad.image_url" alt="" width="300" />
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="product-gallery-container">
+            <div class="product-zoom-wrapper">
+              <div class="product-zoom-container">
+                <!-- <img :src="ad.image_url" alt="" width="300" /> -->
+                <img
+                  id="product-zoom"
+                  :src="ad.image_url"
+                  alt="Product image big"
+                />
+              </div>
+              <!-- End .product-zoom-container -->
+            </div>
+            <!-- End .product-zoom-wrapper -->
+          </div>
+          <!-- End .product-gallery-container -->
+        </div>
+        <!-- End .col-md-6 -->
 
-    <br />
+        <div class="clearfix visible-sm"></div>
+        <!-- end .clearfix -->
+
+        <div class="col-md-6">
+          <div class="product-details">
+            <h2 class="product-title">{{ ad.title }}</h2>
+
+            <div class="product-desc-box">
+              <ul>
+                <li><strong>Plant Parent: </strong>{{ ad.username }}</li>
+                <li><strong>Date Posted: </strong> {{ ad.created_at }}</li>
+                <li><strong>Description: </strong>{{ ad.description }}</li>
+              </ul>
+            </div>
+            <!-- End .product-desc-box -->
+            <div class="product-action" v-if="ad.owner">
+              <a href="#" class="btn btn-custom">Edit</a>
+              <a href="#" class="btn btn-white hidden-xs">Delete</a>
+            </div>
+            <!-- End .product-action -->
+            <div
+              class="panel-group"
+              id="accordion"
+              role="tablist"
+              aria-multiselectable="true"
+            >
+              <div class="panel">
+                <div class="panel-heading" role="tab" id="headingOne2">
+                  <h4 class="panel-title">
+                    <a
+                      data-toggle="collapse"
+                      data-parent="#accordion"
+                      href="#collapseOne2"
+                      aria-expanded="true"
+                      aria-controls="collapseOne2"
+                      ><p>Categories:</p>
+                    </a>
+                  </h4>
+                </div>
+                <!-- End .panel-heading -->
+
+                <div
+                  id="collapseOne2"
+                  class="panel-collapse collapse in"
+                  role="tabpanel"
+                  aria-labelledby="headingOne2"
+                >
+                  <div class="panel-body">
+                    <div v-for="category in ad.categories">
+                      <ul>
+                        {{
+                          category.name
+                        }}
+                      </ul>
+                    </div>
+                  </div>
+                  <!-- End .panel-body -->
+                </div>
+                <!-- End .panel-collapse -->
+              </div>
+              <!-- End .panel -->
+
+              <div class="panel">
+                <!-- End .panel-heading -->
+              </div>
+              <!-- End .panel -->
+            </div>
+            <!-- End .panel-group -->
+          </div>
+          <!-- End .product-details -->
+        </div>
+        <!-- End .col-md-6 -->
+      </div>
+      <!-- End .row -->
+    </div>
+    <!-- End .container-fluid -->
+
+    <div class="mb30 hidden-xs"></div>
+    <!-- margin -->
+
+    <div class="mb75 mb70-sm mb60-xs"></div>
+    <!-- margin -->
 
     <div v-if="ad.owner">
       <!-- Edit ad form -->
