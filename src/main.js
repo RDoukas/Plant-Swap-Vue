@@ -4,10 +4,7 @@ import router from "./router";
 import axios from "axios";
 
 axios.defaults.baseURL =
-  // process.env.NODE_ENV === "production"
-  //   ? "https://chi-plant-swap.herokuapp.com/"
-  //   : "/";
-  process.env.NODE_ENV === "development" ? "https://localhost:8080/" : "/";
+  process.env.NODE_ENV === "development" ? "http://localhost:8080" : "/";
 
 var jwt = localStorage.getItem("jwt");
 if (jwt) {

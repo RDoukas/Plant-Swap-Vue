@@ -100,7 +100,6 @@
                     >Profile</a
                   >
                 </li>
-                
               </ul>
             </div>
             <!-- /.navbar-collapse -->
