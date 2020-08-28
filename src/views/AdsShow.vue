@@ -92,7 +92,6 @@
               <div class="btn btn-white hidden-xs" v-on:click="destroyAd()">Delete Ad</a>
               </div>
             </div>
-
             <div v-if="!ad.owner">
               <div class="btn btn-custom" v-on:click="createConversation()">
                 Contact User
