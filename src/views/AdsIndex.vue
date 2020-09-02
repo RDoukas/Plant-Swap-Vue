@@ -30,6 +30,7 @@
           <!-- End .vcenter-content -->
         </div>
         <!-- End .fullscreen -->
+
         <div class="container-fluid">
           <div class="row flex-shop">
             <div class="col-md-9 col-md-push-3">

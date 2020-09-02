@@ -1,5 +1,8 @@
 <template>
   <div class="ads-show">
+    <div class="mb50 hidden-s"></div>
+    <!-- margin -->
+    
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-6">
@@ -93,9 +96,30 @@
               </div>
             </div>
             <div v-if="!ad.owner">
-              <div class="btn btn-custom" v-on:click="createConversation()">
-                Contact User
-              </div>
+              <div class="col-md-8 col-sm-6">
+                            <h2 class="title custom">Get in touch</h2>
+                            <form action="#" method="post" id="contact-form">
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label>Message</label>
+                                        <textarea class="form-control" rows="6" id="createConversation" name="createConversation" placeholder="Message" required></textarea>
+                                    </div><!-- End .col-md-12 -->
+                                </div><!-- End .row -->
+
+                                <div class="mb10"></div><!-- margin -->
+
+                                <input type="submit" class="btn btn-custom min-width" data-loading-text="Sending Message..." value="Send Message">
+                            </form>
+                        </div><!-- End .col-md-8 -->
+
+                        <div class="clearfix mb50 visible-sm visible-xs"></div><!-- margin -->
+              <!-- <div class="col-sm-6">
+                <label class="input-desc">Message Plant Parent</label>
+                <textarea class="form-control" rows="4" placeholder="Your message"></textarea><div class="btn btn-custom" v-on:click="createConversation()">
+                  Contact User
+                </div>
+              </div>  -->
             </div>
           </div>
         </div>
@@ -118,6 +142,7 @@
           <label>Title:</label>
           <input type="text" class="form-control" v-model="ad.title" />
         </div>
+
         <div class="form-group">
           <label>Description: </label>
           <input type="text" class="form-control" v-model="ad.description" />

@@ -1,5 +1,7 @@
 <template>
   <div class="users-show">
+    <div class="mb50 hidden-s"></div>
+    <!-- margin -->
     <div class="container-fluid">
       <form v-on:submit.prevent="editUser()">
         <ul>
