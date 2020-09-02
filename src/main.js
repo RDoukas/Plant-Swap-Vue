@@ -3,10 +3,11 @@ import App from "./App.vue";
 import router from "./router";
 import axios from "axios";
 
+// process.env.NODE_ENV === "production"
+//   ? "https://chicago-plant-swap.herokuapp.com"
+//   : "/";
 axios.defaults.baseURL =
-  process.env.NODE_ENV === "production"
-    ? "https://chicago-plant-swap.herokuapp.com"
-    : "/";
+  process.env.NODE_ENV === "development" ? "http://localhost:3000" : "/";
 
 var jwt = localStorage.getItem("jwt");
 if (jwt) {
