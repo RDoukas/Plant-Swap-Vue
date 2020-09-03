@@ -36,13 +36,16 @@
             <div class="col-md-9 col-md-push-3">
               <div class="category-filter-row">
                 <div class="right">
-                  <div>
+                  <div v-if="isLoggedIn()">
                     <div
                       class="btn btn-custom btn-sm"
                       v-on:click="sortAttribute = ad.user_id"
                     >
                       Show my ads
                     </div>
+                    <a href="/ads/new" class="btn btn-custom btn-sm">
+                      Create Ad</a
+                    >
                   </div>
                 </div>
                 <!-- end .right -->
@@ -208,6 +211,9 @@ export default {
     });
   },
   methods: {
+    isLoggedIn: function() {
+      return localStorage.getItem("jwt");
+    },
     getByCategory: function(events, categoryIds) {
       if (categoryIds.length === 0) {
         return ads;
