@@ -21,9 +21,9 @@
                 <span>Ads List</span>
               </h1>
               <!-- <h5 class="text-white">
-        Below is a a list of all plants that are available to be
-        swapped!
-        </h5> -->
+    Below is a a list of all plants that are available to be
+    swapped!
+    </h5> -->
             </div>
             <!-- End .container-fluid -->
           </div>
@@ -130,7 +130,7 @@
                             aria-expanded="true"
                             aria-controls="categoryFilter"
                           >
-                            Categories
+                            Categories Filter
                             <span class="panel-icon"></span>
                           </a>
                         </h4>
@@ -142,24 +142,19 @@
                         role="tabpanel"
                         aria-labelledby="categoryFilter-header"
                       >
+                        <!-- <div class="row">
+                              
+                              </div> -->
                         <div class="panel-body">
-                          <div class="filter-category-container">
-                            <div class="row">
-                              <div v-for="category in categories">
-                                <input
-                                  type="checkbox"
-                                  :id="category.id"
-                                  :value="category.id"
-                                  v-model="categoryIds"
-                                />
-                                <label for="category">{{
-                                  category.name
-                                }}</label>
-                              </div>
-                            </div>
-                            <!-- End .row -->
+                          <div v-for="category in categories">
+                            <input
+                              type="checkbox"
+                              id="toggle"
+                              :value="category"
+                              v-model="selectedCategories"
+                            />
+                            <label for="category">{{ category.name }}</label>
                           </div>
-                          <!-- End .filter-color-container -->
                         </div>
                         <!-- End .panel-body -->
                       </div>
@@ -191,14 +186,14 @@ export default {
     return {
       ads: [],
       categories: [],
-      categoryIds: [],
+      selectedCategories: [],
       titleFilter: "",
       sortAttribute: "",
     };
   },
   computed: {
     filteredByCateogry() {
-      return this.getByCategory(this.ads, this.categoryIds);
+      return this.getByCategory(this.ads, this.selectedCategories);
     },
   },
   created: function() {
@@ -211,17 +206,17 @@ export default {
     });
   },
   methods: {
-    isLoggedIn: function() {
-      return localStorage.getItem("jwt");
-    },
-    getByCategory: function(events, categoryIds) {
-      if (categoryIds.length === 0) {
+    getByCategory: function(ads, selectedCategories) {
+      if (selectedCategories.length === 0) {
         return ads;
       }
-      categoryIds.forEach((category) => {
+      selectedCategories.forEach((category) => {
         ads = this.filterBy(ads, category.name);
       });
       return ads;
+    },
+    isLoggedIn: function() {
+      return localStorage.getItem("jwt");
     },
   },
 };
