@@ -62,24 +62,6 @@
 
     <!-- End #respond -->
 
-    <!-- 
-    <h4>{{ conversation.ad_title }}</h4>
-    <div v-for="message in conversation.messages">
-      <h5>Plant Parent: {{ message.username }}</h5>
-      <span>Date sent: {{ relativeTime(message.created_at) }}</span>
-      <p>{{ message.body }}</p>
-    </div>
-    <div v-on:submit.prevent="createMessage()">
-      <ul>
-        <li v-for="error in errors">{{ error }}</li>
-      </ul>
-      <label>Send Message:</label>
-      <textarea
-        :placeholder="`Reply to ${partner.username}`"
-        v-model="newMessage"
-      ></textarea>
-      <input type="submit" value="SEND MESSAGE" />
-    </div> -->
   </div>
 </template>
 
