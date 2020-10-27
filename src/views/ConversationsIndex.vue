@@ -88,7 +88,7 @@ export default {
     };
   },
   created: function() {
-    axios.get("api/conversations").then((response) => {
+    axios.get("/api/conversations").then((response) => {
       console.log("all Conversations", response.data);
       this.conversations = response.data;
     });

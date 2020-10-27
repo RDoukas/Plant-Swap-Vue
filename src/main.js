@@ -5,7 +5,7 @@ import axios from "axios";
 
 axios.defaults.baseURL =
   process.env.NODE_ENV === "production"
-    ? "https://chi-plant-swap.herokuapp.com/"
+    ? "https://chi-plant.herokuapp.com/"
     : "/";
 
 var jwt = localStorage.getItem("jwt");

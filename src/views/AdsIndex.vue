@@ -197,7 +197,7 @@ export default {
     },
   },
   created: function() {
-    axios.get("api/ads").then((response) => {
+    axios.get("/api/ads").then((response) => {
       console.log("All Ads:", response.data);
       this.ads = response.data;
     });
