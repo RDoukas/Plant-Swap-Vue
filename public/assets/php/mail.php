@@ -1,53 +1,104 @@
 <?php
+session_start();
+require_once('class.phpmailer.php');
+require_once('class.smtp.php');
+if ($_POST) {
+    if ( !isset($_SESSION['sended']) ) {
+        // Re-check with php
+        if ( isset( $_POST['contactname'] ) && !empty( $_POST['contactname'] ) ):
+            $name = filter_var(trim($_POST['contactname']), FILTER_SANITIZE_STRING);
+        else:
+          echo $error = 'Name is empty!';
+           return;
+        endif;
 
-    // Only process POST reqeusts.
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Get the form fields and remove whitespace.
-        $name = strip_tags(trim($_POST["name"]));
-			$name = str_replace(array("\r","\n"),array(" "," "),$name);
-        $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
-        $subject = trim($_POST["subject"]);
-        $message = trim($_POST["message"]);
+        if ( isset( $_POST['contactwebsite'] ) && !empty( $_POST['contactwebsite'] ) ):
+            $urlSanit = filter_var(trim($_POST['contactwebsite']), FILTER_SANITIZE_URL);
 
-        // Check that data was sent to the mailer.
-        if ( empty($name) OR empty($subject) OR empty($message) OR !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            // Set a 400 (bad request) response code and exit.
-            http_response_code(400);
-            echo "Please complete the form and try again.";
-            exit;
+            if (!filter_var($urlSanit, FILTER_VALIDATE_URL) === false):
+                $url = $urlSanit;
+            else:
+                echo $error = 'URL is not valid!';
+            endif;
+
+        else:
+          echo $error = 'Name is empty!';
+           return;
+        endif;
+        
+        if ( isset( $_POST['contactemail'] ) && !empty( $_POST['contactemail'] ) ):
+            $email = filter_var(trim($_POST['contactemail']), FILTER_SANITIZE_EMAIL);
+                if( !filter_var( $email , FILTER_VALIDATE_EMAIL ) ):
+                   echo $error = 'Email is not valid!';
+                    return;
+                endif;
+        else:
+            echo $error = 'Email is empty!';
+          return;
+        endif;
+        
+       if ( isset( $_POST['contactsubject'] ) && !empty( $_POST['contactsubject'] ) ):
+            $subject = filter_var(trim($_POST['contactsubject']), FILTER_SANITIZE_STRING);
+        else:
+            $subject = "Subject is empty";
+        endif;
+        
+        if ( isset( $_POST['contactmessage'] ) && !empty( $_POST['contactmessage'] ) ):
+             $message = filter_var(trim($_POST['contactmessage']), FILTER_SANITIZE_STRING) . '<br>' . $url;
+        else:
+          echo  $error = 'Message is empty!';
+            return;
+        endif;
+
+       if (!isset($error)) {
+            // if we have no validation errors prepare mail
+            $mail = new PHPMailer;
+            $mail->isSMTP();
+            $mail->SMTPDebug = 0;
+            $mail->Debugoutput = 'html';
+
+            //Set the hostname of the mail server gmail - yandex- outlook or your hosting's
+            $mail->Host = "smtp.gmail.com"; // <------------ change with your host name
+            // use
+            // $mail->Host = gethostbyname('smtp.gmail.com');
+            // if your network does not support SMTP over IPv6
+
+            //Set the SMTP port number - 587 for authenticated TLS, a.k.a. RFC4409 SMTP submission
+            $mail->Port = 465; // <------------ Change with port 25 - 465 - 587 and etc..
+
+            //Set the encryption system to use - ssl (deprecated) or tls
+            $mail->SMTPSecure = 'ssl'; // <------------ tls (port 587) or ssl (port 465)
+
+            //Whether to use SMTP authentication
+            $mail->SMTPAuth = true;
+
+            //Username to use for SMTP authentication - use full email address for gmail
+            $mail->Username = "YOUR_USERNAME_HERE"; // <------------ Smtp authentication - username/email address here
+
+            //Password to use for SMTP authentication
+            $mail->Password = "YOUR_PASSWORD_HERE"; // <------------ Smtp authentication -password here
+
+            $mail->setFrom($email, $name);
+            $mail->AddReplyTo($email, $name);
+
+            //Set who the message is to be sent to --- CHANGE THIS EMAIL ADDDRES WITH THE ONE YOU WANT TO RECEIVE EMAILS AND WWIT YOUR NAME
+            $mail->addAddress('EMAIL_ADDRESS_YOU_WANTTO_RECEIVE_MESSAGES', 'YOUR_NAME'); // <----------- CHANGE YOUR WITH YOUR EMAIL ADDRES
+
+            $mail->Subject = $subject;
+
+            $mail->msgHTML($message);
+            
+            // Send mail and report the result
+            if($mail->send()):
+                echo 'success';
+                $_SESSION['sended'] = 'sended';                
+            else:
+                echo 'error';
+                unset( $_SESSION['sended'] );
+            endif;
         }
-
-        // Set the recipient email address.
-        // FIXME: Update this to your desired email address.
-        $recipient = "info@yoursite.com";
-
-        // Set the email subject.
-        $subject = "New contact from $name";
-
-        // Build the email content.
-        $email_content = "Name: $name\n";
-        $email_content .= "Email: $email\n\n";
-        $email_content .= "Subject: $subject\n\n";
-        $email_content .= "Message:\n$message\n";
-
-        // Build the email headers.
-        $email_headers = "From: $name <$email>";
-
-        // Send the email.
-        if (mail($recipient, $subject, $email_content, $email_headers)) {
-            // Set a 200 (okay) response code.
-            http_response_code(200);
-            echo "Thank You! Your message has been sent.";
-        } else {
-            // Set a 500 (internal server error) response code.
-            http_response_code(500);
-            echo "Oops! Something went wrong and we couldn't send your message.";
-        }
-
     } else {
-        // Not a POST request, set a 403 (forbidden) response code.
-        http_response_code(403);
-        echo "There was a problem with your submission, please try again.";
+        echo 'already';
     }
-
+}
 ?>
