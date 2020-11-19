@@ -24,7 +24,7 @@
 
             <div class="header-center">
               <a href="index.html" class="site-logo" title="Bold - Multipurpose Template">
-                <img src="/assets/images/kayla-logo.png" data-rjs="3" alt="Bold Logo">
+                <img src="/assets/images/PlantSwap.png" data-rjs="3" alt="Bold Logo">
                 <span class="sr-only">Plant Swap</span>
               </a>
             </div><!-- End .header-center -->
