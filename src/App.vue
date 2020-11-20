@@ -61,9 +61,26 @@
         </div>
         <!-- End .header-bottom -->
       </header>
+
       <!-- End .header -->
       <div class="mb45 mb35-sm mb25-xs"></div>
       <!-- margin -->
+
+      <div
+        class="page-header largest parallax custom text-center"
+        style="background-image:url(/assets/images/succulents-banner.jpg)"
+        data-0="background-position:50% 50%;"
+        data-top-bottom="background-position:50% 100%"
+      >
+        <div class="container-fluid">
+          <h1>Category</h1>
+          <ol class="breadcrumb">
+            <li><a href="index.html">Home</a></li>
+          </ol>
+        </div>
+        <!-- End .container-fluid -->
+      </div>
+      <!-- End .page-header -->
     </div>
 
     <router-view />
