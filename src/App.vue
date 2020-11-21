@@ -68,15 +68,17 @@
 
       <div
         class="page-header largest parallax custom text-center"
-        style="background-image:url(/assets/images/succulents-banner.jpg)"
+        style="background-image:url(/assets/images/monstera-banner.jpg)"
         data-0="background-position:50% 50%;"
         data-top-bottom="background-position:50% 100%"
       >
         <div class="container-fluid">
-          <h1>Category</h1>
-          <ol class="breadcrumb">
-            <li><a href="index.html">Home</a></li>
-          </ol>
+          <img
+            src="/assets/images/PlantSwap.png"
+            data-rjs="3"
+            alt="Plant Logo"
+            height="500"
+          />
         </div>
         <!-- End .container-fluid -->
       </div>
