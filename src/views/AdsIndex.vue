@@ -7,14 +7,19 @@
       <div class="col-md-9 col-md-push-3">
         <div class="category-filter-row">
           <div class="right">
-            <span class="cat-product-count">Total Products: 1071</span>
             <div class="filter-product-view">
               <a href="category.html" class="btn btn-custom" title="Category Grid"><i class="fa fa-th"></i></a>
               <a href="category-list.html" class="btn btn-gray" title="Category List"><i class="fa fa-th-list"></i></a>
             </div>
           </div><!-- end .right -->
           <div class="left">
+            <button>
+          <a title="New Ad" href="/ads/new">New Ad</a>
+        </button>
+            
+            
             <div class="filter-container filter-sort">
+             
               <label>Sort by:</label>
               <select class="form-control input-sm">
                 <option value="Date">Date</option>
@@ -22,7 +27,8 @@
                 <option value="Size">Size</option>
                 <option value="Price">Price</option>
               </select>
-            </div><!-- End .filter-sort -->
+            </div>
+            <!-- End .filter-sort -->
             <div class="filter-container filter-show">
               <label>Show:</label>
               <select class="form-control input-sm">
@@ -41,17 +47,17 @@
               <div class="product-top">
                 <figure>
                   <a href="/ads/${ad.id}" title="Product Name">
-                  <img class="product-img" src="ad.image_url" alt="Product Image">   
+                  <img src="ad.image_url" alt="Product Image" class="product-image">   
                   </a>
                 </figure>
               </div><!-- End .product -->
             </div><!-- End .col-md-4 -->
             <div class="col-md-8 col-sm-7">
               <div class="product-content">
-                <h3 class="product-title"><a href="/ads/${ad.id}">{{ad.title}}</a></h3>
-                <div class="product-meta-container">
-                </div><!-- End .product-meta-container -->
+                <h2 class="product-title"><a href="/ads/${ad.id}">{{ad.title}}</a></h2>
+                <h6>Plant Parent: {{ad.username}}</h6>
                 <p>{{ad.description}}</p>
+                <p>Date Posted: {{ad.created_at}}</p>
               </div><!-- End .product-content -->
             </div><!-- End .col-md-8 -->
           </div><!-- end .Row -->
@@ -99,37 +105,7 @@
                   </div><!-- End .panel-body -->
                 </div><!-- End .panel-collapse -->
               </div><!-- End .panel -->
-              <div class="panel">
-                <div class="panel-heading" role="tab" id="priceFilter-header">
-                  <h4 class="panel-title">
-                    <a data-toggle="collapse" href="#priceFilter" aria-expanded="true" aria-controls="priceFilter">
-                      Price Filter
-                      <span class="panel-icon"></span>
-                    </a>
-                  </h4>
-                </div><!-- End .panel-heading -->
-                <div id="priceFilter" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="priceFilter-header">
-                  <div class="panel-body">
-                    <div class="filter-price">
-                      <div id="price-slider"></div><!-- End #price-slider -->
-                      <div id="filter-range-details" class="row">
-                        <div class="col-xs-6">
-                          <div class="filter-price-label">from</div>
-                          <input type="text" id="price-range-low" class="form-control input-sm" placeholder="Min">
-                        </div>
-                        <div class="col-xs-6">
-                          <div class="filter-price-label">to</div>
-                          <input type="text" id="price-range-high" class="form-control input-sm" placeholder="Max">
-                        </div>
-                      </div><!-- End #filter-range-details -->
-                      <div class="filter-price-action">
-                        <a href="#" class="btn btn-custom btn-sm">Filter</a>
-                        <a href="#" class="btn btn-black btn-sm">Reset</a>
-                      </div><!-- End #filter-price-action -->
-                    </div><!-- End .filter-price -->
-                  </div><!-- End .panel-body -->
-                </div><!-- End .panel-collapse -->
-              </div><!-- End .panel -->
+
               <div class="panel">
                 <div class="panel-heading" role="tab" id="colorFilter-header">
                   <h4 class="panel-title">
@@ -178,7 +154,11 @@
       </aside>
     </div><!-- End .row -->
   </div><!-- End .container-fluid -->
-  <div class="shop-area pt-95 pb-100">
+
+
+
+  <!-- old code  -->
+  <!-- <div class="shop-area pt-95 pb-100">
     <div class="container">
     <div class="row flex-row-reverse">
     <div class="col-lg-9">
@@ -201,9 +181,9 @@
       </div>    
     </div>
     <div class="shop-bottom-area mt-35">
-      <div class="tab-content jump">
+      <div class="tab-content jump"> -->
       <!-- ad images -->
-      <div id="shop-1" class="tab-pane">
+      <!-- <div id="shop-1" class="tab-pane">
       <div class="row">
       <div class="col-xl-4 col-md-6 col-lg-6 col-sm-6" v-for="ad in ads">
         <div class="product-wrap mb-25 scroll-zoom">
@@ -218,9 +198,9 @@
         </div>
       </div>
       </div>
-      </div>
+      </div> -->
       <!-- Info for ads -->
-      <div id="shop-2" class="tab-pane active">
+      <!-- <div id="shop-2" class="tab-pane active">
       <div class="shop-list-wrap mb-30 scroll-zoom">
       <div class="row">
         <div class="col-xl-8 col-lg-7 col-md-7 col-sm-6" v-for="ad in filterBy(ads, titleFilter)">
@@ -239,12 +219,12 @@
       </div>
       </div>
       </div>
-    </div>
+    </div> -->
     <div class="col-lg-3">
       <div class="sidebar-style mr-30">
       <div class="sidebar-widget">
       <div class="pro-details-cart btn-hover">
-      <a title="New Ad" href="/ads/new">New Ad</a>
+      
       </div>
       
       <div class="pro-sidebar-search mb-50 mt-25">
