@@ -1,41 +1,43 @@
 <template>
   <div class="ads-new">
-    <form v-on:submit.prevent="createAd()">
-      <h1>Create a new ad</h1>
-      <ul>
-        <li class="text-danger" v-for="error in errors">{{ error }}</li>
-      </ul>
-      <div class="form-group">
-        <label>Title:</label>
-        <input type="text" class="form-control" v-model="title" />
-      </div>
-      <div class="form-group">
-        <label>Description:</label>
-        <input type="text" class="form-control" v-model="description" />
-      </div>
-      <div class="form-group">
-        <label>Image:</label>
-        <input
-          class="form-control"
-          type="file"
-          v-on:change="setFile($event)"
-          ref="fileInput"
-        />
-      </div>
-      <div class="form-group">
-        <div v-for="category in categories">
-          <input
-            type="checkbox"
-            :id="category.id"
-            :value="category.id"
-            v-model="categoryIds"
-          />
-          <label :for="category.id">{{ category.name }}</label>
+    <div class="container-fluid">
+      <form v-on:submit.prevent="createAd()">
+        <h1>Create a new ad</h1>
+        <ul>
+          <li class="text-danger" v-for="error in errors">{{ error }}</li>
+        </ul>
+        <div class="form-group">
+          <label>Title:</label>
+          <input type="text" class="form-control" v-model="title" />
         </div>
-        {{ categoryIds }}
-      </div>
-      <input type="submit" class="btn btn-primary" value="Create" />
-    </form>
+        <div class="form-group">
+          <label>Description:</label>
+          <input type="text" class="form-control" v-model="description" />
+        </div>
+        <div class="form-group">
+          <label>Image:</label>
+          <input
+            class="form-control"
+            type="file"
+            v-on:change="setFile($event)"
+            ref="fileInput"
+          />
+        </div>
+        <div class="form-group">
+          <div v-for="category in categories">
+            <input
+              type="checkbox"
+              :id="category.id"
+              :value="category.id"
+              v-model="categoryIds"
+            />
+            <label :for="category.id">{{ category.name }}</label>
+          </div>
+          {{ categoryIds }}
+        </div>
+        <input type="submit" class="btn btn-primary" value="Create" />
+      </form>
+    </div>
   </div>
 </template>
 

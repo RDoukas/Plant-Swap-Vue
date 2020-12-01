@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <div class="welcome-area pt-100 pb-95">
-      <div class="container">
+      <div class="container-fluid">
         <div class="welcome-content text-center">
           <h1>A little about us:</h1>
           <p>

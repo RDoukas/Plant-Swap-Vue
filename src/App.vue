@@ -21,7 +21,6 @@
             <!-- End .header-dropdown -->
 
             <ul class="top-menu visible-lg pull-right">
-              <li class="active"><a href="/">Home</a></li>
               <div v-if="isLoggedIn()">
                 <li><a href="/conversations">Messages</a></li>
                 <li><a href="/users">Profile</a></li>
@@ -86,12 +85,6 @@
     </div>
 
     <router-view />
-
-    <footer>
-      <div class="container-fluid">
-        <div class="row"></div>
-      </div>
-    </footer>
   </div>
 </template>
 

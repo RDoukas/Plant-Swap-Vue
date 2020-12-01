@@ -2,163 +2,10 @@
   <div class="ads-index">
 
 
-  <div class="container-fluid">
-    <div class="row flex-shop">
-      <div class="col-md-9 col-md-push-3">
-        <div class="category-filter-row">
-          <div class="right">
-            <div class="filter-product-view">
-              <a href="category.html" class="btn btn-custom" title="Category Grid"><i class="fa fa-th"></i></a>
-              <a href="category-list.html" class="btn btn-gray" title="Category List"><i class="fa fa-th-list"></i></a>
-            </div>
-          </div><!-- end .right -->
-          <div class="left">
-            <button>
-          <a title="New Ad" href="/ads/new">New Ad</a>
-        </button>
-            
-            
-            <div class="filter-container filter-sort">
-             
-              <label>Sort by:</label>
-              <select class="form-control input-sm">
-                <option value="Date">Date</option>
-                <option value="Color">Color</option>
-                <option value="Size">Size</option>
-                <option value="Price">Price</option>
-              </select>
-            </div>
-            <!-- End .filter-sort -->
-            <div class="filter-container filter-show">
-              <label>Show:</label>
-              <select class="form-control input-sm">
-                <option value="10">10</option>
-                <option value="15">15</option>
-                <option value="20">20</option>
-                <option value="25">25</option>
-              </select>
-            </div><!-- End .filter-show -->
-          </div><!-- End .left -->
-        </div><!-- End .category-filter-row -->
-
-        <div class="product product-list" v-for="ad in ads">
-          <div class="row">
-            <div class="col-md-4 col-sm-5">
-              <div class="product-top">
-                <figure>
-                  <a href="/ads/${ad.id}" title="Product Name">
-                  <img src="ad.image_url" alt="Product Image" class="product-image">   
-                  </a>
-                </figure>
-              </div><!-- End .product -->
-            </div><!-- End .col-md-4 -->
-            <div class="col-md-8 col-sm-7">
-              <div class="product-content">
-                <h2 class="product-title"><a href="/ads/${ad.id}">{{ad.title}}</a></h2>
-                <h6>Plant Parent: {{ad.username}}</h6>
-                <p>{{ad.description}}</p>
-                <p>Date Posted: {{ad.created_at}}</p>
-              </div><!-- End .product-content -->
-            </div><!-- End .col-md-8 -->
-          </div><!-- end .Row -->
-        </div><!-- End .product -->
-
-
-        <div class="mb20 mb15-sm"></div><!-- End margin -->
-
-        <div class="pagination-wrapper">
-          <nav class="pagination-container">
-            <label>Showing: 1-4 of 16</label>
-            <ul class="pagination">
-              <li class="active"><a href="#">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li>
-                <a href="#" aria-label="Next">
-                  <span aria-hidden="true"><i class="fa fa-angle-right"></i></span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div><!-- End .pagination-wrapper -->
-      </div><!-- End .col-md-9 -->
-
-      <aside class="col-md-3 col-md-pull-9 sidebar shop-sidebar">
-        <div class="widget">
-          <div class="filter-group-widget">
-            <div class="panel-group" role="tablist" aria-multiselectable="true">
-              <div class="panel">
-                <div class="panel-heading" role="tab" id="brandFilter-header">
-                  <h4 class="panel-title">
-                    <a data-toggle="collapse" href="#brandFilter" aria-expanded="true" aria-controls="brandFilter">
-                      Brand Filter
-                      <span class="panel-icon"></span>
-                    </a>
-                  </h4>
-                </div><!-- End .panel-heading -->
-                <div id="brandFilter" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="brandFilter-header">
-                  <div class="panel-body">
-                    <ul class="filter-brand-list">
-                      <li><a href="#"><i class="fa fa-angle-right"></i>Yikes &amp; Sports <span>(11)</span></a></li>
-                    </ul>
-                  </div><!-- End .panel-body -->
-                </div><!-- End .panel-collapse -->
-              </div><!-- End .panel -->
-
-              <div class="panel">
-                <div class="panel-heading" role="tab" id="colorFilter-header">
-                  <h4 class="panel-title">
-                    <a data-toggle="collapse" href="#colorFilter" aria-expanded="true" aria-controls="colorFilter">
-                    Color Filter
-                    <span class="panel-icon"></span>
-                    </a>
-                  </h4>
-                </div><!-- End .panel-heading -->
-                <div id="colorFilter" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="colorFilter-header">
-                  <div class="panel-body">
-                    <div class="filter-color-container">
-                      <div class="row">
-                        <a href="#" style="background-color:#b24b24" class="filter-color-box"></a>
-                        <a href="#" style="background-color:#f41d1d" class="filter-color-box"></a>
-                      </div><!-- End .row -->
-                    </div><!-- End .filter-color-container -->
-                  </div><!-- End .panel-body -->
-                </div><!-- End .panel-collapse -->
-              </div><!-- End .panel -->
-              <div class="panel">
-                <div class="panel-heading" role="tab" id="sizeFilter-header">
-                  <h4 class="panel-title">
-                    <a data-toggle="collapse" href="#sizeFilter" aria-expanded="true" aria-controls="sizeFilter">
-                      Size Filter
-                      <span class="panel-icon"></span>
-                    </a>
-                  </h4>
-                </div><!-- End .panel-heading -->
-                <div id="sizeFilter" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="sizeFilter-header">
-                  <div class="panel-body">
-                    <div class="filter-color-container">
-                      <div class="row">
-                        <a href="#" class="filter-size-box active">6</a>
-                        <a href="#" class="filter-size-box">4</a>
-                        <a href="#" class="filter-size-box">l</a>
-                        <a href="#" class="filter-size-box">xl</a>
-                      </div><!-- End .row -->
-                    </div><!-- End .filter-color-container -->
-                  </div><!-- End .panel-body -->
-                </div><!-- End .panel-collapse -->
-              </div><!-- End .panel -->
-            </div><!-- End .panel-group -->
-          </div><!-- End .filter-widget -->
-        </div><!-- End .widget -->
-      </aside>
-    </div><!-- End .row -->
-  </div><!-- End .container-fluid -->
-
 
 
   <!-- old code  -->
-  <!-- <div class="shop-area pt-95 pb-100">
+  <div class="shop-area pt-95 pb-100">
     <div class="container">
     <div class="row flex-row-reverse">
     <div class="col-lg-9">
@@ -181,9 +28,9 @@
       </div>    
     </div>
     <div class="shop-bottom-area mt-35">
-      <div class="tab-content jump"> -->
+      <div class="tab-content jump">
       <!-- ad images -->
-      <!-- <div id="shop-1" class="tab-pane">
+      <div id="shop-1" class="tab-pane">
       <div class="row">
       <div class="col-xl-4 col-md-6 col-lg-6 col-sm-6" v-for="ad in ads">
         <div class="product-wrap mb-25 scroll-zoom">
@@ -198,9 +45,9 @@
         </div>
       </div>
       </div>
-      </div> -->
+      </div> 
       <!-- Info for ads -->
-      <!-- <div id="shop-2" class="tab-pane active">
+      <div id="shop-2" class="tab-pane active">
       <div class="shop-list-wrap mb-30 scroll-zoom">
       <div class="row">
         <div class="col-xl-8 col-lg-7 col-md-7 col-sm-6" v-for="ad in filterBy(ads, titleFilter)">
@@ -219,7 +66,7 @@
       </div>
       </div>
       </div>
-    </div> -->
+    </div>
     <div class="col-lg-3">
       <div class="sidebar-style mr-30">
       <div class="sidebar-widget">

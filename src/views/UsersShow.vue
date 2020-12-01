@@ -1,7 +1,7 @@
 <template>
   <div class="users-show">
     <div class="checkout-area pb-80 pt-100">
-      <div class="container">
+      <div class="container-fluid">
         <div class="row">
           <div class="ml-auto mr-auto col-lg-9">
             <div class="checkout-wrapper">
