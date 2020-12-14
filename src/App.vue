@@ -10,7 +10,6 @@
       <!-- End .sk-double-bounce -->
     </div>
     <!-- End #page-loader -->
-    <div id=""></div>
 
     <!-- old code  -->
     <div id="wrapper">
@@ -92,88 +91,13 @@
         <!-- End .header-top -->
         <div class="header-inner">
           <div class="container-fluid">
-              <img
-                src="/assets/images/kayla-logo.png"
-                data-rjs="3"
-                alt="Bold Logo"
-                height="200px"
-              />
-              <span class="sr-only"></span>
-            </a>
-
-            <div class="dropdown header-dropdown cart-dropdown">
-              <a
-                href="#"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <span>
-                  <i class="fa fa-shopping-basket"></i>
-                  <span class="dcart-total-count">2</span>
-                </span>
-              </a>
-
-              <div class="dropdown-menu">
-                <p>2 item(s) in your cart - <span>$279.00</span></p>
-                <div class="dcart-products">
-                  <div class="product">
-                    <figure>
-                      <a href="#">
-                        <img
-                          src="assets/images/products/thumbs/product1.jpg"
-                          alt="Product"
-                        />
-                      </a>
-                    </figure>
-                    <div class="product-meta">
-                      <h5 class="product-title">
-                        <a href="#">Oluptate cumque quo archi deleni.</a>
-                      </h5>
-                      <div class="product-price-container">
-                        <span class="product-price">$180.00</span>
-                      </div>
-                      <!-- End .product-price-container -->
-                      <span class="product-quantity">x 1</span>
-                    </div>
-                    <!-- End .product-meta -->
-                    <a href="#" class="delete-btn" title="Delete Product"
-                      ><i class="fa fa-times"></i
-                    ></a>
-                  </div>
-                  <!-- End .product -->
-                  <div class="product">
-                    <figure>
-                      <a href="#">
-                        <img
-                          src="assets/images/products/thumbs/product2.jpg"
-                          alt="Product"
-                        />
-                      </a>
-                    </figure>
-                    <div class="product-meta">
-                      <h5 class="product-title">
-                        <a href="#">Lorem ipsum dolor sit amet consect.</a>
-                      </h5>
-                      <div class="product-price-container">
-                        <span class="old-price">$140.00</span>
-                        <span class="product-price">$99.00</span>
-                      </div>
-                      <!-- End .product-price-container -->
-                      <span class="product-quantity">x 2</span>
-                    </div>
-                    <!-- End .product-meta -->
-                    <a href="#" class="delete-btn" title="Delete Product"
-                      ><i class="fa fa-times"></i
-                    ></a>
-                  </div>
-                  <!-- End .product -->
-                </div>
-                <!-- End .dcart-products -->
-              </div>
-              <!-- End .dropdown-menu -->
-            </div>
-            <!-- End .cartdropdown -->
+            <img
+              src="/assets/images/kayla-logo.png"
+              data-rjs="3"
+              alt="Bold Logo"
+              height="200px"
+            />
+            <span class="sr-only"></span>
           </div>
           <!-- End .container-fluid -->
         </div>
@@ -205,7 +129,7 @@
       <div class="main">
         <div
           class="fullscreen vertical-center bg-image overlay-container overflow-hidden"
-          style="background-image:url(assets/images/backgrounds/index5/page-header.jpg)"
+          style="background-image:url(/assets/images/monstera.jpeg)"
         >
           <div class="overlay custom"></div>
           <!-- End .overlay -->
