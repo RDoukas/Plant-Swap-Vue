@@ -90,6 +90,94 @@
           <!-- End .container-fluid -->
         </div>
         <!-- End .header-top -->
+        <div class="header-inner">
+          <div class="container-fluid">
+              <img
+                src="/assets/images/kayla-logo.png"
+                data-rjs="3"
+                alt="Bold Logo"
+                height="200px"
+              />
+              <span class="sr-only"></span>
+            </a>
+
+            <div class="dropdown header-dropdown cart-dropdown">
+              <a
+                href="#"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <span>
+                  <i class="fa fa-shopping-basket"></i>
+                  <span class="dcart-total-count">2</span>
+                </span>
+              </a>
+
+              <div class="dropdown-menu">
+                <p>2 item(s) in your cart - <span>$279.00</span></p>
+                <div class="dcart-products">
+                  <div class="product">
+                    <figure>
+                      <a href="#">
+                        <img
+                          src="assets/images/products/thumbs/product1.jpg"
+                          alt="Product"
+                        />
+                      </a>
+                    </figure>
+                    <div class="product-meta">
+                      <h5 class="product-title">
+                        <a href="#">Oluptate cumque quo archi deleni.</a>
+                      </h5>
+                      <div class="product-price-container">
+                        <span class="product-price">$180.00</span>
+                      </div>
+                      <!-- End .product-price-container -->
+                      <span class="product-quantity">x 1</span>
+                    </div>
+                    <!-- End .product-meta -->
+                    <a href="#" class="delete-btn" title="Delete Product"
+                      ><i class="fa fa-times"></i
+                    ></a>
+                  </div>
+                  <!-- End .product -->
+                  <div class="product">
+                    <figure>
+                      <a href="#">
+                        <img
+                          src="assets/images/products/thumbs/product2.jpg"
+                          alt="Product"
+                        />
+                      </a>
+                    </figure>
+                    <div class="product-meta">
+                      <h5 class="product-title">
+                        <a href="#">Lorem ipsum dolor sit amet consect.</a>
+                      </h5>
+                      <div class="product-price-container">
+                        <span class="old-price">$140.00</span>
+                        <span class="product-price">$99.00</span>
+                      </div>
+                      <!-- End .product-price-container -->
+                      <span class="product-quantity">x 2</span>
+                    </div>
+                    <!-- End .product-meta -->
+                    <a href="#" class="delete-btn" title="Delete Product"
+                      ><i class="fa fa-times"></i
+                    ></a>
+                  </div>
+                  <!-- End .product -->
+                </div>
+                <!-- End .dcart-products -->
+              </div>
+              <!-- End .dropdown-menu -->
+            </div>
+            <!-- End .cartdropdown -->
+          </div>
+          <!-- End .container-fluid -->
+        </div>
+        <!-- End .header-inner -->
 
         <div class="header-bottom">
           <div class="container-fluid">
@@ -100,6 +188,9 @@
                 </li>
                 <li>
                   <a href="/ads" role="button" aria-expanded="false">Ads</a>
+                </li>
+                <li>
+                  <a href="/about" role="button" aria-expanded="false">About</a>
                 </li>
               </ul>
             </div>
@@ -113,348 +204,27 @@
       <!-- End .header -->
       <div class="main">
         <div
-          id="rev_slider_wrapper"
-          class="slider-container mb0 rev_slider_wrapper rev_container_1 fullwidthbanner-container"
-          data-alias="classicslider1"
+          class="fullscreen vertical-center bg-image overlay-container overflow-hidden"
+          style="background-image:url(assets/images/backgrounds/index5/page-header.jpg)"
         >
-          <div
-            id="rev_slider"
-            class="rev_slider fullwidthabanner"
-            style="display:none;"
-            data-version="5.0.7"
-          >
-            <ul>
-              <!-- SLIDE  -->
-              <li
-                data-index="rs-1"
-                data-transition="crossfade"
-                data-slotamount="7"
-                data-easein="Power4.easeInOut"
-                data-easeout="Power4.easeInOut"
-                data-masterspeed="1200"
-                data-thumb="assets/images/homepages/index-shop/slide1-150x100.jpg"
-                data-rotate="0"
-                data-saveperformance="off"
-                data-title="Great"
-              >
-                <!-- MAIN IMAGE -->
-                <img
-                  src="assets/images/homepages/index-shop/slide1.jpg"
-                  alt="Slider bg 1"
-                  data-bgposition="center center"
-                  data-duration="11000"
-                  data-bgparallax="10"
-                  data-ease="Linear.easeNone"
-                  class="rev-slidebg"
-                  data-no-retina
-                />
-                <!-- LAYERS -->
+          <div class="overlay custom"></div>
+          <!-- End .overlay -->
+          <div id="particles-js"></div>
+          <!-- End #particles-js -->
 
-                <!-- LAYER NR. 1 -->
-                <div
-                  class="tp-caption tp-resizeme rs-parallaxlevel-0"
-                  id="slide-1-layer-1"
-                  data-x="['left','left','left','left']"
-                  data-hoffset="['120','60','30','15']"
-                  data-y="['middle','middle','middle','middle']"
-                  data-voffset="['-40','-35','-35','-30']"
-                  data-fontsize="['60','54','44','32']"
-                  data-fontweight="700"
-                  data-lineheight="['60','54','44','32']"
-                  data-width="none"
-                  data-color="#fff"
-                  data-height="none"
-                  data-whitespace="nowrap"
-                  data-transform_idle="sX:1;sY:1;o:1;"
-                  data-transform_in="sX:0;sY:0;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
-                  data-transform_out="sX:0;sY:0;s:1000;e:Power2.easeInOut;"
-                  data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
-                  data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
-                  data-start="900"
-                  data-splitin="none"
-                  data-splitout="none"
-                  data-responsive_offset="on"
-                  data-elementdelay="0.1"
-                  style="z-index: 8; white-space: nowrap;text-shadow:0 3px 8px rgba(0,0,0, 0.35);"
-                >
-                  See Our Latest Deals
-                </div>
-
-                <!-- LAYER NR. 2 -->
-                <div
-                  class="tp-caption tp-resizeme rs-parallaxlevel-0"
-                  id="slide-1-layer-2"
-                  data-x="['left','left','left','left']"
-                  data-hoffset="['120','60','30','15']"
-                  data-y="['middle','middle','middle','middle']"
-                  data-voffset="['10','10','5','5']"
-                  data-width="none"
-                  data-height="none"
-                  data-color="#fff"
-                  data-fontsize="['22','20','18','16']"
-                  data-fontweight="300"
-                  data-lineheight="['22','20','18','16']"
-                  data-whitespace="nowrap"
-                  data-transform_idle="sX:1;sY:1;o:1;"
-                  data-transform_in="sX:0;sY:0;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
-                  data-transform_out="sX:0;sY:0;s:1000;e:Power2.easeInOut;"
-                  data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;"
-                  data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
-                  data-start="1200"
-                  data-splitin="none"
-                  data-splitout="none"
-                  data-responsive_offset="on"
-                  style="z-index: 7; white-space: nowrap;text-shadow:0 2px 5px rgba(0,0,0, 0.35);"
-                >
-                  WE OFFER THE BEST PRICES FOR YOU
-                </div>
-
-                <!-- LAYER NR. 3 -->
-                <a
-                  class="tp-caption btn btn-custom min-width tp-resizeme rs-parallaxlevel-0"
-                  id="slide-1-layer-3"
-                  data-x="['left','left','left','left']"
-                  data-hoffset="['120','60','30','15']"
-                  data-y="['middle','middle','middle','middle']"
-                  data-voffset="['80','75','70','65']"
-                  data-witdh="none"
-                  data-height="none"
-                  data-whitespace="nowrap"
-                  data-transform_idle="o:1;"
-                  data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
-                  data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                  data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;"
-                  data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
-                  data-start="1800"
-                  data-splitin="none"
-                  data-splitout="none"
-                  data-responsive_offset="on"
-                  style="z-index: 6; white-space: nowrap;"
-                  href="#"
-                  >See Features
-                </a>
-
-                <!-- LAYER NR. 4 -->
-                <div
-                  class="tp-caption tp-resizeme rs-parallaxlevel-0"
-                  id="slide-1-layer-4"
-                  data-x="['right','right','right','right']"
-                  data-hoffset="['380','200','125','75']"
-                  data-y="['middle','middle','middle','middle']"
-                  data-voffset="['10','10','5','5']"
-                  data-width="none"
-                  data-height="none"
-                  data-color="#fff"
-                  data-whitespace="nowrap"
-                  data-transform_idle="x:0;sX:1;sY:1;o:1;"
-                  data-transform_in="x[100%];sX:0;sY:0;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
-                  data-transform_out="x[100%];sX:0;sY:0;s:1000;e:Power2.easeInOut;"
-                  data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;"
-                  data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
-                  data-start="1600"
-                  data-splitin="none"
-                  data-splitout="none"
-                  data-responsive_offset="on"
-                  style="z-index: 5;"
-                >
-                  <img
-                    src="assets/images/homepages/index-shop/phone1.png"
-                    alt="Laptops"
-                    width="174"
-                    height="440"
-                    data-ww="['174px', '139px', '104px', '67px']"
-                    data-hh="['440px', '352px', '264px', '176px']"
-                    data-no-retina
-                  />
-                </div>
-
-                <!-- LAYER NR. 5 -->
-                <div
-                  class="tp-caption tp-resizeme rs-parallaxlevel-0"
-                  id="slide-1-layer-5"
-                  data-x="['right','right','right','right']"
-                  data-hoffset="['265','105','50','30']"
-                  data-y="['middle','middle','middle','middle']"
-                  data-voffset="['10','10','5','5']"
-                  data-width="none"
-                  data-height="none"
-                  data-color="#fff"
-                  data-whitespace="nowrap"
-                  data-transform_idle="x:0;sX:1;sY:1;o:1;"
-                  data-transform_in="x[100%];sX:0;sY:0;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
-                  data-transform_out="x[100%];sX:0;sY:0;s:1000;e:Power2.easeInOut;"
-                  data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;"
-                  data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
-                  data-start="1400"
-                  data-splitin="none"
-                  data-splitout="none"
-                  data-responsive_offset="on"
-                  style="z-index: 4;"
-                >
-                  <img
-                    src="assets/images/homepages/index-shop/phone2.png"
-                    alt="Laptops"
-                    width="999"
-                    height="400"
-                    data-ww="['99px', '79px', '59px', '40px']"
-                    data-hh="['400px', '320px', '240px', '160px']"
-                    data-no-retina
-                  />
-                </div>
-              </li>
-              <!-- SLIDE  -->
-              <li
-                data-index="rs-2"
-                data-transition="crossfade"
-                data-slotamount="7"
-                data-easein="Power4.easeInOut"
-                data-easeout="Power4.easeInOut"
-                data-masterspeed="1200"
-                data-thumb="assets/images/homepages/index-shop/slide2-150x100.jpg"
-                data-rotate="0"
-                data-saveperformance="off"
-                data-title="Design"
-              >
-                <!-- MAIN IMAGE -->
-                <img
-                  src="assets/images/homepages/index-shop/slide2.jpg"
-                  alt="Slider bg 2"
-                  data-bgposition="center center"
-                  data-duration="11000"
-                  data-bgparallax="10"
-                  data-ease="Linear.easeNone"
-                  class="rev-slidebg"
-                  data-no-retina
-                />
-                <!-- LAYERS -->
-
-                <!-- LAYER NR. 1 -->
-                <div
-                  class="tp-caption tp-resizeme rs-parallaxlevel-0"
-                  id="slide-2-layer-1"
-                  data-x="['right','right','right','right']"
-                  data-hoffset="['120','60','30','15']"
-                  data-y="['middle','middle','middle','middle']"
-                  data-voffset="['-40','-35','-35','-30']"
-                  data-fontsize="['60','54','44','32']"
-                  data-fontweight="700"
-                  data-lineheight="['60','54','44','32']"
-                  data-width="none"
-                  data-color="#fff"
-                  data-height="none"
-                  data-whitespace="nowrap"
-                  data-transform_idle="sX:1;sY:1;o:1;"
-                  data-transform_in="sX:0;sY:0;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
-                  data-transform_out="sX:0;sY:0;s:1000;e:Power2.easeInOut;"
-                  data-mask_in="x:0px;y:0px;s:inherit;e:inherit;"
-                  data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
-                  data-start="900"
-                  data-splitin="none"
-                  data-splitout="none"
-                  data-responsive_offset="on"
-                  data-elementdelay="0.1"
-                  style="z-index: 8; white-space: nowrap;text-shadow:0 3px 8px rgba(0,0,0, 0.35);"
-                >
-                  2017 Special Events
-                </div>
-
-                <!-- LAYER NR. 2 -->
-                <div
-                  class="tp-caption tp-resizeme rs-parallaxlevel-0"
-                  id="slide-2-layer-2"
-                  data-x="['right','right','right','right']"
-                  data-hoffset="['120','60','30','15']"
-                  data-y="['middle','middle','middle','middle']"
-                  data-voffset="['10','10','5','5']"
-                  data-width="none"
-                  data-height="none"
-                  data-color="#fff"
-                  data-fontsize="['22','20','18','16']"
-                  data-fontweight="300"
-                  data-lineheight="['22','20','18','16']"
-                  data-whitespace="nowrap"
-                  data-transform_idle="sX:1;sY:1;o:1;"
-                  data-transform_in="sX:0;sY:0;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
-                  data-transform_out="sX:0;sY:0;s:1000;e:Power2.easeInOut;"
-                  data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;"
-                  data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
-                  data-start="1200"
-                  data-splitin="none"
-                  data-splitout="none"
-                  data-responsive_offset="on"
-                  style="z-index: 7; white-space: nowrap;text-shadow:0 2px 5px rgba(0,0,0, 0.35);"
-                >
-                  GET THE LATEST DEALS &amp; DISCOUNTS
-                </div>
-
-                <!-- LAYER NR. 3 -->
-                <a
-                  class="tp-caption btn btn-custom min-width tp-resizeme rs-parallaxlevel-0"
-                  id="slide-2-layer-3"
-                  data-x="['right','right','right','right']"
-                  data-hoffset="['120','50','20','15']"
-                  data-y="['middle','middle','middle','middle']"
-                  data-voffset="['80','75','70','65']"
-                  data-witdh="none"
-                  data-height="none"
-                  data-whitespace="nowrap"
-                  data-transform_idle="o:1;"
-                  data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
-                  data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                  data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;"
-                  data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
-                  data-start="1800"
-                  data-splitin="none"
-                  data-splitout="none"
-                  data-responsive_offset="on"
-                  style="z-index: 6; white-space: nowrap;"
-                  href="#"
-                  >See Features
-                </a>
-
-                <!-- LAYER NR. 4 -->
-                <div
-                  class="tp-caption tp-resizeme rs-parallaxlevel-0"
-                  id="slide-2-layer-4"
-                  data-x="['left','left','left','left']"
-                  data-hoffset="['130','50','30','15']"
-                  data-y="['middle','middle','middle','middle']"
-                  data-voffset="['10','10','5','5']"
-                  data-width="none"
-                  data-height="none"
-                  data-color="#fff"
-                  data-whitespace="nowrap"
-                  data-transform_idle="sX:1;sY:1;o:1;"
-                  data-transform_in="sX:0;sY:0;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
-                  data-transform_out="sX:0;sY:0;s:1000;e:Power2.easeInOut;"
-                  data-mask_in="x:0px;y:[100%];s:inherit;e:inherit;"
-                  data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;"
-                  data-start="1400"
-                  data-splitin="none"
-                  data-splitout="none"
-                  data-responsive_offset="on"
-                  style="z-index: 5;"
-                >
-                  <img
-                    src="assets/images/homepages/index-shop/laptops.png"
-                    alt="Laptops"
-                    width="555"
-                    height="307"
-                    data-ww="['555px', '444px', '333px', '222px']"
-                    data-hh="['307px', '246px', '184px', '123px']"
-                    data-no-retina
-                  />
-                </div>
-              </li>
-            </ul>
-            <div
-              class="tp-bannertimer tp-bottom"
-              style="height: 4px; background-color: rgba(255, 255, 255, 0.5);"
-            ></div>
+          <div class="vcenter-content text-center">
+            <div class="container-fluid">
+              <h1 class="text-white wow fadeInUp" data-wow-delay="0.25s"></h1>
+              <p class="text-white wow fadeInUp" data-wow-delay="0.5s"></p>
+            </div>
+            <!-- End .container-fluid -->
           </div>
-          <!-- End #rev_slider -->
+          <!-- End .vcenter-content -->
         </div>
-        <!-- END REVOLUTION SLIDER -->
+        <!-- End .fullscreen -->
+
+        <div class="mb60 mb45-sm"></div>
+        <!-- margin -->
       </div>
       <!-- End .main -->
     </div>
