@@ -10,6 +10,7 @@
             class="tab-pane active large-img-style">
             <img :src="ad.image_url" alt="" width="300" />
             </div>
+            <!-- End .product-zoom-wrapper -->
           </div>
           </div>
         </div>
@@ -47,6 +48,7 @@
                 <input type="submit" value="SEND MESSAGE"/>
               </div>
               </div>
+              <!-- End .panel -->
             </div>
           </form>
           </div>
@@ -114,11 +116,12 @@
         </div>
       </div>
       </div>
+      <!-- End .row -->
     </div>
-
   </div>
 </template>
 
+<style></style>
 
 <script>
 import axios from "axios";

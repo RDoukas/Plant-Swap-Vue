@@ -1,105 +1,67 @@
 <template>
   <div class="conversations-show">
-    <div class="Blog-area pt-100 pb-100">
-      <div class="container">
-        <div>
-          <button class="btn-primary" v-on:click="destroyConvo()">
+    <div class="container-fluid">
+      <div class="comments">
+        <div class="title custom mb50">
+          <div class="mb25 mb15-sm"></div>
+          <h2>{{ conversation.ad_title }}</h2>
+          <button
+            class="btn btn-custom min-width pull-right"
+            v-on:click="destroyConvo()"
+          >
             Delete Conversation
           </button>
+          <div class="mb25 mb15-sm"></div>
         </div>
-        <div class="row flex-row-reverse">
-          <div class="col-lg-9">
-            <div class="blog-details-wrapper ml-20">
-              <div id="destroyConvo"></div>
-              <div class="blog-comment-wrapper mt-55">
-                <h4 class="blog-dec-title">
-                  {{ conversation.ad_title }}
+        <ul class="comments-list media-list">
+          <li v-for="message in conversation.messages" class="media">
+            <div class="comment">
+              <div class="media-left"></div>
+              <!-- End .media-left -->
+              <div class="media-body">
+                <h4 class="media-heading">
+                  {{ message.username
+                  }}<span class="comment-date">{{
+                    relativeTime(message.created_at)
+                  }}</span>
                 </h4>
-                <div
-                  class="single-comment-wrapper mt-30"
-                  v-for="message in conversation.messages"
-                >
-                  <div class="blog-comment-content">
-                    <h5>User: {{ message.username }}</h5>
-                    <span
-                      >Date sent: {{ relativeTime(message.created_at) }}</span
-                    >
-                    <p>{{ message.body }}</p>
-                  </div>
-                </div>
+                <p>{{ message.body }}</p>
               </div>
-              <div class="blog-reply-wrapper mt-50">
-                <form class="blog-form" v-on:submit.prevent="createMessage()">
-                  <ul>
-                    <li v-for="error in errors">{{ error }}</li>
-                  </ul>
-                  <label>Send Message:</label>
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="text-leave">
-                        <textarea
-                          :placeholder="`Reply to ${partner.username}`"
-                          v-model="newMessage"
-                        ></textarea>
-                        <input type="submit" value="SEND MESSAGE" />
-                      </div>
-                    </div>
-                  </div>
-                </form>
-              </div>
+              <!-- End .media-body -->
             </div>
-          </div>
-        </div>
+            <!-- End .comment -->
+          </li>
+        </ul>
+      </div>
+      <!-- End .comments -->
+
+      <div
+        v-on:submit.prevent="createMessage()"
+        id="respond"
+        class="comment-respond"
+      >
+        <ul>
+          <li v-for="error in errors">{{ error }}</li>
+        </ul>
+        <h3 class="title custom mb25">Reply</h3>
+        <form action="#" method="post">
+          <textarea
+            class="form-control"
+            rows="6"
+            :placeholder="`Reply to ${partner.username}`"
+            v-model="newMessage"
+            required
+          ></textarea>
+
+          <input type="submit" class="btn btn-custom" value="Send Reply" />
+        </form>
+        <div class="mb25 mb15-sm"></div>
       </div>
     </div>
+    <div class="mb25 mb15-sm"></div>
 
-    <!-- <div class="cart-main-area pt-90 pb-100">
-      <div class="pro-details-cart btn-hover">
-      <div id="destroyConvo">
-        <button v-on:click="destroyConvo()">Delete Conversation</button>
-         <input type="submit" value="">
-      </div> -->
+    <!-- End #respond -->
 
-    <!-- </div> -->
-    <!-- <div class="container">
-        <h3><a href="`/ads/${ad.id}`">Ad Title: {{conversation.ad_title}}</a></h3>
-        <div class="row">
-          <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-            <div class="table-content table-responsive cart-table-content" v-for="message in conversation.messages">
-              <table>
-                <tbody>
-                  <tr>
-                    <h6>From: {{ message.username }}</h6>
-                    <p>{{ message.body }}</p>
-                    <h6>Sent: {{ relativeTime(message.created_at) }}</h6>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="row">
-              <div class="col-lg-4 col-md-6"></div>
-                <div class="blog-reply-wrapper mt-50">
-                  <form class="blog-form" v-on:submit.prevent="createMessage()">
-                    <ul>
-                      <li v-for="error in errors">{{error}}</li>
-                    </ul>
-                    <label>Send Message:</label>
-                    <div class="row">
-                      <div class="col-md-12">
-                        <div class="text-leave">
-                        <textarea :placeholder="`Reply to ${partner.username}`" v-model="newMessage"></textarea>
-                        <input type="submit" value="SEND MESSAGE">
-                        </div>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
   </div>
 </template>
 
