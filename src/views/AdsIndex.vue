@@ -10,14 +10,12 @@
               <div class="filter-container filter-sort">
                 <label>Sort by:</label>
                 <select class="form-control input-sm">
-                  <option value="Date">Date Posted</option>
-                  <option value="Username">Plant Parent</option>
-                  <option value="Title">Title</option>
+                  <option sortAttribute="`ad.created_at`">Date Posted</option>
+                  <option sortAttribute="`ad.title`"> Title</option>
+                  <option sortAttribute="`ad.username`">Plant Parent</option>
                 </select>
               </div>
               <!-- End .filter-sort -->
-              <div class="filter-container filter-show"></div>
-              <!-- End .filter-show -->
             </div>
             <!-- End .left -->
           </div>
@@ -28,9 +26,8 @@
               <div class="col-md-4 col-sm-5">
                 <div class="product-top">
                   <figure>
-                    <a href="`/ads/${ad.id}`" title="Product Name">
                       <img
-                        src="`ad.image_url`"
+                        v-bind:src="ad.image_url"
                         alt="Product image"
                         class="product-image"
                       />
@@ -43,7 +40,9 @@
               <div class="col-md-8 col-sm-7">
                 <div class="product-content">
                   <h3 class="product-title">
-                    <a href="`/ads/${ad.id}`">{{ ad.title }}</a>
+                    <router-link v-bind:to="`/ads/${ad.id}`">{{
+                      ad.title
+                    }}</router-link>
                   </h3>
                   <p>Plant Parent: {{ ad.username }}</p>
                   <p>Date Posted: {{ ad.created_at }}</p>
