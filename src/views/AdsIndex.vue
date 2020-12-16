@@ -94,7 +94,7 @@
                   >
                     <div class="panel-body">
                       <ul class="filter-brand-list">
-                         <div v-for="category in categories">
+                         <div class="checkbox" v-for="category in categories">
                           <input
                             type="checkbox"
                             id="toggle"
