@@ -4,7 +4,9 @@
       <div class="row flex-shop">
         <div class="col-md-9 col-md-push-3">
           <div class="category-filter-row">
-            <div class="right"></div>
+            <div class="right">
+              <a href="/ads/new" class="btn btn-custom">Create Ad</a>
+            </div>
             <!-- end .right -->
             <div class="left">
               <div class="filter-container filter-sort">
@@ -26,12 +28,12 @@
               <div class="col-md-4 col-sm-5">
                 <div class="product-top">
                   <figure>
-                      <img
-                        v-bind:src="ad.image_url"
-                        alt="Product image"
-                        class="product-image"
-                      />
-                    </a>
+                    <img
+                      v-bind:src="ad.image_url"
+                      alt="Product image"
+                      class="product-image"
+                    />
+                    <!-- </a> -->
                   </figure>
                 </div>
                 <!-- End .product -->
@@ -94,7 +96,7 @@
                   >
                     <div class="panel-body">
                       <ul class="filter-brand-list">
-                         <div class="checkbox" v-for="category in categories">
+                        <div class="checkbox" v-for="category in categories">
                           <input
                             type="checkbox"
                             id="toggle"

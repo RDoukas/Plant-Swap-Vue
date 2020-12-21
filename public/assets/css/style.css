@@ -10226,7 +10226,7 @@ Animations - add these clases to the parent element - Navbar Or dropdown
 
 .product .product-top img {
   display: block;
-  width: 100%;
+  width: 80%;
   height: auto;
 }
 
