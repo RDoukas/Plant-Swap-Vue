@@ -31,6 +31,7 @@
                 >Profile</a
               >
             </div>
+
             <div
               v-if="isLoggedIn()"
               class="dropdown header-dropdown pull-right"
@@ -59,13 +60,97 @@
               v-if="!isLoggedIn()"
               class="dropdown header-dropdown pull-right"
             >
-              <a
+              <!-- Login form trigger -->
+              <button
+                class="btn btn-custom"
+                data-toggle="modal"
+                data-target="#modal-login-form"
+              >
+                Login
+              </button>
+              <!-- Modal Login Form-->
+              <div
+                class="modal fade"
+                id="modal-login-form"
+                tabindex="-1"
+                role="dialog"
+                aria-labelledby="myModalLabel1"
+                aria-hidden="true"
+              >
+                <form id="login-form" v-on:submit.prevent="submit()">
+                  <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button
+                          type="button"
+                          class="close"
+                          data-dismiss="modal"
+                        >
+                          <span aria-hidden="true">&times;</span
+                          ><span class="sr-only">Close</span>
+                        </button>
+                        <h3 class="modal-title" id="myModalLabel1">
+                          Login
+                        </h3>
+                      </div>
+                      <!-- End .modal-header -->
+                      <div class="modal-body">
+                        <div class="form-group">
+                          <label for="email2" class="form-label"
+                            >Email<span class="required">*</span></label
+                          >
+                          <input
+                            type="email"
+                            name="email"
+                            id="email2"
+                            class="form-control"
+                            placeholder="Email"
+                            required
+                            v-model="email"
+                          />
+                        </div>
+                        <!-- End .form-group -->
+                        <div class="form-group">
+                          <label for="password2" class="form-label"
+                            >Passowrd:<span class="required">*</span></label
+                          >
+                          <input
+                            type="password"
+                            name="password2"
+                            id="password2"
+                            class="form-control"
+                            placeholder="Password"
+                            v-model="password"
+                          />
+                        </div>
+                        <!-- End .form-group -->
+                      </div>
+                      <!-- End .modal-body -->
+                      <div class="modal-footer">
+                        <button
+                          type="button"
+                          class="btn btn-black"
+                          data-dismiss="modal"
+                        >
+                          Close
+                        </button>
+                        <button class="btn btn-custom">Login</button>
+                      </div>
+                      <!-- End .modal-footer -->
+                    </div>
+                    <!-- End .modal-content -->
+                  </div>
+                  <!-- End .modal-dialog -->
+                </form>
+              </div>
+              <!-- End .modal -->
+              <!-- <a
                 href="/login"
                 role="button"
                 aria-haspopup="true"
                 aria-expanded="false"
                 >Login</a
-              >
+              > -->
             </div>
             <div
               v-if="!isLoggedIn()"
@@ -134,9 +219,14 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   data: function() {
-    return {};
+    return {
+      email: "",
+      password: "",
+      errors: [],
+    };
   },
   methods: {
     isLoggedIn: function() {
@@ -145,6 +235,26 @@ export default {
 
     getUserId: function() {
       return localStorage.getItem("user_id");
+    },
+    submit: function() {
+      var params = {
+        email: this.email,
+        password: this.password,
+      };
+      axios
+        .post("/api/sessions", params)
+        .then((response) => {
+          axios.defaults.headers.common["Authorization"] =
+            "Bearer " + response.data.jwt;
+          localStorage.setItem("jwt", response.data.jwt);
+          localStorage.setItem("current_user", response.data.user_id);
+          this.$router.push("/");
+        })
+        .catch((error) => {
+          this.errors = ["Invalid email or password."];
+          this.email = "";
+          this.password = "";
+        });
     },
   },
 };
