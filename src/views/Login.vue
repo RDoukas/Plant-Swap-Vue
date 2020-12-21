@@ -13,7 +13,7 @@
         <div class="vcenter-content text-center">
           <div class="container-fluid">
             <h1 class="text-white wow fadeInUp" data-wow-delay="0.25s">
-              Login
+              Create a new ad
             </h1>
             <p class="text-white wow fadeInUp" data-wow-delay="0.5s"></p>
           </div>

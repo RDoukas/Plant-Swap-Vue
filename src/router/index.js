@@ -30,16 +30,16 @@ const routes = [
     name: "about",
     component: About,
   },
-  {
-    path: "/login",
-    name: "login",
-    component: Login,
-  },
   // {
-  //   path: "/logout",
-  //   name: "logout",
-  //   component: Logout,
+  //   path: "/login",
+  //   name: "login",
+  //   component: Login,
   // },
+  {
+    path: "/logout",
+    name: "logout",
+    component: Logout,
+  },
   {
     path: "/ads",
     name: "ads-index",

@@ -60,7 +60,20 @@
               v-if="!isLoggedIn()"
               class="dropdown header-dropdown pull-right"
             >
-              <!-- Login form trigger -->
+              <!-- Register form trigger -->
+              <button
+                class="btn btn-custom"
+                data-toggle="modal"
+                data-target="#modal-login-form"
+                href="/signup"
+              >
+                Signup
+              </button>
+            </div>
+            <div
+              v-if="!isLoggedIn()"
+              class="dropdown header-dropdown pull-right"
+            >
               <button
                 class="btn btn-custom"
                 data-toggle="modal"
@@ -145,24 +158,12 @@
               </div>
               <!-- End .modal -->
               <!-- <a
-                href="/login"
-                role="button"
-                aria-haspopup="true"
-                aria-expanded="false"
-                >Login</a
-              > -->
-            </div>
-            <div
-              v-if="!isLoggedIn()"
-              class="dropdown header-dropdown pull-right"
-            >
-              <a
                 href="/signup"
                 role="button"
                 aria-haspopup="true"
                 aria-expanded="false"
                 >Register</a
-              >
+              > -->
             </div>
             <!-- End .header-dropdown -->
 
@@ -223,18 +224,36 @@ import axios from "axios";
 export default {
   data: function() {
     return {
+      firstName: "",
+      lastName: "",
+      username: "",
       email: "",
       password: "",
+      passwordConfirmation: "",
       errors: [],
+      status: "",
     };
   },
   methods: {
-    isLoggedIn: function() {
-      return localStorage.getItem("jwt");
-    },
-
-    getUserId: function() {
-      return localStorage.getItem("user_id");
+    createUser: function() {
+      var params = {
+        first_name: this.firstName,
+        last_name: this.lastName,
+        username: this.username,
+        email: this.email,
+        password: this.password,
+        password_confirmation: this.passwordConfirmation,
+      };
+      axios
+        .post("/api/users", params)
+        .then((response) => {
+          // this.$parent.flashMessage = "Successfully signed up!";
+          this.$router.push("/login");
+        })
+        .catch((error) => {
+          this.status = error.response.status;
+          this.errors = error.response.data.errors;
+        });
     },
     submit: function() {
       var params = {
@@ -255,6 +274,13 @@ export default {
           this.email = "";
           this.password = "";
         });
+    },
+    isLoggedIn: function() {
+      return localStorage.getItem("jwt");
+    },
+
+    getUserId: function() {
+      return localStorage.getItem("user_id");
     },
   },
 };
