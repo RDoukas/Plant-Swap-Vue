@@ -2,34 +2,32 @@
   <div class="conversations-index">
     <div class="main">
       <div
-        class="fullscreen vertical-center parallax overlay-container overflow-hidden"
-        style="background-image:url(/assets/images/backgrounds/elephantbush.jpg)"
-        data-0="background-position:50% 50%;"
-        data-top-bottom="background-position:50% 100%"
+        class="fullscreen vertical-center bg-image overlay-container overflow-hidden"
+        style="background-image:url(/assets/images/monstera.jpeg)"
       >
         <div class="overlay custom"></div>
         <!-- End .overlay -->
+        <div id="particles-js"></div>
+        <!-- End #particles-js -->
 
-        <div
-          class="vcenter-content text-center"
-          data-300-top="opacity:1;"
-          data-top-bottom="opacity:0.4;"
-        >
+        <div class="vcenter-content text-center">
           <div class="container-fluid">
-            <h1 class="text-white">
-              <span>Your Messages</span>
+            <h1 class="text-white wow fadeInUp" data-wow-delay="0.25s">
+              Messages
             </h1>
+            <p class="text-white wow fadeInUp" data-wow-delay="0.5s"></p>
           </div>
+          <!-- End .container-fluid -->
         </div>
         <!-- End .vcenter-content -->
       </div>
       <!-- End .fullscreen -->
+
+      <div class="mb60 mb45-sm"></div>
+      <!-- margin -->
+
+      <!-- End .main -->
       <div class="container-fluid">
-        <div class="category-filter-row">
-          <div class="right"></div>
-          <!-- end .right -->
-          <div class="left"></div>
-        </div>
         <!-- End .category-filter-row -->
 
         <div v-for="conversation in conversations" class="product product-list">

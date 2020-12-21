@@ -1,5 +1,27 @@
 <template>
   <div class="ads-show">
+    <div class="main">
+      <div
+        class="fullscreen vertical-center bg-image overlay-container overflow-hidden"
+        style="background-image:url(/assets/images/monstera.jpeg)"
+      >
+        <div class="overlay custom"></div>
+        <!-- End .overlay -->
+        <div id="particles-js"></div>
+        <!-- End #particles-js -->
+
+        <div class="vcenter-content text-center">
+          <div class="container-fluid">
+            <h1 class="text-white wow fadeInUp" data-wow-delay="0.25s">
+            </h1>
+            <p class="text-white wow fadeInUp" data-wow-delay="0.5s"></p>
+          </div>
+          <!-- End .container-fluid -->
+        </div>
+        <!-- End .vcenter-content -->
+      </div>
+      <!-- End .fullscreen -->
+
   <div class="container-fluid">
   <div class="row">
     <div class="col-md-6">
@@ -72,6 +94,8 @@
    
   
   </div><!-- End .container-fluid -->
+    </div>
+     
 
 
 

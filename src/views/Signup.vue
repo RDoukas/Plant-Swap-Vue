@@ -1,134 +1,170 @@
 <template>
   <div class="signup">
-    <div id="wrapper">
-      <div class="container-fluid">
-        <div class="user-form-container register-form bg-white">
-          <h2 class="mb30">Signup</h2>
-          <form v-on:submit.prevent="submit()">
-            <ul>
-              <li class="text-danger" v-for="error in errors">{{ error }}</li>
-            </ul>
-            <div class="row">
-              <div class="col-sm-6 ">
-                <div class="form-group">
-                  <label>First Name:</label>
-                  <input type="text" class="form-control" v-model="firstName" />
-                </div>
-                <!-- End .from-group -->
-              </div>
-              <!-- End .col-sm-6 -->
-              <div class="col-sm-6 ">
-                <div class="form-group">
-                  <label>Last Name:</label>
-                  <input type="text" class="form-control" v-model="lastName" />
-                </div>
-                <!-- End .from-group -->
-              </div>
-              <!-- End .col-sm-6 -->
-            </div>
-            <!-- End .row -->
+    <div class="main">
+      <div
+        class="fullscreen vertical-center bg-image overlay-container overflow-hidden"
+        style="background-image:url(/assets/images/monstera.jpeg)"
+      >
+        <div class="overlay custom"></div>
+        <!-- End .overlay -->
+        <div id="particles-js"></div>
+        <!-- End #particles-js -->
 
-            <div class="row">
-              <div class="col-sm-6 ">
-                <div class="form-group">
-                  <label>Email:</label>
-                  <input type="email" class="form-control" v-model="email" />
+        <div class="vcenter-content text-center">
+          <div class="container-fluid">
+            <h1 class="text-white wow fadeInUp" data-wow-delay="0.25s">
+              Signup
+            </h1>
+            <p class="text-white wow fadeInUp" data-wow-delay="0.5s"></p>
+          </div>
+          <!-- End .container-fluid -->
+        </div>
+        <!-- End .vcenter-content -->
+      </div>
+      <!-- End .fullscreen -->
+
+      <div id="wrapper">
+        <div class="container-fluid">
+          <div class="user-form-container register-form bg-white">
+            <h2 class="mb30">Create an Account</h2>
+            <form v-on:submit.prevent="submit()">
+              <ul>
+                <li class="text-danger" v-for="error in errors">{{ error }}</li>
+              </ul>
+              <div class="row">
+                <div class="col-sm-6 ">
+                  <div class="form-group">
+                    <label>First Name:</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      v-model="firstName"
+                    />
+                  </div>
+                  <!-- End .from-group -->
                 </div>
-                <!-- End .from-group -->
+                <!-- End .col-sm-6 -->
+                <div class="col-sm-6 ">
+                  <div class="form-group">
+                    <label>Last Name:</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      v-model="lastName"
+                    />
+                  </div>
+                  <!-- End .from-group -->
+                </div>
+                <!-- End .col-sm-6 -->
               </div>
-              <!-- End .col-sm-6 -->
-              <div class="col-sm-6 ">
-                <div class="form-group">
-                  <label>Username:</label>
-                  <input type="text" class="form-control" v-model="username" />
-                  <div>
-                    <small>
-                      {{ 20 - username.length }} characters remaining</small
-                    >
+              <!-- End .row -->
+
+              <div class="row">
+                <div class="col-sm-6 ">
+                  <div class="form-group">
+                    <label>Email:</label>
+                    <input type="email" class="form-control" v-model="email" />
+                  </div>
+                  <!-- End .from-group -->
+                </div>
+                <!-- End .col-sm-6 -->
+                <div class="col-sm-6 ">
+                  <div class="form-group">
+                    <label>Username:</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      v-model="username"
+                    />
+                    <div>
+                      <small>
+                        {{ 20 - username.length }} characters remaining</small
+                      >
+                    </div>
+                  </div>
+                  <!-- End .from-group -->
+                </div>
+                <!-- End .col-sm-6 -->
+              </div>
+              <!-- End .row -->
+
+              <div class="row">
+                <div class="col-sm-6 ">
+                  <div class="form-group">
+                    <label>Password:</label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      v-model="password"
+                    />
+                    <div>
+                      <small
+                        class="text-danger"
+                        v-if="password.length > 0 && password.length < 6"
+                      >
+                        Must be at least 6 characters</small
+                      >
+                    </div>
+                    <!-- End .from-group -->
                   </div>
                 </div>
-                <!-- End .from-group -->
-              </div>
-              <!-- End .col-sm-6 -->
-            </div>
-            <!-- End .row -->
-
-            <div class="row">
-              <div class="col-sm-6 ">
-                <div class="form-group">
-                  <label>Password:</label>
-                  <input
-                    type="password"
-                    class="form-control"
-                    v-model="password"
-                  />
-                  <div>
+                <!-- End .col-sm-6 -->
+                <div class="col-sm-6 ">
+                  <div class="form-group">
+                    <label>Password confirmation: </label>
+                    <input
+                      type="password"
+                      class="form-control"
+                      v-model="passwordConfirmation"
+                    />
                     <small
                       class="text-danger"
-                      v-if="password.length > 0 && password.length < 6"
-                    >
-                      Must be at least 6 characters</small
+                      v-if="passwordConfirmation !== password"
+                      >Must match password</small
                     >
                   </div>
                   <!-- End .from-group -->
                 </div>
+                <!-- End .col-sm-6 -->
               </div>
-              <!-- End .col-sm-6 -->
-              <div class="col-sm-6 ">
-                <div class="form-group">
-                  <label>Password confirmation: </label>
-                  <input
-                    type="password"
-                    class="form-control"
-                    v-model="passwordConfirmation"
-                  />
-                  <small
-                    class="text-danger"
-                    v-if="passwordConfirmation !== password"
-                    >Must match password</small
-                  >
+              <!-- End .row -->
+
+              <div class="mb10"></div>
+              <!-- space -->
+
+              <div class="form-group mb0">
+                <div class="checkbox">
+                  <label class="custom-checkbox-wrapper">
+                    <span class="custom-checkbox-container">
+                      <input type="checkbox" value="true" />
+                      <span class="custom-checkbox-icon"></span>
+                    </span>
+                    <span
+                      >I have read and agree on the
+                      <a href="#">Privacy Policy</a>.</span
+                    >
+                  </label>
                 </div>
-                <!-- End .from-group -->
+                <!-- End .checkbox -->
               </div>
-              <!-- End .col-sm-6 -->
-            </div>
-            <!-- End .row -->
+              <!-- End .form-group -->
 
-            <div class="mb10"></div>
-            <!-- space -->
-
-            <div class="form-group mb0">
-              <div class="checkbox">
-                <label class="custom-checkbox-wrapper">
-                  <span class="custom-checkbox-container">
-                    <input type="checkbox" value="true" />
-                    <span class="custom-checkbox-icon"></span>
-                  </span>
-                  <span
-                    >I have read and agree on the
-                    <a href="#">Privacy Policy</a>.</span
-                  >
-                </label>
+              <div class="form-group mb5">
+                <input
+                  type="submit"
+                  class="btn btn-custom min-width"
+                  value="Signup"
+                />
               </div>
-              <!-- End .checkbox -->
-            </div>
-            <!-- End .form-group -->
-
-            <div class="form-group mb5">
-              <input
-                type="submit"
-                class="btn btn-custom min-width"
-                value="Signup"
-              />
-            </div>
-            <!-- End .from-group -->
-          </form>
+              <!-- End .from-group -->
+            </form>
+          </div>
+          <!-- End .register-form-container -->
         </div>
-        <!-- End .register-form-container -->
+        <!-- End .container-fluid -->
       </div>
-      <!-- End .container-fluid -->
+      <!-- End #wrapper -->
     </div>
-    <!-- End #wrapper -->
   </div>
 </template>
 

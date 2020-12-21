@@ -1,42 +1,65 @@
 <template>
   <div class="ads-new">
-    <div class="container-fluid">
-      <form v-on:submit.prevent="createAd()">
-        <h1>Create a new ad</h1>
-        <ul>
-          <li class="text-danger" v-for="error in errors">{{ error }}</li>
-        </ul>
-        <div class="form-group">
-          <label>Title:</label>
-          <input type="text" class="form-control" v-model="title" />
-        </div>
-        <div class="form-group">
-          <label>Description:</label>
-          <input type="text" class="form-control" v-model="description" />
-        </div>
-        <div class="form-group">
-          <label>Image:</label>
-          <input
-            class="form-control"
-            type="file"
-            v-on:change="setFile($event)"
-            ref="fileInput"
-          />
-        </div>
-        <div class="form-group">
-          <div v-for="category in categories">
-            <input
-              type="checkbox"
-              :id="category.id"
-              :value="category.id"
-              v-model="categoryIds"
-            />
-            <label :for="category.id">{{ category.name }}</label>
+    <div class="main">
+      <div
+        class="fullscreen vertical-center bg-image overlay-container overflow-hidden"
+        style="background-image:url(/assets/images/monstera.jpeg)"
+      >
+        <div class="overlay custom"></div>
+        <!-- End .overlay -->
+        <div id="particles-js"></div>
+        <!-- End #particles-js -->
+
+        <div class="vcenter-content text-center">
+          <div class="container-fluid">
+            <h1 class="text-white wow fadeInUp" data-wow-delay="0.25s">
+              Create a new ad
+            </h1>
+            <p class="text-white wow fadeInUp" data-wow-delay="0.5s"></p>
           </div>
-          {{ categoryIds }}
+          <!-- End .container-fluid -->
         </div>
-        <input type="submit" class="btn btn-primary" value="Create" />
-      </form>
+        <!-- End .vcenter-content -->
+      </div>
+      <!-- End .fullscreen -->
+      <div class="container-fluid">
+        <form v-on:submit.prevent="createAd()">
+          <!-- <h1>Create a new ad</h1> -->
+          <ul>
+            <li class="text-danger" v-for="error in errors">{{ error }}</li>
+          </ul>
+          <div class="form-group">
+            <label>Title:</label>
+            <input type="text" class="form-control" v-model="title" />
+          </div>
+          <div class="form-group">
+            <label>Description:</label>
+            <input type="text" class="form-control" v-model="description" />
+          </div>
+          <div class="form-group">
+            <label>Image:</label>
+            <input
+              class="form-control"
+              type="file"
+              v-on:change="setFile($event)"
+              ref="fileInput"
+            />
+          </div>
+          <div class="form-group">
+            <div v-for="category in categories">
+              <input
+                type="checkbox"
+                :id="category.id"
+                :value="category.id"
+                v-model="categoryIds"
+              />
+              <label :for="category.id">{{ category.name }}</label>
+            </div>
+            {{ categoryIds }}
+          </div>
+          <input type="submit" class="btn btn-primary" value="Create" />
+        </form>
+      </div>
     </div>
   </div>
 </template>
