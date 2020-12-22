@@ -2,98 +2,98 @@
   <div class="ads-show">
     <div class="main">
       <div
-        class="fullscreen vertical-center bg-image overlay-container overflow-hidden"
+        class="page-header largest parallax custom text-center"
         style="background-image:url(/assets/images/monstera.jpeg)"
+        data-0="background-position:50% 50%;"
+        data-top-bottom="background-position:50% 100%"
       >
-        <div class="overlay custom"></div>
-        <!-- End .overlay -->
-        <div id="particles-js"></div>
-        <!-- End #particles-js -->
-
-        <div class="vcenter-content text-center">
-          <div class="container-fluid">
-            <h1 class="text-white wow fadeInUp" data-wow-delay="0.25s">
-            </h1>
-            <p class="text-white wow fadeInUp" data-wow-delay="0.5s"></p>
-          </div>
-          <!-- End .container-fluid -->
+        <div class="container-fluid">
+          <h1>{{ad.title}}</h1>
+          <!-- <ol class="breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Pages</a></li>
+            <li class="active">Category</li>
+          </ol> -->
         </div>
-        <!-- End .vcenter-content -->
+        <!-- End .container-fluid -->
       </div>
-      <!-- End .fullscreen -->
+      <!-- End .page-header -->
 
-  <div class="container-fluid">
-  <div class="row">
-    <div class="col-md-6">
-    <div class="product-gallery-container">
-      <div class="product-zoom-wrapper">
-      <div class="product-zoom-container">
-        <img :src="ad.image_url" alt="" width="300" />
-      </div><!-- End .product-zoom-container -->
-      </div><!-- End .product-zoom-wrapper -->
-    </div><!-- End .product-gallery-container -->
-    </div><!-- End .col-md-6 -->
+      <div class="mb60 mb45-sm"></div>
+      <!-- margin -->
 
-    <div class="clearfix visible-sm"></div><!-- end .clearfix -->
-
-    <div class="col-md-6">
-    <div class="product-details">
-      <h2 class="product-title">{{ad.title}}t</h2>
-
-      <div class="product-desc-box">
-      <ul>
-        <li><strong>Plant Parent: </strong> {{ad.username}}</li>
-        <li><strong>Date Posted: </strong>{{ad.created_at}}</li>
-        <li><strong>Description: </strong> {{ad.description}}</li>
-      </ul>
-      </div><!-- End .product-desc-box -->
-
+      <div class="container-fluid">
       <div class="row">
-      <div class="col-xs-6">
-    
-      </div><!-- End .col-xs-6 -->
-      <div class="col-xs-6">
-      </div><!-- End .col-xs-6 -->
+        <div class="col-md-6">
+        <div class="product-gallery-container">
+          <div class="product-zoom-wrapper">
+          <div class="product-zoom-container">
+            <img :src="ad.image_url" alt="" width="300" />
+          </div><!-- End .product-zoom-container -->
+          </div><!-- End .product-zoom-wrapper -->
+        </div><!-- End .product-gallery-container -->
+        </div><!-- End .col-md-6 -->
+
+        <div class="clearfix visible-sm"></div><!-- end .clearfix -->
+
+        <div class="col-md-6">
+        <div class="product-details">
+          <h2 class="product-title">{{ad.title}}t</h2>
+
+          <div class="product-desc-box">
+          <ul>
+            <li><strong>Plant Parent: </strong> {{ad.username}}</li>
+            <li><strong>Date Posted: </strong>{{ad.created_at}}</li>
+            <li><strong>Description: </strong> {{ad.description}}</li>
+          </ul>
+          </div><!-- End .product-desc-box -->
+
+          <div class="row">
+          <div class="col-xs-6">
+        
+          </div><!-- End .col-xs-6 -->
+          <div class="col-xs-6">
+          </div><!-- End .col-xs-6 -->
+          </div><!-- End .row -->
+          <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+          <div class="panel">
+            <div class="panel-heading" role="tab" id="headingOne2">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne2" aria-expanded="true" aria-controls="collapseOne2">
+              Categories
+              </a>
+            </h4>
+            </div><!-- End .panel-heading -->
+            <div id="collapseOne2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne2">
+            <div class="panel-body">
+              <div v-for="category in ad.categories">{{ category.name }}</div>
+            </div><!-- End .panel-body -->
+            </div><!-- End .panel-collapse -->
+          </div><!-- End .panel -->
+          </div><!-- End .panel-group --><div v-if="!ad.owner">
+        <form action="#" method="post" id="contact-form" v-on:submit.prevent="createConversation()">
+
+        <div class="row">
+          <div class="col-md-12">
+            <label>Message</label>
+            <textarea class="form-control" rows="6" id="contactmessage" name="contactmessage" placeholder="Message" v-model="newMessage"
+            required></textarea>
+          </div><!-- End .col-md-12 -->
+        </div><!-- End .row -->
+
+        <div class="mb10"></div><!-- margin -->
+
+        <input type="submit" class="btn btn-custom min-width" data-loading-text="Sending Message..." value="Send Message">
+      </form>
+      </div>
+
+        </div><!-- End .product-details -->
+        </div><!-- End .col-md-6 -->
       </div><!-- End .row -->
-      <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-      <div class="panel">
-        <div class="panel-heading" role="tab" id="headingOne2">
-        <h4 class="panel-title">
-          <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne2" aria-expanded="true" aria-controls="collapseOne2">
-          Categories
-          </a>
-        </h4>
-        </div><!-- End .panel-heading -->
-        <div id="collapseOne2" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne2">
-        <div class="panel-body">
-          <div v-for="category in ad.categories">{{ category.name }}</div>
-        </div><!-- End .panel-body -->
-        </div><!-- End .panel-collapse -->
-      </div><!-- End .panel -->
-      </div><!-- End .panel-group --><div v-if="!ad.owner">
-    <form action="#" method="post" id="contact-form" v-on:submit.prevent="createConversation()">
-
-    <div class="row">
-      <div class="col-md-12">
-        <label>Message</label>
-        <textarea class="form-control" rows="6" id="contactmessage" name="contactmessage" placeholder="Message" v-model="newMessage"
-         required></textarea>
-      </div><!-- End .col-md-12 -->
-    </div><!-- End .row -->
-
-    <div class="mb10"></div><!-- margin -->
-
-    <input type="submit" class="btn btn-custom min-width" data-loading-text="Sending Message..." value="Send Message">
-  </form>
-  </div>
-
-    </div><!-- End .product-details -->
-    </div><!-- End .col-md-6 -->
-  </div><!-- End .row -->
-  
-   
-  
-  </div><!-- End .container-fluid -->
+      
+      
+      
+      </div><!-- End .container-fluid -->
     </div>
      
 

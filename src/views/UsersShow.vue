@@ -2,26 +2,31 @@
   <div class="users-show">
     <div class="main">
       <div
-        class="fullscreen vertical-center bg-image overlay-container overflow-hidden"
-        style="background-image:url(/assets/images/monstera.jpeg)"
+        class="page-header largest parallax custom text-center"
+        style="background-image:url(assets/images/monstera.jpeg)"
+        data-0="background-position:50% 50%;"
+        data-top-bottom="background-position:50% 100%"
       >
-        <div class="overlay custom"></div>
-        <!-- End .overlay -->
-        <div id="particles-js"></div>
-        <!-- End #particles-js -->
-
-        <div class="vcenter-content text-center">
-          <div class="container-fluid">
-            <h1 class="text-white wow fadeInUp" data-wow-delay="0.25s">
-              Your Profile
-            </h1>
-            <p class="text-white wow fadeInUp" data-wow-delay="0.5s"></p>
-          </div>
-          <!-- End .container-fluid -->
+        <div class="container-fluid">
+          <h1>Profile</h1>
+          <!-- <ol class="breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Pages</a></li>
+            <li class="active">Category</li>
+          </ol> -->
         </div>
-        <!-- End .vcenter-content -->
+        <!-- End .container-fluid -->
       </div>
-      <!-- End .fullscreen -->
+      <!-- End .page-header -->
+      <div>
+        <ul>
+          <li>First Name: {{ user.first_name }}</li>
+          <li>Last Name: {{ user.last_name }}</li>
+          <li>Username: {{ user.username }}</li>
+          <li>Email: {{ user.email }}</li>
+        </ul>
+      </div>
+      <div class="mb60 mb45-sm"></div>
       <div
         class="panel-heading my-account-title"
         v-on:submit.prevent="editUser()"

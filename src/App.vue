@@ -214,6 +214,9 @@
       <!-- End .header -->
       <!-- End .header-search-form -->
     </div>
+    <a id="scroll-top" href="#top" title="Scroll top"
+      ><i class="fa fa-angle-up"></i
+    ></a>
 
     <router-view />
   </div>
@@ -235,26 +238,6 @@ export default {
     };
   },
   methods: {
-    createUser: function() {
-      var params = {
-        first_name: this.firstName,
-        last_name: this.lastName,
-        username: this.username,
-        email: this.email,
-        password: this.password,
-        password_confirmation: this.passwordConfirmation,
-      };
-      axios
-        .post("/api/users", params)
-        .then((response) => {
-          // this.$parent.flashMessage = "Successfully signed up!";
-          this.$router.push("/login");
-        })
-        .catch((error) => {
-          this.status = error.response.status;
-          this.errors = error.response.data.errors;
-        });
-    },
     submit: function() {
       var params = {
         email: this.email,
