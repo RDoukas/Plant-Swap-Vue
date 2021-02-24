@@ -259,10 +259,10 @@ export default {
   console.log(response.data);
   this.$router.push(`/conversations/${response.data.id}`);
   })
-  .catch((error) => {
-  this.errors = error.response.data.errors;
-  });
-  },
+        .catch((error) => {
+          this.errors = error.response.data.errors;
+        });
+    },
   },
 };
 </script>

@@ -99,14 +99,8 @@
                       id="brandFilter-header"
                     >
                       <h4 class="panel-title">
-                        <a
-                          data-toggle="collapse"
-                          href="#brandFilter"
-                          aria-expanded="true"
-                          aria-controls="brandFilter"
-                        >
+                        <a aria-expanded="true" aria-controls="brandFilter">
                           Categories
-                          <span class="panel-icon"></span>
                         </a>
                       </h4>
                     </div>
@@ -120,13 +114,18 @@
                       <div class="panel-body">
                         <ul class="filter-brand-list">
                           <div class="checkbox" v-for="category in categories">
-                            <input
-                              type="checkbox"
-                              id="toggle"
-                              :value="category"
-                              v-model="selectedCategories"
-                            />
-                            <label for="category">{{ category.name }}</label>
+                            <label class="custom-checkbox-wrapper">
+                              <span class="custom-checkbox-container">
+                                <input
+                                  type="checkbox"
+                                  name="category"
+                                  id="toggle"
+                                  :value="category"
+                                  v-model="selectedCategories"
+                                />
+                              </span>
+                              <span for="category">{{ category.name }}</span>
+                            </label>
                           </div>
                         </ul>
                       </div>

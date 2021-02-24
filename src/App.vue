@@ -61,14 +61,14 @@
               class="dropdown header-dropdown pull-right"
             >
               <!-- Register form trigger -->
-              <button
+              <!-- <button
                 class="btn btn-custom"
                 data-toggle="modal"
                 data-target="#modal-login-form"
                 href="/signup"
               >
                 Signup
-              </button>
+              </button> -->
             </div>
             <div
               v-if="!isLoggedIn()"
@@ -157,13 +157,13 @@
                 </form>
               </div>
               <!-- End .modal -->
-              <!-- <a
+              <a
                 href="/signup"
-                role="button"
+                class="btn btn-custom"
                 aria-haspopup="true"
                 aria-expanded="false"
                 >Register</a
-              > -->
+              >
             </div>
             <!-- End .header-dropdown -->
 
