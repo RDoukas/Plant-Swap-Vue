@@ -1,178 +1,150 @@
 <template>
   <div class="ads-index">
-    <div class="wrapper">
-      <div class="main">
-        <div
-          class="page-header largest parallax custom text-center"
-          style="background-image:url(/assets/images/backgrounds/succulent-wood.jpg)"
-          data-0="background-position:50% 50%;"
-          data-top-bottom="background-position:50% 100%"
-        >
-          <div class="overlay custom"></div>
-          <!-- End .overlay -->
-
-          <div
-            class="vcenter-content text-center"
-            data-300-top="opacity:1;"
-            data-top-bottom="opacity:0.4;"
-          >
-            <div class="container-fluid">
-              <h1 class="text-white">
-                <span>Ads List</span>
-              </h1>
-              <!-- <h5 class="text-white">
-    Below is a a list of all plants that are available to be
-    swapped!
-    </h5> -->
-            </div>
-            <!-- End .container-fluid -->
-          </div>
-          <!-- End .vcenter-content -->
-        </div>
-        <!-- End .fullscreen -->
-
+    <div class="main">
+      <div
+        class="page-header largest parallax custom text-center"
+        style="background-image:url(assets/images/monstera.jpeg)"
+        data-0="background-position:50% 50%;"
+        data-top-bottom="background-position:50% 100%"
+      >
         <div class="container-fluid">
-          <div class="row flex-shop">
-            <div class="col-md-9 col-md-push-3">
-              <div class="category-filter-row">
-                <div class="right">
-                  <div v-if="isLoggedIn()">
-                    <div
-                      class="btn btn-custom btn-sm"
-                      v-on:click="sortAttribute = ad.user_id"
-                    >
-                      Show my ads
-                    </div>
-                    <a href="/ads/new" class="btn btn-custom btn-sm">
-                      Create Ad</a
-                    >
-                  </div>
-                </div>
-                <!-- end .right -->
-
-                <div class="left">
-                  <div class="filter-container filter-sort">
-                    <label>Sort by:</label>
-                    <select class="form-control input-sm">
-                      <option value="title">Sort by title</option>
-                      <option value="created_at">Date Posted</option>
-                    </select>
-                  </div>
-                  <!-- End .filter-sort -->
-                </div>
-                <!-- End .left -->
-              </div>
-              <!-- End .category-filter-row -->
-              <ul v-for="ad in ads">
-                <div class="product product-list">
-                  <div class="row">
-                    <div class="col-md-4 col-sm-5">
-                      <div class="product-top">
-                        <figure>
-                          <router-link
-                            v-bind:to="`/ads/${ad.id}`"
-                            title="ad.title"
-                          >
-                            <img
-                              v-bind:src="ad.image_url"
-                              alt="Ad image"
-                              class="product-image"
-                            />
-                          </router-link>
-                        </figure>
-                      </div>
-                      <!-- End .product -->
-                    </div>
-                    <!-- End .col-md-4 -->
-                    <div class="col-md-8 col-sm-7">
-                      <div class="product-content">
-                        <h3 class="product-title">
-                          <router-link v-bind:to="`/ads/${ad.id}`">{{
-                            ad.title
-                          }}</router-link>
-                        </h3>
-                        <!-- End .product-meta-container -->
-                        <p>{{ ad.description }}</p>
-                        <p>{{ ad.username }}</p>
-                      </div>
-                      <!-- End .product-content -->
-                    </div>
-                    <!-- End .col-md-8 -->
-                  </div>
-                  <!-- end .Row -->
-                </div>
-              </ul>
-
-              <!-- End .product -->
-
-              <div class="mb20 mb15-sm"></div>
-              <!-- End margin -->
-            </div>
-            <!-- End .col-md-9 -->
-            <aside class="col-md-3 col-md-pull-9 sidebar shop-sidebar">
-              <div class="widget">
-                <div class="filter-group-widget">
-                  <div
-                    class="panel-group"
-                    role="tablist"
-                    aria-multiselectable="true"
-                  >
-                    <div class="panel">
-                      <div
-                        class="panel-heading"
-                        role="tab"
-                        id="categoryFilter-header"
-                      >
-                        <h4 class="panel-title">
-                          <a
-                            data-toggle="collapse"
-                            href="#categoryFilter"
-                            aria-expanded="true"
-                            aria-controls="categoryFilter"
-                          >
-                            Categories Filter
-                            <span class="panel-icon"></span>
-                          </a>
-                        </h4>
-                      </div>
-                      <!-- End .panel-heading -->
-                      <div
-                        id="categoryFilter"
-                        class="panel-collapse collapse in"
-                        role="tabpanel"
-                        aria-labelledby="categoryFilter-header"
-                      >
-                        <!-- <div class="row">
-                              
-                              </div> -->
-                        <div class="panel-body">
-                          <div v-for="category in categories">
-                            <input
-                              type="checkbox"
-                              id="toggle"
-                              :value="category"
-                              v-model="selectedCategories"
-                            />
-                            <label for="category">{{ category.name }}</label>
-                          </div>
-                        </div>
-                        <!-- End .panel-body -->
-                      </div>
-                      <!-- End .panel-collapse -->
-                    </div>
-                    <!-- End .panel -->
-                  </div>
-                  <!-- End .panel-group -->
-                </div>
-                <!-- End .filter-widget -->
-              </div>
-              <!-- End .widget -->
-            </aside>
-          </div>
-          <!-- End .row -->
+          <h1>Ads</h1>
+          <!-- <ol class="breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Pages</a></li>
+            <li class="active">Category</li>
+          </ol> -->
         </div>
         <!-- End .container-fluid -->
       </div>
+      <!-- End .page-header -->
+
+      <div class="container-fluid">
+        <div class="row flex-shop">
+          <div class="col-md-9 col-md-push-3">
+            <div class="category-filter-row">
+              <div class="right">
+                <a href="/ads/new" class="btn btn-custom">Create Ad</a>
+              </div>
+              <!-- end .right -->
+              <div class="left">
+                <div class="filter-container filter-sort">
+                  <label>Sort by:</label>
+                  <select class="form-control input-sm">
+                    <option sortAttribute="`ad.created_at`">Date Posted</option>
+                    <option sortAttribute="`ad.title`"> Title</option>
+                    <option sortAttribute="`ad.username`">Plant Parent</option>
+                  </select>
+                </div>
+                <!-- End .filter-sort -->
+              </div>
+              <!-- End .left -->
+            </div>
+            <!-- End .category-filter-row -->
+
+            <div class="product product-list" v-for="ad in ads">
+              <div class="row">
+                <div class="col-md-4 col-sm-5">
+                  <div class="product-top">
+                    <figure>
+                      <img
+                        v-bind:src="ad.image_url"
+                        alt="Product image"
+                        class="product-image"
+                      />
+                      <!-- </a> -->
+                    </figure>
+                  </div>
+                  <!-- End .product -->
+                </div>
+                <!-- End .col-md-4 -->
+                <div class="col-md-8 col-sm-7">
+                  <div class="product-content">
+                    <h3 class="product-title">
+                      <router-link v-bind:to="`/ads/${ad.id}`">{{
+                        ad.title
+                      }}</router-link>
+                    </h3>
+                    <p>Plant Parent: {{ ad.username }}</p>
+                    <p>Date Posted: {{ ad.created_at }}</p>
+                    <p>
+                      {{ ad.description }}
+                    </p>
+                  </div>
+                  <!-- End .product-content -->
+                </div>
+                <!-- End .col-md-8 -->
+              </div>
+              <!-- end .Row -->
+            </div>
+            <!-- End .product -->
+
+            <div class="mb20 mb15-sm"></div>
+            <!-- End margin -->
+          </div>
+          <!-- End .col-md-9 -->
+
+          <aside class="col-md-3 col-md-pull-9 sidebar shop-sidebar">
+            <div class="widget">
+              <div class="filter-group-widget">
+                <div
+                  class="panel-group"
+                  role="tablist"
+                  aria-multiselectable="true"
+                >
+                  <div class="panel">
+                    <div
+                      class="panel-heading"
+                      role="tab"
+                      id="brandFilter-header"
+                    >
+                      <h4 class="panel-title">
+                        <a aria-expanded="true" aria-controls="brandFilter">
+                          Categories
+                        </a>
+                      </h4>
+                    </div>
+                    <!-- End .panel-heading -->
+                    <div
+                      id="brandFilter"
+                      class="panel-collapse collapse in"
+                      role="tabpanel"
+                      aria-labelledby="brandFilter-header"
+                    >
+                      <div class="panel-body">
+                        <ul class="filter-brand-list">
+                          <div class="checkbox" v-for="category in categories">
+                            <label class="custom-checkbox-wrapper">
+                              <span class="custom-checkbox-container">
+                                <input
+                                  type="checkbox"
+                                  name="category"
+                                  id="toggle"
+                                  :value="category"
+                                  v-model="selectedCategories"
+                                />
+                              </span>
+                              <span for="category">{{ category.name }}</span>
+                            </label>
+                          </div>
+                        </ul>
+                      </div>
+                      <!-- End .panel-body -->
+                    </div>
+                    <!-- End .panel-collapse -->
+                  </div>
+                  <!-- End .panel -->
+                </div>
+                <!-- End .panel-group -->
+              </div>
+              <!-- End .filter-widget -->
+            </div>
+            <!-- End .widget -->
+          </aside>
+        </div>
+        <!-- End .row -->
+      </div>
+      <!-- End .container-fluid -->
     </div>
   </div>
 </template>

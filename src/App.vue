@@ -11,94 +11,196 @@
     </div>
     <!-- End #page-loader -->
 
+    <!-- old code  -->
     <div id="wrapper">
-      <header class="header header3 sticky-header">
+      <header class="header sticky-header animated-dropdown ttb-dropdown">
         <div class="header-top">
           <div class="container-fluid">
             <div class="dropdown header-dropdown pull-right"></div>
             <!-- End .header-dropdown -->
 
-            <div class="dropdown header-dropdown pull-right"></div>
+            <div
+              v-if="isLoggedIn()"
+              class="dropdown header-dropdown pull-right"
+            >
+              <a
+                href="/users"
+                role="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+                >Profile</a
+              >
+            </div>
+
+            <div
+              v-if="isLoggedIn()"
+              class="dropdown header-dropdown pull-right"
+            >
+              <a
+                href="/conversations"
+                role="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+                >Messages</a
+              >
+            </div>
+            <div
+              v-if="isLoggedIn()"
+              class="dropdown header-dropdown pull-right"
+            >
+              <a
+                href="/logout"
+                role="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+                >Logout</a
+              >
+            </div>
+            <div
+              v-if="!isLoggedIn()"
+              class="dropdown header-dropdown pull-right"
+            >
+              <!-- Register form trigger -->
+              <!-- <button
+                class="btn btn-custom"
+                data-toggle="modal"
+                data-target="#modal-login-form"
+                href="/signup"
+              >
+                Signup
+              </button> -->
+            </div>
+            <div
+              v-if="!isLoggedIn()"
+              class="dropdown header-dropdown pull-right"
+            >
+              <button
+                class="btn btn-custom"
+                data-toggle="modal"
+                data-target="#modal-login-form"
+              >
+                Login
+              </button>
+              <!-- Modal Login Form-->
+              <div
+                class="modal fade"
+                id="modal-login-form"
+                tabindex="-1"
+                role="dialog"
+                aria-labelledby="myModalLabel1"
+                aria-hidden="true"
+              >
+                <form id="login-form" v-on:submit.prevent="submit()">
+                  <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button
+                          type="button"
+                          class="close"
+                          data-dismiss="modal"
+                        >
+                          <span aria-hidden="true">&times;</span
+                          ><span class="sr-only">Close</span>
+                        </button>
+                        <h3 class="modal-title" id="myModalLabel1">
+                          Login
+                        </h3>
+                      </div>
+                      <!-- End .modal-header -->
+                      <div class="modal-body">
+                        <div class="form-group">
+                          <label for="email2" class="form-label"
+                            >Email<span class="required">*</span></label
+                          >
+                          <input
+                            type="email"
+                            name="email"
+                            id="email2"
+                            class="form-control"
+                            placeholder="Email"
+                            required
+                            v-model="email"
+                          />
+                        </div>
+                        <!-- End .form-group -->
+                        <div class="form-group">
+                          <label for="password2" class="form-label"
+                            >Passowrd:<span class="required">*</span></label
+                          >
+                          <input
+                            type="password"
+                            name="password2"
+                            id="password2"
+                            class="form-control"
+                            placeholder="Password"
+                            v-model="password"
+                          />
+                        </div>
+                        <!-- End .form-group -->
+                      </div>
+                      <!-- End .modal-body -->
+                      <div class="modal-footer">
+                        <button
+                          type="button"
+                          class="btn btn-black"
+                          data-dismiss="modal"
+                        >
+                          Close
+                        </button>
+                        <button class="btn btn-custom">Login</button>
+                      </div>
+                      <!-- End .modal-footer -->
+                    </div>
+                    <!-- End .modal-content -->
+                  </div>
+                  <!-- End .modal-dialog -->
+                </form>
+              </div>
+              <!-- End .modal -->
+              <a
+                href="/signup"
+                class="btn btn-custom"
+                aria-haspopup="true"
+                aria-expanded="false"
+                >Register</a
+              >
+            </div>
             <!-- End .header-dropdown -->
 
-            <ul class="top-menu visible-lg pull-left"></ul>
+            <ul class="top-menu visible-lg pull-right"></ul>
 
-            <div class="top-links pull-right">
-              <a v-if="!isLoggedIn()" href="/login">Login</a>
-              <a v-if="!isLoggedIn()" href="/signup">Signup</a>
-              <a v-if="isLoggedIn()" href="/logout">Logout</a>
-            </div>
+            <div class="top-links pull-left"></div>
             <!-- End .top-links -->
           </div>
           <!-- End .container-fluid -->
         </div>
         <!-- End .header-top -->
-
         <div class="header-inner">
           <div class="container-fluid">
-            <div class="header-left"></div>
-            <!-- End .header-left -->
-
-            <div class="header-center">
-              <a
-                href="index.html"
-                class="site-logo"
-                title="Bold - Multipurpose Template"
-              >
-                <img
-                  src="/assets/images/plant-logo.png"
-                  data-rjs="3"
-                  alt="Logo"
-                  width="200px"
-                />
-              </a>
-            </div>
-            <!-- End .header-center -->
-
-            <div class="header-right"></div>
-            <!-- End .header-right -->
+            <img
+              src="/assets/images/kayla-logo.png"
+              data-rjs="3"
+              alt="Bold Logo"
+              height="200px"
+            />
+            <span class="sr-only"></span>
           </div>
           <!-- End .container-fluid -->
         </div>
         <!-- End .header-inner -->
 
-        <div class="header-bottom dark">
+        <div class="header-bottom">
           <div class="container-fluid">
-            <button
-              type="button"
-              class="navbar-toggle collapsed"
-              data-toggle="collapse"
-              data-target="#main-nav-container"
-              aria-expanded="false"
-            >
-              <span class="toggle-text">Menu</span>
-              <span class="toggle-wrapper">
-                <span class="sr-only">Toggle Menu</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </span>
-            </button>
             <div id="main-nav-container">
-              <ul class="nav navbar-nav navbar-nav-table">
+              <ul class="nav navbar-nav">
                 <li>
-                  <a href="/" class="btn btn-black">Home</a>
+                  <a href="/" role="button" aria-expanded="false">Home</a>
                 </li>
                 <li>
-                  <a href="/ads" class="btn btn-black">Ads</a>
+                  <a href="/ads" role="button" aria-expanded="false">Ads</a>
                 </li>
                 <li>
-                  <a
-                    v-if="isLoggedIn()"
-                    href="/conversations"
-                    class="btn btn-black"
-                    >Messages</a
-                  >
-                </li>
-                <li>
-                  <a v-if="isLoggedIn()" href="/users" class="btn btn-black"
-                    >Profile</a
-                  >
+                  <a href="/about" role="button" aria-expanded="false">About</a>
                 </li>
               </ul>
             </div>
@@ -108,39 +210,54 @@
         </div>
         <!-- End .header-bottom -->
       </header>
+
       <!-- End .header -->
-
-      <!-- <div class="header-search-form">
-        <a href="#" class="header-search-toggle" title="Close"
-          ><i class="fa fa-times"></i
-        ></a>
-        <form action="#">
-          <input
-            type="search"
-            class="form-control"
-            placeholder="Type in here"
-            required
-          />
-        </form>
-      </div> -->
       <!-- End .header-search-form -->
-      
-
-      <a id="scroll-top" href="#top" title="Scroll top"
-        ><i class="fa fa-angle-up"></i
-      ></a>
-
-      <router-view />
     </div>
+    <a id="scroll-top" href="#top" title="Scroll top"
+      ><i class="fa fa-angle-up"></i
+    ></a>
+
+    <router-view />
   </div>
 </template>
 
 <script>
+import axios from "axios";
 export default {
   data: function() {
-    return {};
+    return {
+      firstName: "",
+      lastName: "",
+      username: "",
+      email: "",
+      password: "",
+      passwordConfirmation: "",
+      errors: [],
+      status: "",
+    };
   },
   methods: {
+    submit: function() {
+      var params = {
+        email: this.email,
+        password: this.password,
+      };
+      axios
+        .post("/api/sessions", params)
+        .then((response) => {
+          axios.defaults.headers.common["Authorization"] =
+            "Bearer " + response.data.jwt;
+          localStorage.setItem("jwt", response.data.jwt);
+          localStorage.setItem("current_user", response.data.user_id);
+          this.$router.push("/");
+        })
+        .catch((error) => {
+          this.errors = ["Invalid email or password."];
+          this.email = "";
+          this.password = "";
+        });
+    },
     isLoggedIn: function() {
       return localStorage.getItem("jwt");
     },

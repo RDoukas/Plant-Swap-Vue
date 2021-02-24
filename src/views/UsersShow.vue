@@ -1,78 +1,82 @@
 <template>
   <div class="users-show">
-    <div class="mb50 hidden-s"></div>
-    <!-- margin -->
-    <div class="container-fluid">
+    <div class="main">
+      <div
+        class="page-header largest parallax custom text-center"
+        style="background-image:url(assets/images/monstera.jpeg)"
+        data-0="background-position:50% 50%;"
+        data-top-bottom="background-position:50% 100%"
+      >
+        <div class="container-fluid">
+          <h1>Profile</h1>
+          <!-- <ol class="breadcrumb">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Pages</a></li>
+            <li class="active">Category</li>
+          </ol> -->
+        </div>
+        <!-- End .container-fluid -->
+      </div>
+      <!-- End .page-header -->
+      <div>
+        <ul>
+          <li>First Name: {{ user.first_name }}</li>
+          <li>Last Name: {{ user.last_name }}</li>
+          <li>Username: {{ user.username }}</li>
+          <li>Email: {{ user.email }}</li>
+        </ul>
+      </div>
+      <div class="mb60 mb45-sm"></div>
+      <div
+        class="panel-heading my-account-title"
+        v-on:submit.prevent="editUser()"
+      >
+        <h3 class="panel-title">
+          <a data-toggle="collapse" data-parent="#faq" href="#my-account-1"
+            >Edit your account information
+          </a>
+        </h3>
+      </div>
+
       <form v-on:submit.prevent="editUser()">
         <ul>
-          <li class="text-danger" v-for="error in errors">{{ error }}</li>
+          <li class="text-danger" v-for="error in errors">
+            {{ error }}
+          </li>
         </ul>
-
-        <div class="row">
-          <h2 class="title custom mb30">Profile Information</h2>
-          <div class="col-md-6">
-            <div class="form-group">
-              <label>First Name:</label>
-              <input
-                type="text"
-                class="form-control"
-                v-model="user.first_name"
-              />
-            </div>
-            <div class="form-group">
-              <label>Last Name:</label>
-              <input
-                type="text"
-                class="form-control"
-                v-model="user.last_name"
-              />
-            </div>
-          </div>
-          <!-- End .col-md-6 -->
-
-          <div class="mb30 visible-sm visible-xs"></div>
-          <!-- margin -->
+        <div class="form-group">
+          <label>First Name:</label>
+          <input type="text" class="form-control" v-model="user.first_name" />
         </div>
-        <!-- end .row -->
-        <div class="row">
-          <div class="col-md-6">
-            <div class="form-group">
-              <label>Username:</label>
-              <input type="text" class="form-control" v-model="user.username" />
-            </div>
-            <div class="form-group">
-              <label>Email:</label>
-              <input type="text" class="form-control" v-model="user.email" />
-            </div>
-            <div class="form-group">
-              <label>Password:</label>
-              <input type="password" class="form-control" v-model="password" />
-            </div>
-            <div class="form-group">
-              <label>Password confirmation: </label>
-              <input
-                type="password"
-                class="form-control"
-                v-model="passwordConfirmation"
-              />
-              <small
-                class="text-danger"
-                v-if="passwordConfirmation !== password"
-                >Must match password</small
-              >
-            </div>
-          </div>
+        <div class="form-group">
+          <label>Last Name:</label>
+          <input type="text" class="form-control" v-model="user.last_name" />
         </div>
-        <input type="submit" class="btn btn-custom" value="Update Profile" />
+        <div class="form-group">
+          <label>Username:</label>
+          <input type="text" class="form-control" v-model="user.username" />
+        </div>
+        <div class="form-group">
+          <label>Email:</label>
+          <input type="text" class="form-control" v-model="user.email" />
+        </div>
+        <div class="form-group">
+          <label>Password:</label>
+          <input type="password" class="form-control" v-model="password" />
+        </div>
+        <div class="form-group">
+          <label>Password confirmation: </label>
+          <input
+            type="password"
+            class="form-control"
+            v-model="passwordConfirmation"
+          />
+          <small class="text-danger" v-if="passwordConfirmation !== password"
+            >Must match password</small
+          >
+        </div>
+        <input type="submit" class="btn-hover" value="Update" />
       </form>
-
-      <div class="mb25 mb15-sm"></div>
-      <div id="destroyUser">
-        <button type="submit" class="btn btn-custom" v-on:click="destroyUser()">
-          Delete Profile
-        </button>
-      </div>
-      <div class="mb25 mb15-sm"></div>
     </div>
   </div>
 </template>
@@ -98,11 +102,7 @@ export default {
       if (confirm("Are you sure you want to delete your profile?")) {
         axios.delete(`/api/users/${this.user.id}`).then((response) => {
           console.log("Your user has been successfully deleted", response.data);
-          localStorage.removeItem(`${this.user.ads}`);
-          localStorage.removeItem("jwt");
-          localStorage.removeItem("jwt");
-          localStorage.removeItem("user_id");
-          this.$router.push("/");
+          this.$router.push("/logout");
         });
       }
     },
